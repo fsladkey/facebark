@@ -3,17 +3,17 @@
 ## New User
 ![landing-page]
 
-## New Session
-![new-session]
+## Feed
+![root]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Profile
+![profile]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## Profile-About
+![profile-about]
 
-## NoteBookForm
-![notebook-form]
+## Profile-Friends
+![profile-friends]
 
 ## Component Heirarchy
 ![component-heirarchy]
