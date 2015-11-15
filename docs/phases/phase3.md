@@ -1,39 +1,45 @@
-# Phase 3: Notebooks and Tags (2 days)
+# Phase 3: Profiles and search (2 days)
 
 ## Rails
 ### Models
-* Notebook
-* Tag
-* Tagging
+* Profile
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::ProfilesController (show, update)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
-* tags/show.json.jbuilder
+* profile.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
-* SearchIndex
+* App
+ - Main
+   - Header
+   - Profile
+     - ProfilePhoto (cover photo)
+     - UserPhoto (profile picture)
+     - Content
+       - Timeline
+         - TimeLineInfo (light weight "about")
+         - PostIndex (empty for now)
+       - About
+         - AboutInfo
+           - Overview
+           - Bio
 
 ### Stores
-* Notebook
+* Profile
 
 ### Actions
-* ApiActions.receiveAllNotebooks
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
+* ApiActions.receiveProfile
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchProfile
+* ApiUtil.editProfile
+* ApiUtil.fetchPhoto
+* ApiUtil.createPhoto
 
 ## Gems/Libraries
+* React Router
+* Paperclip
+* imagemagick

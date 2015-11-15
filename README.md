@@ -63,25 +63,25 @@ Users should be able to post to their own wall and the walls of their friends. T
 
 [Details][phase-five]
 
-### Phase 5: Comments and likes (1 day)
+### Phase 6: Comments and likes (1 day)
 
-Users should be able to leave comments any post visible to them, as well as like the post. Likeable should be extracted into a concern, and commentable as well if time permits in preparation for bonus features.
+Users should be able to leave comments any post visible to them, as well as like the post. If time permits likeable and commentable should be separated into a concern.
 
 [Details][phase-five]
 
-### Phase 6: Notifications (1 day)
+### Phase 7: Notifications (1 day)
 
 Users should be notified when certain actions are performed on their content. When anything is commented on liked etc, they notification should link to the appropriate post.
 
 [Details][phase-six]
 
-### Phase 7: Chat (1 day)
+### Phase 8: Chat (1 day)
 
 Users should be able to send messages to their friends. Users should be able to start conversations and send new messages, ideally messages will update in real time using Pusher or another tool.
 
 [Details][phase-seven]
 
-### Phase 8: Get fancy, seed database (1 day)
+### Phase 9: Get fancy, seed database (1 day)
 
 Add any additional eye candy that was put off from earlier, create a non trivial amount of interesting database seed data. Panic because there's so much more I wanted to do.
 
@@ -101,3 +101,6 @@ Add any additional eye candy that was put off from earlier, create a non trivial
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+[phase-six]: ./docs/phases/phase6.md
+[phase-seven]: ./docs/phases/phase7.md
+[phase-seven]: ./docs/phases/phase8.md

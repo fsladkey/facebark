@@ -1,7 +1,8 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Flux Architecture and User Sign up and Sign in (2 days)
 
 ## Rails
 ### Models
+
 
 ### Controllers
 
@@ -9,25 +10,22 @@
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* App
+ - LandingPage
+   - Header
+     - Logo
+     - NewSession
+   - NewUser
 
 ### Stores
-* Note
+* Users
 
 ### Actions
-* ApiActions.receiveAllNotes
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
+* ApiActions.receiveCurrentUser
+* ApiActions.receiveUsers
+
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
 
 ## Gems/Libraries
 * Flux Dispatcher
-* Twitter Bootstrap
