@@ -32,10 +32,10 @@ and React.js. Facebark allows users to:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, User/session JSON API (1 day)
+### Phase 1: User Authentication, User/session JSON API push to Heroku (1 day)
 
 In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). I will also construct a JSON API so that I can sign up, log in, and log out using an API utility.
+BCrypt). I will also construct a JSON API so that I can sign up, log in, and log out using an API utility. Also push to Heroku.
 
 [Details][phase-one]
 
