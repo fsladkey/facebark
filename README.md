@@ -1,6 +1,6 @@
 # Facebark
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku] **NB:** This will be a link to the site....
 
 [heroku]: http://www.herokuapp.com
 
