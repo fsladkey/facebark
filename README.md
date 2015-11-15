@@ -21,7 +21,7 @@ and React.js. Facebark allows users to:
 - [ ] Comment on any visible post
 - [ ] "Like" (or lick) a post or comment.
 - [ ] Be notified when someone posts on, comments on, or likes their content.
-- [ ] Send messages to friends. Sending a message starts a conversation.
+- [ ] Send messages to friends. Sending a message starts a conversation. Users should be notified when they are messaged.
 
 ## Design Docs
 * [View Wireframes][view]
@@ -39,13 +39,13 @@ BCrypt). I will also construct a JSON API so that I can sign up, log in, and log
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture (1 day)
+### Phase 2: Flux Architecture (.5 day)
 
 Create flux architecture. Create containing react components and necessary forms Users should be able to sign up, sign in, log out etc.
 
 [Details][phase-two]
 
-### Phase 3: Profiles and search (2 day)
+### Phase 3: Profiles and search (1.5 day)
 
 Phase 3 adds a users profile page. On sign in users should be redirected to their profile (until feed is implemented) and be able to edit their information from the profile. Profiles should include an about page and profile picture. Users should be able to search for other users.
 
