@@ -20,7 +20,7 @@ and React.js. Facebark allows users to:
 - [ ] View all friends recent posts in a "feed"
 - [ ] Comment on any visible post
 - [ ] "Like" (or lick) a post or comment.
-- [ ] Get notified when someone posts on, comments on, or likes their content.
+- [ ] Be notified when someone posts on, comments on, or likes their content.
 - [ ] Send messages to friends. Sending a message starts a conversation.
 
 ## Design Docs
