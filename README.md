@@ -1,8 +1,8 @@
 # Facebark
 
-[Heroku link][heroku] **NB:** This will be a link to the site....
+[Heroku link][heroku] https://facebark.herokuapp.com/
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://facebark.herokuapp.com/
 
 ## Minimum Viable Product
 
