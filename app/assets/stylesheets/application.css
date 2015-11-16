@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+
+
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+body {
+   font: 'lucida grande' tahoma verdana arial sans-serif;
+   font-size: 11px;
+ }
