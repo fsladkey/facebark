@@ -14,7 +14,8 @@
 }
 
 .header-logo {
-  padding: 20px 140px;
+  margin: 20px 140px;
+  cursor: pointer;
   float: left;
 }
 
@@ -61,8 +62,8 @@
   text-align: center;
   padding: 3px 6px;
   color: white;
-  background-color: #5A74A8;
-  border: 1px outset;
+  background-color: #627AAC;
+  border: 1px solid;
   border-color: #2f477a #29447e #1a356e;
   box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
 }
