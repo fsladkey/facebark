@@ -8,28 +8,7 @@
         type: 'POST',
         data: {user: user},
         success: function(currentUser) {
-          console.log(currentUser);
-        }
-      });
-    },
-
-    logInUser: function(user) {
-      $.ajax({
-        url: "/session/",
-        type: 'POST',
-        data: {user: user},
-        success: function(currentUser) {
-          console.log(currentUser);
-        }
-      });
-    },
-
-    logOut: function() {
-      $.ajax({
-        url: "/session/",
-        type: 'DELETE',
-        success: function(user) {
-          console.log(user);
+          SessionActions.receiveCurrentUser(user);
         }
       });
     },
@@ -39,7 +18,7 @@
         url: "/users/",
         type: 'GET',
         success: function(users) {
-          console.log(users);
+          UserActions.receiveUsers(users);
         }
       });
     },
@@ -52,20 +31,8 @@
           console.log(user);
         }
       });
-    },
-
-    fetchCurrentUser: function(user_id) {
-      $.ajax({
-        url: "/users/" + user_id,
-        type: 'GET',
-        success: function(user) {
-          console.log(user);
-        }
-      });
     }
 
   };
-
-
 
 })(this);

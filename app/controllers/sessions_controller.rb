@@ -13,9 +13,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def show
+    render json: current_user
+  end
+
   def destroy
-    log_out!
-    render json: {msg: "Successfully logged out"}
+    log_out! if current_user
+    render json: {msg: "Logged out"}
   end
 
 end

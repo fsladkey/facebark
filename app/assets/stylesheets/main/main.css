@@ -1,0 +1,42 @@
+.nav-bar {
+  position: fixed;
+  height: 42px;
+  width: 100%;
+  background: linear-gradient(#4C67A1, #3C5A99);
+  box-shadow: 0px 1.5px 2px black;
+}
+
+.small-logo {
+  margin: 10px 8px 0 57px;
+  float:left;
+}
+
+.search-bar {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  float: left;
+}
+
+.search-bar input {
+  padding-left: 8px;
+  background: white;
+  width: 400px;
+  height: 24px;
+  margin-top: 9px;
+  border-radius: 2px 0 0 2px;
+  float: left;
+}
+
+
+.search-button {
+  display: block;
+  float: left;
+  background: #F6F7F8;
+  height: 24px;
+  width: 40px;
+  padding: 0 10px;
+  margin-top: 9px;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+}
