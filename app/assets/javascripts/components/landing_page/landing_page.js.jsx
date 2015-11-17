@@ -14,9 +14,7 @@ var LandingPage = React.createClass({
   },
 
   _change: function() {
-    if (SessionStore.currentUser()) {
-      this.props.history.pushState(null, "/");
-    }
+    var currentUser = SessionStore.currentUser();
   }
 
 });

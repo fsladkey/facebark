@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       log_in!(user)
+      Profile.create!(user_id: user.id)
       render json: user
     else
       render json: user.errors.full_messages

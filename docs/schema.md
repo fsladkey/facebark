@@ -11,6 +11,8 @@ lastname        | string    | not null
 password_digest | string    | not null
 birthday        | date      | not null
 session_token   | string    | not null, indexed, unique
+gender          | string    | not null
+
 
 
 ## profiles
@@ -21,6 +23,7 @@ user_id      | integer   | not null, foreign key (references users), indexed
 breed        | string    |
 hometown     | string    |
 gender       | string    |
+bio          | text      |
 
 
 ## friendship

@@ -1,0 +1,21 @@
+.profile-left {
+  float: left;
+  width: 322px;
+}
+
+.profile-info {
+  margin-top: 20px;
+  font-size: 12px;
+  border: 1px solid lightgrey;
+}
+
+.profile-info-field {
+  padding: 10px;
+}
+
+.profile-header-name {
+  font-size: 36px;
+  position: absolute;
+  top: 150px;
+  left: 150px;
+}

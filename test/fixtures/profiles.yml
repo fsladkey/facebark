@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  breed: MyString
+  hometown: MyString
+  gender: MyString
+  bio: MyText
+
+two:
+  breed: MyString
+  hometown: MyString
+  gender: MyString
+  bio: MyText

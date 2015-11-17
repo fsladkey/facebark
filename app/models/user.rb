@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
       length: { minimum: 6, allow_nil: true}
     )
 
+    has_one :profile
+
     def self.find_by_credentials(username, password)
       user = User.find_by(username: username)
       user ||= User.find_by(email: username)

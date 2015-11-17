@@ -14,7 +14,8 @@
 }
 
 .header-logo {
-  margin: 20px 140px;
+  margin-left: 400px;
+  margin-top: 20px;
   cursor: pointer;
   float: left;
 }
@@ -30,6 +31,7 @@
   display: block;
   float: right;
   margin-top: 15px;
+  margin-right: 320px;
   width: 526px;
 }
 
@@ -50,7 +52,7 @@
   border: 1px solid;
   width: 142px;
   border-color: #1d2a5b;
-  background: #FAFFBD;
+  background: white;
   padding: 3px;
 }
 
@@ -72,7 +74,7 @@
   margin-top: 25px;
   float: right;
   width: 520px;
-  margin-right: 28px;
+  margin-right: 320px;
 }
 
 .sign-up-form-header {

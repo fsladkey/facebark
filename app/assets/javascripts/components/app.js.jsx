@@ -1,4 +1,5 @@
-var Main = React.createClass({
+var App = React.createClass({
+
   getInitialState: function() {
     return {currentUser: SessionStore.currentUser()};
   },
@@ -10,20 +11,23 @@ var Main = React.createClass({
     }
   },
 
-  render: function() {
-    return (
-      <div>
-        <NavBar
-          currentUser={this.state.currentUser}
-          />
-          <Profile username={this.props.path.slice(1)}
-            />
-      </div>
-    );
+  render: function(){
+    if (this.state.currentUser) {
+      return (
+          <div>
+            <Main path={this.props.location.pathname}/>
+          </div>
+      );
+    } else {
+      return (
+          <div>
+            <LandingPage/>
+          </div>
+      );
+    }
   },
 
   _change: function() {
     this.setState({currentUser: SessionStore.currentUser()});
   }
-
 });

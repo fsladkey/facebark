@@ -7,12 +7,11 @@
 }
 
 .small-logo {
-  margin: 10px 8px 0 57px;
+  margin: 10px 8px 0 362px;
   float:left;
 }
 
 .search-bar {
-  font-family: helvetica, arial, sans-serif;
   font-size: 14px;
   font-weight: lighter;
   float: left;
@@ -39,4 +38,80 @@
   margin-top: 9px;
   border-radius: 0 2px 2px 0;
   cursor: pointer;
+}
+
+.nav-user-profile-link button {
+  cursor: pointer;
+  margin-left: 177px;
+  margin-top: 10px;
+  float: left;
+}
+
+.nav-user-profile-link span {
+  font-size: 13px;
+  color: white;
+  margin-left: 7px;
+  margin-top: 4px;
+  display: block;
+  float: left;
+  text-shadow: 0px 0px 5px black;
+}
+
+
+.nav-user-profile-link img {
+  display: block;
+  float: left;
+}
+
+.nav-log-out-button {
+  display: block;
+  font-size: 13px;
+  color: white;
+  padding: 5px 7px;
+  text-shadow: 0px 0px 5px black;
+}
+
+.profile-header {
+  position: relative;
+  margin-left: 362px;
+  top: 42px;
+  width: 850px;
+  height: 300px;
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+  border-radius: 0 0 5px 5px;
+}
+
+.profile-cover-photo {
+  width: 850px;
+  height: 252px;
+  background: darkblue;
+}
+
+.profile-header-links {
+
+}
+
+.profile-header-link-list {
+  display: block;
+  margin: auto;
+  width: 450px;
+  height: 48px;
+  border-left: 1px solid lightgrey;
+}
+
+.profile-header-link-list li {
+  font-size: 14px;
+  float: left;
+  padding: 14px;
+  height: 20px;
+  border-right: 1px solid lightgrey;
+}
+
+.page-content {
+  position: relative;
+  width: 850px;
+  top: 40px;
+  left: 362px;
 }

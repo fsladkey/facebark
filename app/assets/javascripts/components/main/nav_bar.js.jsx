@@ -1,9 +1,5 @@
 var NavBar = React.createClass({
 
-  handleLogOut: function () {
-    SessionApiUtil.logOut();
-  },
-
   render: function() {
     return (
       <div className="nav-bar group">
@@ -14,7 +10,6 @@ var NavBar = React.createClass({
         <NavBarLinks
           currentUser={this.props.currentUser}
           />
-          <button onClick={this.handleLogOut}>Log Out</button>
       </div>
     );
   }

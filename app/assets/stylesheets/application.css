@@ -39,6 +39,6 @@ ul {
 }
 
 body {
-   font: 'lucida grande' tahoma verdana arial sans-serif;
+   font-family: helvetica, arial, sans-serif;
    font-size: 11px;
  }

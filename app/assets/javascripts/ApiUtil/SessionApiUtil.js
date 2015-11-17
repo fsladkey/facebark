@@ -3,13 +3,11 @@
   var SessionApiUtil = root.SessionApiUtil = {
 
     logInUser: function(user) {
-      debugger
       $.ajax({
         url: "/session/",
         type: 'POST',
         data: {user: user},
         success: function(currentUser) {
-          debugger
           SessionActions.receiveCurrentUser(currentUser);
         }
       });
