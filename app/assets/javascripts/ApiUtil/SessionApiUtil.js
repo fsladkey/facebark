@@ -9,6 +9,7 @@
         type: 'POST',
         data: {user: user},
         success: function(currentUser) {
+          debugger
           SessionActions.receiveCurrentUser(currentUser);
         }
       });

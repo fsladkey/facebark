@@ -5,7 +5,6 @@ var Main = React.createClass({
 
   componentDidMount: function() {
     SessionStore.on("change", this._change);
-    // SessionApiUtil.fetchCurrentUser();
   },
 
   render: function() {
@@ -20,6 +19,9 @@ var Main = React.createClass({
 
   _change: function() {
     this.setState({currentUser: SessionStore.currentUser()});
+    if (!SessionStore.currentUser()) {
+      this.props.history.pushState(null, "/index");
+    }
   }
 
 });

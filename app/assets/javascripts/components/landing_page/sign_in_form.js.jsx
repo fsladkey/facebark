@@ -22,10 +22,7 @@ var LogInForm = React.createClass({
             <label>Password</label>
             <input type="password" valueLink={this.linkState("password")}/>
           </div>
-
-          <ReactRouter.IndexLink to="/">
             <button onClick={this.handleSubmit} className="log-in-button" type="submit">Log In</button>
-          </ReactRouter.IndexLink>
         </form>
       </div>
     );

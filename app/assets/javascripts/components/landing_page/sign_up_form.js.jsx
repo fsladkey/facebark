@@ -117,11 +117,12 @@ var SignUpForm = React.createClass({
               Male
             </label>
           </div>
-          <button
-            className="sign-up-button"
-            type="submit">
-              Sign Up
-          </button>
+            <button
+              onClick={this.handleSubmit}
+              className="sign-up-button"
+              type="submit">
+                Sign Up
+            </button>
         </form>
       </div>
     );

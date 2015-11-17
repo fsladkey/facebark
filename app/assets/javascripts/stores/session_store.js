@@ -11,6 +11,7 @@
     dispatcherId: AppDispatcher.register(function(payload) {
       switch (payload.actionType) {
         case SessionConstants.RECIEVE_CURRENT_USER:
+        debugger
           setCurrentUser(payload.currentUser);
           SessionStore.emit("change");
           console.log(SessionStore.currentUser());
