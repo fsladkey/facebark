@@ -7,7 +7,6 @@ var LogInForm = React.createClass({
   },
 
   handleSubmit: function(e) {
-    debugger
     SessionApiUtil.logInUser(this.state);
   },
 

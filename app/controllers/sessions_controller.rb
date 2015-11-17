@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
       )
     if user
       log_in!(user)
+      puts "logged in #{user.username}!"
       render json: user
     else
       render json: "Invalid username/email password combination"
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def show
+    puts "current user is: #{current_user.username}!"
     render json: current_user
   end
 

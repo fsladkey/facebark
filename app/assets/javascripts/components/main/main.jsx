@@ -5,7 +5,7 @@ var Main = React.createClass({
 
   componentDidMount: function() {
     SessionStore.on("change", this._change);
-    SessionApiUtil.fetchCurrentUser();
+    // SessionApiUtil.fetchCurrentUser();
   },
 
   render: function() {

@@ -3,6 +3,7 @@
   var SessionApiUtil = root.SessionApiUtil = {
 
     logInUser: function(user) {
+      debugger
       $.ajax({
         url: "/session/",
         type: 'POST',

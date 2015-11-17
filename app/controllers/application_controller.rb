@@ -13,10 +13,12 @@ class ApplicationController < ActionController::Base
   end
 
   def log_in!(user)
+    puts "LOGGED IN"
     session[:session_token] = user.reset_session_token!
   end
 
   def log_out!
+    puts "LOGGED OUT"
     current_user.reset_session_token!
     session[:session_token] = nil
   end
