@@ -1,6 +1,6 @@
 var SearchBar = React.createClass({
   getInitialState: function () {
-    
+    return {focused: false};
   },
 
   render: function() {
