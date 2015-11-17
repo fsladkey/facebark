@@ -4,7 +4,7 @@
 
     logInUser: function(user) {
       $.ajax({
-        url: "/session/",
+        url: "api/session/",
         type: 'POST',
         data: {user: user},
         success: function(currentUser) {
@@ -15,7 +15,7 @@
 
     logOut: function() {
       $.ajax({
-        url: "/session/",
+        url: "api/session/",
         type: 'DELETE',
         success: function(user) {
           SessionActions.logOutCurrentUser(user);
@@ -25,7 +25,7 @@
 
     fetchCurrentUser: function() {
       $.ajax({
-        url: "/session/",
+        url: "api/session/",
         type: 'GET',
         success: function(user) {
           SessionActions.receiveCurrentUser(user);

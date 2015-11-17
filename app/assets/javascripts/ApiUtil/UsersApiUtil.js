@@ -4,7 +4,7 @@
 
     createUser: function(user) {
       $.ajax({
-        url: "/users/",
+        url: "api/users/",
         type: 'POST',
         data: {user: user},
         success: function(currentUser) {
@@ -15,7 +15,7 @@
 
     fetchUsers: function() {
       $.ajax({
-        url: "/users/",
+        url: "api/users/",
         type: 'GET',
         success: function(users) {
           UserActions.receiveUsers(users);
@@ -23,12 +23,36 @@
       });
     },
 
-    fetchUser: function(user_id) {
+    fetchUser: function(username) {
       $.ajax({
-        url: "/users/" + user_id,
+        url: "api/users/" + username,
         type: 'GET',
         success: function(user) {
-          console.log(user);
+          UserActions.receiveUser(user);
+        }
+      });
+    },
+
+    updateProfile: function(profile_id, params) {
+      var data = {profile: params};
+      $.ajax({
+        url: "api/profiles/" + profile_id,
+        type: 'PATCH',
+        data: data,
+        success: function(user) {
+          UserApiUtil.fetchUser(user.username);
+        }
+      });
+    },
+
+    updateUser: function(user_id, params) {
+      var data = {user: params};
+      $.ajax({
+        url: "api/users/" + user_id,
+        type: 'PATCH',
+        data: data,
+        success: function(user) {
+          UserApiUtil.fetchUser(user.username);
         }
       });
     }

@@ -1,16 +1,12 @@
 var ProfileHeader = React.createClass({
 
-  componentWillReceiveProps: function() {
-    this.forceUpdate();
-  },
-
   render: function() {
-    if (this.props.username) {
+    if (this.props.user) {
       return (
         <div className="profile-header">
           <h2
             className="profile-header-name"
-            >{this.props.username}
+            >{this.props.user.firstname + " " + this.props.user.lastname}
             </h2>
           <ProfileCoverPhoto/>
           <ProfileHeaderLinks/>

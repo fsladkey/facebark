@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
   def index
     users = User.all
@@ -18,22 +18,14 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    if user.update(user_params)
-      render json: user
-    else
-      render json: user.errors.full_messages
-    end
+    user.update!(user_params)
+    render json: user
   end
 
-  def destroy
-    user = User.find(params[:id])
-    if user.destroy
-      render json: user
-    else
-      render json: user.errors.full_messages
-    end
+  def show
+    @user = User.find_by(username: params[:id])
+    render :show
   end
-
 
   private
 
