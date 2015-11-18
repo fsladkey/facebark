@@ -13,10 +13,12 @@
       });
     },
 
-    fetchUsers: function() {
+    fetchUsers: function(searchString) {
+      var data = {search_string: searchString};
       $.ajax({
         url: "api/users/",
         type: 'GET',
+        data: data,
         success: function(users) {
           UserActions.receiveUsers(users);
         }

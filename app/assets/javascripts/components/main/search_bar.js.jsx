@@ -4,12 +4,13 @@ var SearchBar = React.createClass({
   },
 
   handleChange: function (e) {
+    var searchString = e.currentTarget.value;
     if (e.currentTarget.value) {
-      this.setState({focused: true, searchString: e.currentTarget.value});
+      this.setState({focused: true, searchString: searchString});
     } else {
-      this.setState({focused: false, searchString: e.currentTarget.value});
+      this.setState({focused: false, searchString: searchString});
     }
-    UserApiUtil.fetchUsers();
+    UserApiUtil.fetchUsers(searchString);
   },
 
   clearSearch: function () {

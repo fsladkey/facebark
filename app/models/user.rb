@@ -36,6 +36,16 @@ class User < ActiveRecord::Base
       user && user.valid_password?(password) ? user : nil
     end
 
+    def self.find_by_search_string(search_string)
+      search_string.downcase!
+      User.where(<<-SQL
+        LOWER( username ) LIKE '#{search_string}%' OR
+        LOWER( firstname ) LIKE '#{search_string}%' OR
+        LOWER( lastname ) LIKE '#{search_string}%'
+      SQL
+      )
+    end
+
     def password=(password)
       @password = password
       self.password_digest = BCrypt::Password.create(password)

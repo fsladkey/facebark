@@ -7,14 +7,14 @@ var SearchResult = React.createClass({
   render: function() {
     var user = this.props.user;
     return (
-        <li
-          className="search-result-item"
-          onClick={this.handleClick}
-          >
-          <ReactRouter.Link to={"/" + this.props.user.username}>
-          <button>{user.username}</button>
-          </ReactRouter.Link>
-        </li>
+        <ReactRouter.Link to={"/" + this.props.user.username}>
+          <li
+            className="search-result item"
+            onClick={this.handleClick}
+            >
+            <button>{user.firstname + " " + user.lastname}</button>
+          </li>
+        </ReactRouter.Link>
     );
   }
 

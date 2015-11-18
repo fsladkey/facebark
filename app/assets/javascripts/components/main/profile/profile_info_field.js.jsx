@@ -6,6 +6,7 @@ var ProfileInfoField = React.createClass({
 
   handleSubmit: function(e) {
     this.props.updateCallback(this.state.fieldvalue);
+    this.toggleEdit();
   },
 
   handleChange: function(e) {
@@ -35,12 +36,11 @@ var ProfileInfoField = React.createClass({
             value={this.state.fieldvalue}
             onChange={this.handleChange}
             />
-            <button onClick={this.handleSubmit}>Save</button>
-            <button onClick={this.toggleEdit}>Back</button>
+          <button className="shown-button" onClick={this.handleSubmit}>Save</button>
         </li>
       );
     } else {
-      formattedInfo = "⌂" +
+      formattedInfo = "⌂ " +
         this.props.fieldname +
         ": " +
         this.props.fieldvalue +

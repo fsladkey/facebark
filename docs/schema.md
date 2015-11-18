@@ -26,14 +26,20 @@ gender       | string    |
 bio          | text      |
 
 
+## friend_request
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+user_id        | integer   | not null, foreign key (references users), indexed
+friend_id      | integer   | not null, foreign key (references users), indexed
+accepted       | boolean   | not null, default: false
+
 ## friendship
 column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
-user1_id       | integer   | not null, foreign key (references users), indexed
-user2_id       | integer   | not null, foreign key (references users), indexed
-accepted       | boolean   | not null
-action_user_id | integer   | not null
+user_id        | integer   | not null, foreign key (references users), indexed
+friend_id      | integer   | not null, foreign key (references users), indexed
 
 
 ## posts

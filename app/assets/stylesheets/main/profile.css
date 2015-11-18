@@ -13,12 +13,49 @@
 
 .profile-info li {
   display: block;
-  padding: 10px;
+  padding: 10px 0px;
+  margin: 0px 10px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.profile-info li {
+  display: block;
+  padding: 10px 0px;
+  margin: 0px 10px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.profile-info li:last-child {
+  border: none;
 }
 
 .profile-info li > button {
-  display: block;
+  display: none;
   float: right;
+  margin-right: 20px;
+  border: 1px solid grey;
+  padding: 3px;
+  border-radius: 2px;
+}
+
+.profile-info li:hover button {
+  display: block;
+}
+
+.profile-info button:hover {
+  background: #4C67A1;
+}
+
+.profile-info input {
+  border: 1px solid lightgrey;
+}
+
+.profile-info p {
+  padding: 1px;
+}
+
+.shown-button {
+  display: block;
 }
 
 .profile-header-name {

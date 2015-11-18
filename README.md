@@ -36,18 +36,13 @@ and React.js. Facebark allows users to:
 
 In Phase 1, I will begin by implementing user signup and authentication (using
 BCrypt). I will also construct a JSON API so that I can sign up, log in, and log out using an API utility. Also push to Heroku.
+Create flux architecture. Create containing react components and necessary forms Users should be able to sign up, sign in, log out etc.
+Add a users profile page. On sign in users should be redirected to their profile (until feed is implemented) and be able to edit their information from the profile.
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture (.5 day)
-
-Create flux architecture. Create containing react components and necessary forms Users should be able to sign up, sign in, log out etc.
-
-[Details][phase-two]
-
-### Phase 3: Profiles and search (1.5 day)
-
-Phase 3 adds a users profile page. On sign in users should be redirected to their profile (until feed is implemented) and be able to edit their information from the profile. Profiles should include an about page and profile picture. Users should be able to search for other users.
+### Phase 2: Flux Architecture (1 day)
+Profiles should include an about page and profile picture. Users should be able to search for other users. Create photos model allow uploading of photos to an album.
 
 [Details][phase-three]
 

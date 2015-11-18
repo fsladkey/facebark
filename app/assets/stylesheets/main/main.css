@@ -107,10 +107,14 @@ div.search-results {
   border: 1px solid grey;
 }
 
-.search-result-item {
+.search-result {
   display: block;
   position: relative;
   background: white;
   padding: 5px;
   z-index: 1;
+}
+
+.search-result.item:hover {
+  background: #EBEEF4;
 }
