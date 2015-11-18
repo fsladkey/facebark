@@ -16,6 +16,10 @@ var ProfileInfoField = React.createClass({
     this.setState({editing: !this.state.editing});
   },
 
+  componentWillReceiveProps: function(newProps) {
+    this.setState({fieldvalue: newProps.fieldvalue});
+  },
+
   render: function() {
     var formattedInfo;
 

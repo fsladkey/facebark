@@ -14,13 +14,15 @@
 }
 
 .header-logo {
-  margin-left: 400px;
-  margin-top: 20px;
+  position: fixed;
+  right: 60%;
+  top: 20px;
   cursor: pointer;
   float: left;
 }
 
 .log-in-form {
+  position: fixed;
   cursor: pointer;
   text-align: left;
   border-collapse: separate;
@@ -30,8 +32,8 @@
   font-size: 12px;
   display: block;
   float: right;
-  margin-top: 15px;
-  margin-right: 320px;
+  top: 15px;
+  right: 320px;
   width: 526px;
 }
 

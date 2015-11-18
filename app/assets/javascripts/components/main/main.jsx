@@ -12,7 +12,7 @@ var Main = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="main group">
         <NavBar
           currentUser={this.state.currentUser}
           />
