@@ -6,11 +6,14 @@ var About = React.createClass({
 
   componentDidMount: function() {
     UserStore.on("change", this._change);
-    TabActions.activateTab("About");
     var username = this.props.params.username;
     if (username && !(UserStore.user())) {
       UserApiUtil.fetchUser(username);
     }
+  },
+  
+  componentWillUnmount: function() {
+    UserStore.removeListener("change", this._change);
   },
 
   componentWillReceiveProps: function(newProps) {
@@ -48,7 +51,6 @@ var About = React.createClass({
   },
 
   _change: function() {
-    debugger
     this.setState({user: UserStore.user()});
   }
 

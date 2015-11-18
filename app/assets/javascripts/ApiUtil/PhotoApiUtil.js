@@ -2,11 +2,13 @@
 
   var PhotoApiUtil = root.PhotoApiUtil = {
 
-    uploadPhoto: function() {
+    createPhoto: function(formData) {
       $.ajax({
-        url: "api/session/",
+        url: "api/photos/",
         type: 'POST',
-        data: {user: user},
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function(currentUser) {
           SessionActions.receiveCurrentUser(currentUser);
         }

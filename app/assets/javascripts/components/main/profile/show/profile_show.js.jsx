@@ -5,7 +5,6 @@ var ProfileShow = React.createClass({
   },
 
   componentDidMount: function() {
-    TabActions.activateTab("Photos");
     var username = this.props.params.username;
     UserStore.on("change", this._change);
     if (username) {

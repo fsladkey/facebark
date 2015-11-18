@@ -1,4 +1,4 @@
-class PhotosController < ApplicationController
+class Api::PhotosController < ApplicationController
 
   def create
     photo = Photo.create!(photo_params)
@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    require(:photo).permit(:photo)
+    params.require(:photo).permit(:image)
   end
 
 end
