@@ -24,7 +24,7 @@ var ProfileInfoField = React.createClass({
     var formattedInfo;
 
     if (this.state.editing) {
-      formattedInfo = "⌂" +
+      formattedInfo = "⌂ " +
         this.props.fieldname +
         ": ";
       return (

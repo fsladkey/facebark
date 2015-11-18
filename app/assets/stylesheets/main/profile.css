@@ -4,6 +4,7 @@
 }
 
 .profile-info {
+  background: white;
   padding: 10px;
   margin-top: 20px;
   font-size: 12px;
@@ -13,6 +14,11 @@
 .profile-info li {
   display: block;
   padding: 10px;
+}
+
+.profile-info li > button {
+  display: block;
+  float: right;
 }
 
 .profile-header-name {
@@ -51,15 +57,18 @@
   width: 160px;
   height: 160px;
   background: white;
-  z-index: -1;
+  z-index: 1;
   border: 1px solid grey;
   border-radius: 3px;
 }
 
 .profile-header-links {
+  background: white;
 }
 
 .profile-header-link-list {
+  font-weight: bold;
+  color: rgb(59, 89, 152);
   display: block;
   margin: auto;
   width: 450px;
@@ -73,4 +82,8 @@
   padding: 14px;
   height: 20px;
   border-right: 1px solid lightgrey;
+}
+
+.profile-header-link-list li:hover {
+  background: #F6F7F8;
 }
