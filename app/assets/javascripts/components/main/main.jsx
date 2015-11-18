@@ -12,13 +12,9 @@ var Main = React.createClass({
 
   render: function() {
     return (
-      <div className="main group">
         <NavBar
           currentUser={this.state.currentUser}
           />
-          <Profile username={this.props.path.slice(1)}
-            />
-      </div>
     );
   },
 

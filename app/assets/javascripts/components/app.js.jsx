@@ -15,7 +15,8 @@ var App = React.createClass({
     if (this.state.currentUser) {
       return (
           <div>
-            <Main path={this.props.location.pathname}/>
+            <Main/>
+            {this.props.children}
           </div>
       );
     } else {

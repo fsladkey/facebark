@@ -19,7 +19,7 @@ var SearchDetail = React.createClass({
                 <ul>
                   {
                     this.props.users.map(function(user){
-                      return <SearchResult clearSearch={this.props.clearSearch} user={user}/>;
+                      return <SearchResult key={user.id} clearSearch={this.props.clearSearch} user={user}/>;
                     }, this)
                   }
                 </ul>

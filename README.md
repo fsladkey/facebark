@@ -41,42 +41,42 @@ Add a users profile page. On sign in users should be redirected to their profile
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture (1 day)
+### Phase 2: Search and photos (1 day)
 Profiles should include an about page and profile picture. Users should be able to search for other users. Create photos model allow uploading of photos to an album.
 
 [Details][phase-three]
 
-### Phase 4: Create friend relationship (1 days)
+### Phase 3: Create friend relationship (1 day)
 
-Create friendship model. Users should be able to create a friendship by clicking add friend on another user. A user should be able to see pending friend requests and approve or deny them.
+Create friendship and friend request model. Users should be able to create a friendship by clicking add friend on another user. A user should be able to see pending friend requests and approve or deny them.
 
 [Details][phase-four]
 
-### Phase 5: Posts and feed (1 day)
+### Phase 4: Posts and feed (1 day)
 
 Users should be able to post to their own wall and the walls of their friends. The root page should display a feed of the most recent posts by their friends.
 
 [Details][phase-five]
 
-### Phase 6: Comments and likes (1 day)
+### Phase 5: Comments and likes (1 day)
 
 Users should be able to leave comments any post visible to them, as well as like the post. If time permits likeable and commentable should be separated into a concern.
 
 [Details][phase-five]
 
-### Phase 7: Notifications (1 day)
+### Phase 6: Notifications (1 day)
 
 Users should be notified when certain actions are performed on their content. When anything is commented on liked etc, they notification should link to the appropriate post.
 
 [Details][phase-six]
 
-### Phase 8: Chat (1 day)
+### Phase 7: Chat (1 day)
 
 Users should be able to send messages to their friends. Users should be able to start conversations and send new messages, ideally messages will update in real time using Pusher or another tool.
 
 [Details][phase-seven]
 
-### Phase 9: Get fancy, seed database (1 day)
+### Phase 8: Get fancy, seed database (1 day)
 
 Add any additional eye candy that was put off from earlier, create a non trivial amount of interesting database seed data. Panic because there's so much more I wanted to do.
 

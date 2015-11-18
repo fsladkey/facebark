@@ -1,10 +1,11 @@
-var Profile = React.createClass({
+var ProfileShow = React.createClass({
 
   getInitialState: function() {
     return {user: UserStore.user()};
   },
 
   componentDidMount: function() {
+    TabActions.activateTab("Photos");
     var username = this.props.params.username;
     UserStore.on("change", this._change);
     if (username) {
@@ -18,10 +19,12 @@ var Profile = React.createClass({
 
   render: function() {
     return (
-      <div className="profile-page group">
-        <ProfileHeader user={this.state.user}/>
-        <div className="page-content">
-          {this.props.children}
+      <div>
+        <div className="profile-left group">
+          <ProfileInfo user={this.state.user}/>
+        </div>
+
+        <div className="profile-right group">
         </div>
       </div>
     );
@@ -30,4 +33,5 @@ var Profile = React.createClass({
   _change: function() {
     this.setState({user: UserStore.user()});
   }
+
 });

@@ -10,7 +10,7 @@ var ProfileHeader = React.createClass({
             className="profile-header-name"
             >{this.props.user.firstname + " " + this.props.user.lastname}
             </h2>
-          <ProfileHeaderLinks/>
+          <ProfileHeaderLinks user={this.props.user}/>
         </div>
       );
     } else {

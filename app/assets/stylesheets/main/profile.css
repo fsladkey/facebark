@@ -18,13 +18,6 @@
   border-bottom: 1px solid lightgrey;
 }
 
-.profile-info li {
-  display: block;
-  padding: 10px 0px;
-  margin: 0px 10px;
-  border-bottom: 1px solid lightgrey;
-}
-
 .profile-info li:last-child {
   border: none;
 }
@@ -116,11 +109,19 @@
 .profile-header-link-list li {
   font-size: 14px;
   float: left;
-  padding: 14px;
   height: 20px;
+}
+
+.profile-header-link-list li.active {
+  background: blue;
+}
+
+.profile-header-link-list li > a {
+  display: block;
+  padding: 16px 14px;
   border-right: 1px solid lightgrey;
 }
 
-.profile-header-link-list li:hover {
-  background: #F6F7F8;
+.profile-header-link-list li a:hover {
+  background: #e3e9ef;
 }

@@ -8,7 +8,13 @@ $(function () {
   var routes = (
     <div>
       <Route path="/" component={App}>
-        <Route path=":username" component={Profile}/>
+        <IndexRoute component={Feed}/>
+        <Route path=":username" component={Profile}>
+          <IndexRoute component={ProfileShow}/>
+          <Route path="about" component={About}></Route>
+          <Route path="photos" component={Photos}></Route>
+          <Route path="friends" component={Friends}></Route>
+        </Route>
       </Route>
     </div>
   );
