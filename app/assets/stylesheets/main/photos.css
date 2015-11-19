@@ -16,10 +16,8 @@
 
 .album-list {
   display: block;
-  margin: 20px;
-  width: 200px;
-  height: 250px;
-  border: 1px solid lightgrey;
+  width: 100%;
+  float: left;
 }
 
 .album-list h3 {
@@ -29,18 +27,28 @@
   color: rgb(59, 89, 152);
 }
 
+.album-preview {
+  display: block;
+  float:left;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 180px;
+}
 
 .album-preview-image {
-  width: 100%;
   height: 200px;
   background: lightblue;
+}
+
+.album-preview-image img {
+  width: 100%;
+  height: 100%;
 }
 
 .photo-preview-image {
   width: 100%;
   height: 200px;
   background: lightblue;
-  float: left;
 }
 
 
@@ -74,4 +82,11 @@
   margin: 20px 0 0 20px;
   border: 1px solid lightgrey;
   float: left;
+}
+
+
+.album-heading {
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
 }

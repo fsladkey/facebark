@@ -22,9 +22,15 @@ var AlbumList = React.createClass({
 
   render: function () {
     var albumList = this.state.user.albums.map(function(album) {
+      var preview;
+
+      if (album.photo_count > 0) {
+        preview = <img src={album.preview_url}/>;
+      }
+
       return (
-        <li key={album.id}>
-          <div className="album-preview-image"></div>
+        <li key={album.id} className="album-preview">
+          <div className="album-preview-image">{preview}</div>
           <ReactRouter.Link to={"/" + this.state.user.username + "/photos/" + album.id}>
           <h3>{album.title}</h3>
           </ReactRouter.Link>
@@ -33,7 +39,7 @@ var AlbumList = React.createClass({
     }, this);
     return (
       <div>
-        <ul className="album-list">
+        <ul className="album-list group">
           {albumList}
         </ul>
       </div>

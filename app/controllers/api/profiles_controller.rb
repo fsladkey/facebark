@@ -9,7 +9,7 @@ class Api::ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:breed, :hometown, :bio)
+    params.require(:profile).permit(:breed, :hometown, :bio, :photo_id)
   end
 
 end

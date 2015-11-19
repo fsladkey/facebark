@@ -81,8 +81,8 @@
 }
 
 .profile-profile-photo {
-  top: 120px;
-  left: 20px;
+  top: 0px;
+  left: 0px;
   position: absolute;
   width: 160px;
   height: 160px;
@@ -124,4 +124,26 @@
 
 .profile-header-link-list li a:hover {
   background: #e3e9ef;
+}
+
+.upload-cover-photo-button {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 50;
+}
+
+.profile-photo-container {
+  position: absolute;
+  margin-top: -120px;
+  margin-left: 20px;
+}
+
+.upload-profile-photo-button {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  top: 130px;
+  left: 10px;
 }

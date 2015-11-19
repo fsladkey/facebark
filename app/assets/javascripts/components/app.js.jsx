@@ -11,6 +11,10 @@ var App = React.createClass({
     }
   },
 
+  componentWillUnmount: function() {
+    SessionStore.removeListener("change", this._change);
+  },
+
   render: function(){
     if (this.state.currentUser) {
       return (

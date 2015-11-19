@@ -38,6 +38,7 @@ class Api::UsersController < ApplicationController
       :password,
       :birthday,
       :gender,
+      :photo_id
     )
   end
 end

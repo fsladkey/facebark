@@ -24,7 +24,9 @@ var Photos = React.createClass({
     if (this.state.user) {
       return (
         <div className="photos group">
-          <h1>Photos</h1>
+          <ReactRouter.Link to={"/" + this.props.params.username + "/photos"}>
+            <h1>Photos</h1>
+          </ReactRouter.Link>
           <div>
             {this.props.children}
           </div>

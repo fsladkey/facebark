@@ -1,4 +1,9 @@
 var PhotoList = React.createClass({
+
+  componentWillReceiveProps: function (newProps) {
+    this.forceUpdate();
+  },
+
   render: function () {
     var photoList = this.props.album.photos.map(function(photo) {
       return (

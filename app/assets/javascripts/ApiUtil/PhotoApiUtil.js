@@ -11,7 +11,7 @@
         contentType: false,
         success: function(photo) {
           AlbumApiUtil.fetchAlbum(photo.album_id);
-          callback && callback();
+          callback && callback(photo);
         }
       });
     },

@@ -8,9 +8,7 @@ var Album = React.createClass({
   componentDidMount: function() {
     AlbumStore.on("change", this._change);
     var album_id = this.props.params.album_id;
-    if (album_id && !(AlbumStore.album())) {
-      AlbumApiUtil.fetchAlbum(album_id);
-    }
+    AlbumApiUtil.fetchAlbum(album_id);
   },
 
   componentWillUnmount: function() {
@@ -25,6 +23,7 @@ var Album = React.createClass({
     if (this.state.album) {
       return (
         <div>
+        <h2 className="album-heading">{this.state.album.title}</h2>
         <PhotoUpload album={this.state.album}/>
         <PhotoList album={this.state.album}/>
         </div>
