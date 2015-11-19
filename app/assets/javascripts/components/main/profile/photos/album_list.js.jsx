@@ -1,4 +1,4 @@
-var Photos = React.createClass({
+var AlbumList = React.createClass({
 
   getInitialState: function() {
     return {user: UserStore.user()};
@@ -20,19 +20,24 @@ var Photos = React.createClass({
     UserApiUtil.fetchUser(newProps.params.username);
   },
 
-  render: function() {
-    if (this.state.user) {
+  render: function () {
+    var albumList = this.state.user.albums.map(function(album) {
       return (
-        <div className="photos group">
-          <h1>Photos</h1>
-          <div>
-            {this.props.children}
-          </div>
-        </div>
+        <li key={album.id}>
+          <div className="album-preview-image"></div>
+          <ReactRouter.Link to={"/" + this.state.user.username + "/photos/" + album.id}>
+          <h3>{album.title}</h3>
+          </ReactRouter.Link>
+        </li>
       );
-    } else {
-      return <div></div>;
-    }
+    }, this);
+    return (
+      <div>
+        <ul className="album-list">
+          {albumList}
+        </ul>
+      </div>
+    );
   },
 
   _change: function() {

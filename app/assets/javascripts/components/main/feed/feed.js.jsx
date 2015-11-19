@@ -4,18 +4,7 @@ var Feed = React.createClass({
     return (
       <div className="page-content">
         <div className="feed-page">
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
-          Feed!
+          Feed coming soon.
         </div>
       </div>
     );

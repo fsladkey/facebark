@@ -6,3 +6,4 @@ json.lastname @user.lastname
 json.birthday @user.birthday
 json.gender @user.gender
 json.profile @user.profile
+json.albums @user.albums

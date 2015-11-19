@@ -10,6 +10,7 @@ class Api::UsersController < ApplicationController
     if user.save
       log_in!(user)
       Profile.create!(user_id: user.id)
+      Album.create!(user_id: user.id, title: "#{user.firstname.capitalize}'s Photo Album")
       render json: user
     else
       render json: user.errors.full_messages

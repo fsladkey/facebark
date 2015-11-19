@@ -1,0 +1,77 @@
+.photos {
+  margin-top: 20px;
+  width: 100%;
+  border: 1px solid lightgrey;
+}
+
+.photos h1 {
+  font-size: 20px;
+  color: rgb(55, 62, 77);
+  background: #F6F7F8;
+  padding: 20px;
+  font-weight: bold;
+  display: block;
+  border-bottom: 1px solid lightgrey;
+}
+
+.album-list {
+  display: block;
+  margin: 20px;
+  width: 200px;
+  height: 250px;
+  border: 1px solid lightgrey;
+}
+
+.album-list h3 {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 11px;
+  color: rgb(59, 89, 152);
+}
+
+
+.album-preview-image {
+  width: 100%;
+  height: 200px;
+  background: lightblue;
+}
+
+.photo-preview-image {
+  width: 100%;
+  height: 200px;
+  background: lightblue;
+  float: left;
+}
+
+
+.photo-upload {
+  display: block;
+  margin: 20px 0 0 20px;
+  width: 200px;
+  height: 250px;
+  border: 1px solid lightgrey;
+  float: left;
+}
+
+.upload-button {
+  display: block;
+  border: 1px solid grey;
+  padding: 3px;
+  margin: auto;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+
+.file-upload {
+  padding: 5px;
+}
+
+
+.photo-album-view {
+  width: 180px;
+  height: 250px;
+  margin: 20px 0 0 20px;
+  border: 1px solid lightgrey;
+  float: left;
+}

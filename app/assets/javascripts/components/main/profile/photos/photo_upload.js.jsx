@@ -20,24 +20,29 @@ var PhotoUpload = React.createClass({
     }
   },
 
+  clearFields: function() {
+    this.setState({url: "", file: null});
+  },
+
   handleSubmit: function (e) {
     e.preventDefault();
     var file = this.state.file;
     var formData = new FormData();
     formData.append("photo[image]", file);
+    formData.append("photo[album_id]", this.props.album.id);
 
-    PhotoApiUtil.createPhoto(formData);
+    PhotoApiUtil.createPhoto(formData, this.clearFields);
   },
 
 
   render: function() {
     return (
-      <div>
+      <div className="photo-upload">
+        <img className="photo-preview-image" src={this.state.url}></img>
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.changeFile} type="file"/>
-          <button>Upload Photo</button>
+          <input className="file-upload" onChange={this.changeFile} type="file"/>
+          <button className="upload-button">Upload Photo</button>
         </form>
-        <img src={this.state.url}></img>
       </div>
     );
   }
