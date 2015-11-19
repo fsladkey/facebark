@@ -1,9 +1,2 @@
-json.id @user.id
-json.username @user.username
-json.email @user.email
-json.firstname @user.firstname
-json.lastname @user.lastname
-json.birthday @user.birthday
-json.gender @user.gender
-json.profile @user.profile
-json.albums @user.albums
+json.extract! @user, :id, :username, :email, :firstname, :lastname, :birthday, :gender, :profile, :albums
+json.profile_image_url asset_path(@user.profile_picture.image.url)

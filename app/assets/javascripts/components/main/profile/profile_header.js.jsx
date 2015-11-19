@@ -4,8 +4,8 @@ var ProfileHeader = React.createClass({
     if (this.props.user) {
       return (
         <div className="profile-header">
-          <ProfileCoverPhoto/>
-          <ProfilePhoto/>
+          <ProfileCoverPhoto user={this.props.user}/>
+          <ProfilePhoto user={this.props.user}/>
           <h2
             className="profile-header-name"
             >{this.props.user.firstname + " " + this.props.user.lastname}

@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(username: params[:id])
+    @user = User.includes(:profile).includes(:albums).find_by(username: params[:id])
     render :show
   end
 

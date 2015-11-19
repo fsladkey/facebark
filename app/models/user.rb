@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
       )
     end
 
+    def profile_picture
+      Photo.find(self.photo_id)
+    end
+
     def password=(password)
       @password = password
       self.password_digest = BCrypt::Password.create(password)
