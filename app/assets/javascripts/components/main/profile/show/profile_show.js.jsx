@@ -17,16 +17,21 @@ var ProfileShow = React.createClass({
   },
 
   render: function() {
-    return (
-      <div>
-        <div className="profile-left group">
-          <ProfileInfo user={this.state.user}/>
-        </div>
+    if (this.state.user) {
+      return (
+        <div>
+          <div className="profile-left group">
+            <ProfileInfo user={this.state.user}/>
+          </div>
 
-        <div className="profile-right group">
+          <div className="profile-right group">
+            <ProfileWall profile={this.state.user.profile}/>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <div></div>;
+    }
   },
 
   _change: function() {

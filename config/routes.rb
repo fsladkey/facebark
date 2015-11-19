@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :profiles, only: [:update]
     resources :photos, only: [:create, :delete]
     resources :albums, only: [:create, :show]
+    resources :posts, only: [:create, :index]
   end
 end
