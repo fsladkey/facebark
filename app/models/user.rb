@@ -48,6 +48,20 @@ class User < ActiveRecord::Base
       )
     end
 
+    def set_up!
+      Profile.create!(user_id: self.id)
+
+      Album.create!(user_id: self.id, title: "#{self.firstname.capitalize}'s Photo Album")
+      profile_photos = Album.create!(user_id: user.id, title: "Profile Photos")
+      cover_photos = Album.create!(user_id: user.id, title: "Cover Photos")
+
+      default_profile_picture = profile_photos.photos.create!
+      default_cover_photo = cover_photos.photos.create!
+
+      self.photo_id = default_profile_picture.id
+      self.profile.photo_id = default_cover_photo.id
+    end
+
     def profile_picture
       Photo.find(self.photo_id)
     end

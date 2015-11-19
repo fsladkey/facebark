@@ -2,7 +2,7 @@ var ProfileCoverPhoto = React.createClass({
 
   render: function() {
     return (
-      <div className="profile-cover-photo"></div>
+      <img className="profile-cover-photo" src={this.props.user.cover_image_url}/>
     );
   }
 

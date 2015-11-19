@@ -1,5 +1,7 @@
 var ProfilePhoto = React.createClass({
 
+  componentWill
+
   render: function() {
     return (
       <div className="profile-photo-container">
