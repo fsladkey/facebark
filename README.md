@@ -13,14 +13,15 @@ and React.js. Facebark allows users to:
 - [√] Log in / Log out
 - [√] Create, and edit a profile
 - [√] Search for other users
-- [ ] Upload a profile picture and cover photo to their profile
-- [ ] keep albums of uploaded photos, photos are commentable/likeable.
+- [√ ] Upload a profile picture and cover photo to their profile
+- [√] keep albums of uploaded photos
 - [ ] Add friends and view content of their profiles
 - [ ] Approve or deny friend requests
 - [ ] Make posts on their profile and the profile of their friends
 - [ ] View all friends recent posts in a "feed"
 - [ ] Comment on any visible post
 - [ ] "Like" (or lick) a post or comment.
+- [ ] Comment on and like photos.
 - [ ] Be notified when someone posts on, comments on, or likes their content.
 - [ ] Send messages to friends. Sending a message starts a conversation. Users should be notified when they are messaged.
 

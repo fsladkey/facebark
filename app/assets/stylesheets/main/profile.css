@@ -65,8 +65,7 @@
   margin-left: 362px;
   top: 42px;
   width: 850px;
-  height: 300px;
-  border-bottom: 1px solid lightgrey;
+  height: 305px;
   border-right: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
   border-radius: 0 0 5px 5px;
@@ -94,6 +93,7 @@
 
 .profile-header-links {
   background: white;
+  border-bottom: 1px solid lightgrey;
 }
 
 .profile-header-link-list {
@@ -130,7 +130,7 @@
   display: block;
   position: absolute;
   top: 5px;
-  right: 5px;
+  left: 5px;
   z-index: 50;
 }
 
@@ -144,6 +144,7 @@
   display: block;
   position: absolute;
   z-index: 100;
+  width: 75px;
   top: 130px;
   left: 10px;
 }

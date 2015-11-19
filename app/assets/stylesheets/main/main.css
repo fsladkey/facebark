@@ -13,6 +13,7 @@
   width: 100%;
   background: linear-gradient(#4C67A1, #3C5A99);
   box-shadow: 0px 1.5px 2px black;
+  z-index: 1000
 }
 
 .small-logo {

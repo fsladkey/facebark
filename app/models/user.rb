@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
     has_one :profile
 
     has_many :albums
+    has_many :posts
 
     def self.find_by_credentials(username, password)
       user = User.find_by(username: username)

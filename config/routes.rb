@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+
   get 'albums/show'
 
   root to: "static_pages#root"
