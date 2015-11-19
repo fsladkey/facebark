@@ -9,11 +9,12 @@
 Facebark is a web application inspired by facebook built using Ruby on Rails
 and React.js. Facebark allows users to:
 
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Create, and edit a profile
+- [√] Create an account
+- [√] Log in / Log out
+- [√] Create, and edit a profile
+- [√] Search for other users
 - [ ] Upload a profile picture and cover photo to their profile
-- [ ] Search for other users
+- [ ] keep albums of uploaded photos, photos are commentable/likeable.
 - [ ] Add friends and view content of their profiles
 - [ ] Approve or deny friend requests
 - [ ] Make posts on their profile and the profile of their friends
@@ -41,7 +42,7 @@ Add a users profile page. On sign in users should be redirected to their profile
 
 [Details][phase-one]
 
-### Phase 2: Search and photos (1 day)
+### Phase 2: Search and photos (2 day)
 Profiles should include an about page and profile picture. Users should be able to search for other users. Create photos model allow uploading of photos to an album.
 
 [Details][phase-three]
@@ -86,7 +87,6 @@ Add any additional eye candy that was put off from earlier, create a non trivial
 - [ ] infinite scroll feed
 - [ ] Multiple sessions
 - [ ] auto-updating notifications (no refreshing the page)
-- [ ] keep albums of uploaded photos, photos would be commentable/likeable.
 - [ ] create events with time and location, users can rsvp an comment on event
 - [ ] users can create alternate profiles that other users can follow (one way relationship of page having many followers)
 - [ ] wow, facebook has a lot of content.
