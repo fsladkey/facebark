@@ -2,18 +2,22 @@ var PostDetail = React.createClass({
 
   render: function () {
     var post = this.props.post,
-        poster = post.poster.firstname + " " + post.poster.lastname,
-        postee = post.postee.firstname + " " + post.postee.lastname,
+        poster_name = post.poster.firstname + " " + post.poster.lastname,
+        postee_name = post.postee.firstname + " " + post.postee.lastname,
         heading;
 
-    if (poster === postee) {
-      heading = poster;
+    if (poster_name === postee_name) {
+      heading = <h3><a href={"#/" + post.poster.username}>{poster_name}</a></h3>;
     } else {
-      heading = poster + " > " + postee;
+      heading = (
+        <h3>
+          <a href={"#/" + post.poster.username}>{poster_name}</a> > <a href={"#/" + post.postee.username}>{postee_name}</a>
+        </h3>
+      );
     }
     return (
       <li>
-      <h3>{heading}</h3>
+      {heading}
       <p>{this.props.post.body}</p>
       </li>
     );

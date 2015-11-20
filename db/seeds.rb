@@ -39,16 +39,11 @@ morty.profile.update!(photo_id: mcov.id)
 
 environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
 
-# def seed_image(file_name)
-#   File.open(File.join(Rails.root, "/app/assets/images/seed/#{file_name}.jpg"))
-# end
-#
-# products = [
-#   {:name => 'foo', :description => 'lorem ipsum',   :product_type => ProductType.find_by_name('Sandwiches')},
-#   {:name => 'bar', :description => 'dolerem ipsum', :product_type => ProductType.find_by_name('Soups')}
-# ]
-#
-# products.each do |attributes|
-#   attributes[:image] = seed_image('product_family_or_system')
-#   Product.find_or_create_by_name(attributes[:name], attributes)
-# end
+ulysses.posts.create!(body: "Hey buddy! How's NY?", profile_id: bailey.profile.id)
+ulysses.posts.create!(body: "Anyone got any tips for cleaning the wrinkles in your own face without thumbs?", profile_id: ulysses.profile.id)
+bailey.posts.create!(body: "Can anyone explain how I'm typing this right now?", profile_id: bailey.profile.id)
+bailey.posts.create!(body: "Hola hermano. How's it going?", profile_id: ulysses.profile.id)
+morty.posts.create!(body: "Anyone else hungry?", profile_id: morty.profile.id)
+morty.posts.create!(body: "Anyone?", profile_id: morty.profile.id)
+emma.posts.create!(body: "Hey there sailor.", profile_id: morty.profile.id)
+emma.posts.create!(body: "Guys! Facebark is changing it's policy, if you don't want to pay $7 a month you have to twirl around three times and take a nap. Someone posted it on Barkr it must be true.", profile_id: emma.profile.id)
