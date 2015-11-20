@@ -20,6 +20,8 @@ var NavBarLinks = React.createClass({
             </button>
           </ReactRouter.Link>
 
+          <FriendRequests currentUser={this.props.currentUser}/>
+
           <ReactRouter.Link to={"/"}>
           <button
             className="nav-log-out-button"

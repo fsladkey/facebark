@@ -2,6 +2,18 @@ json.extract! @user, :id, :username, :email, :firstname, :lastname, :birthday, :
 json.profile_image_url asset_path(@user.profile_picture.image.url)
 json.cover_image_url asset_path(@user.profile.cover_photo.image.url)
 
+json.friend_requests @user.friend_requests do |friend_request|
+  json.id friend_request.id
+  json.potential_friend "#{friend_request.user.firstname} #{friend_request.user.lastname}"
+  json.profile_url "/#{friend_request.user.username}"
+end
+
+json.friends @user.friends do |friend|
+  json.extract! friend, :id, :username, :firstname, :lastname
+  json.name "#{friend.firstname} #{friend.lastname}"
+  json.profile_image_url asset_path(friend.profile_picture.image.url)
+end
+
 json.albums @user.albums do |album|
   json.extract! album, :id, :title
   json.photo_count album.photos.length

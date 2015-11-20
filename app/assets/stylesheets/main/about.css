@@ -58,6 +58,7 @@ div.about-bio h3 {
 }
 
 div.about-bio textarea {
+  resize: none;
   margin-top: 10px;
   border: 1px solid grey;
   width: 200px;

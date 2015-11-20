@@ -25,6 +25,7 @@ class FriendRequest < ActiveRecord::Base
   def approve!
     self.user.friendships.create!(friend_id: self.friend.id)
     self.friend.friendships.create!(friend_id: self.user.id)
+    self.destroy!
   end
 
 end

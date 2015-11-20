@@ -162,6 +162,10 @@
   /*height: 100px;*/
 }
 
+.post-form textarea {
+  resize: none;
+}
+
 .post-list li {
   margin-top: 20px;
   border: 1px solid lightgrey;

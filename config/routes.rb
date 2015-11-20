@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :delete]
     resources :albums, only: [:create, :show]
     resources :posts, only: [:create, :index]
-    resources :friend_requests, only: [:create, :update, :delete]
+    resources :friend_requests, only: [:create, :update, :destroy]
     resources :friends, only: [:index]
   end
 end

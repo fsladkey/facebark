@@ -1,4 +1,4 @@
-class FriendRequestsController < ApplicationController
+class Api::FriendRequestsController < ApplicationController
 
   def create
     friend_request = current_user.friend_requests.create!(
@@ -13,7 +13,7 @@ class FriendRequestsController < ApplicationController
     render json: friend_request
   end
 
-  def delete
+  def destroy
     friend_request = FriendRequest.find(params[:id])
     friend_request.delete
     render json: friend_request
