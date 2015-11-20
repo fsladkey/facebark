@@ -20,13 +20,13 @@ var NavBarLinks = React.createClass({
             </button>
           </ReactRouter.Link>
 
-        <ReactRouter.IndexLink to={"/"}>
+          <ReactRouter.Link to={"/"}>
           <button
             className="nav-log-out-button"
             onClick={this.handleLogOut}>
             Log Out
           </button>
-        </ReactRouter.IndexLink>
+          </ReactRouter.Link>
         </div>
       );
     }

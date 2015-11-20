@@ -13,12 +13,16 @@ var PostList = React.createClass({
     PostStore.removeListener("change", this._change);
   },
 
+  componentWillReceiveProps: function (newProps) {
+    PostApiUtil.fetchPosts(newProps.profile.id);
+  },
+
   render: function () {
     return (
       <ul className="post-list">
         {
           this.state.posts.map(function(post) {
-            <PostDetail post={post}/>;
+            return <PostDetail post={post} key={post.id}/>;
           })
         }
       </ul>

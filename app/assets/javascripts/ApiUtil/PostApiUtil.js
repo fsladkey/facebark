@@ -2,11 +2,11 @@
 
   var PostApiUtil = root.PostApiUtil = {
 
-    createPost: function(profile_id) {
+    createPost: function(params) {
       $.ajax({
         url: "api/posts/",
         type: 'POST',
-        data: {profile_id: profile_id},
+        data: {post: params},
         success: function(posts) {
           PostActions.recievePosts(posts);
         }

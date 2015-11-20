@@ -1,5 +1,9 @@
 var ProfileWall = React.createClass({
 
+  // componentWillReceiveProps: function (newProps) {
+  //   this.forceUpdate();
+  // },
+
   render: function () {
     return (
       <div className="profile-wall group">

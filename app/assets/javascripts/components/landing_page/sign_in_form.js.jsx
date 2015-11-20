@@ -10,6 +10,20 @@ var LogInForm = React.createClass({
     SessionApiUtil.logInUser(this.state);
   },
 
+  logInAsBailey: function() {
+    this.setState({username: "bprime", password: "bprimebprime"})
+    window.setTimeout(function() {
+      this.handleSubmit();
+    }.bind(this), 5000)
+  },
+
+  logInAsUlysses: function() {
+    this.setState({username: "puglyfe", password: "puglyfepuglyfe"})
+    window.setTimeout(function() {
+      this.handleSubmit();
+    }.bind(this), 5000)
+  },
+
   render: function() {
     return (
       <div>
@@ -23,6 +37,10 @@ var LogInForm = React.createClass({
             <input type="password" valueLink={this.linkState("password")}/>
           </div>
             <button onClick={this.handleSubmit} className="log-in-button" type="submit">Log In</button>
+        <div className="guest-user-buttons">
+          <button onClick={this.logInAsBailey} className="log-in-button" type="submit">Log in as Bailey</button>
+          <button onClick={this.logInAsUlysses} className="log-in-button" type="submit">Log in as Ulysses</button>
+        </div>
         </form>
       </div>
     );

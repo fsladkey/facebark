@@ -4,7 +4,7 @@ var App = React.createClass({
     return {currentUser: SessionStore.currentUser()};
   },
 
-  componentDidMount: function() {
+  componentWillMount: function() {
     SessionStore.on("change", this._change);
     if (!SessionStore.currentUser()) {
       SessionApiUtil.fetchCurrentUser();

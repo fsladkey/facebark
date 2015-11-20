@@ -13,12 +13,13 @@
       });
     },
 
-    logOut: function() {
+    logOut: function(callback) {
       $.ajax({
         url: "api/session/",
         type: 'DELETE',
         success: function(user) {
           SessionActions.logOutCurrentUser(user);
+          callback && callback();
         }
       });
     },
