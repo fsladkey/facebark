@@ -20,7 +20,11 @@ var App = React.createClass({
       return (
           <div>
             <Main/>
-            {this.props.children}
+            {
+              React.Children.map(this.props.children,function (child) {
+                return React.cloneElement(child, {currentUser: this.state.currentUser});
+              }, this)
+            }
           </div>
       );
     } else {

@@ -37,7 +37,15 @@ ulysses.profile.update!(photo_id: ucov.id)
 emma.profile.update!(photo_id: ecov.id)
 morty.profile.update!(photo_id: mcov.id)
 
-environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
+bailey.friend_ids = [ulysses.id, morty.id]
+morty.friend_ids = [bailey.id, emma.id]
+ulysses.friend_ids = [bailey.id]
+emma.friend_ids = [morty.id]
+ulysses.friend_request.create!(user_id: emma.id)
+
+# environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
+
+# ADD FRIENDSHIP SEEEEEEEEDSSSSS
 
 ulysses.posts.create!(body: "Hey buddy! How's NY?", profile_id: bailey.profile.id)
 ulysses.posts.create!(body: "Anyone got any tips for cleaning the wrinkles in your own face without thumbs?", profile_id: ulysses.profile.id)

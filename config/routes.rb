@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :albums, only: [:create, :show]
     resources :posts, only: [:create, :index]
     resources :friend_requests, only: [:create, :update, :destroy]
-    resources :friends, only: [:index]
+    resources :feed, only: [:index]
   end
 end

@@ -1,5 +1,4 @@
-var Feed = React.createClass({
-
+var FeedPosts = React.createClass({
 
   getInitialState: function () {
     return {posts: PostStore.all()};
@@ -14,18 +13,15 @@ var Feed = React.createClass({
     PostStore.removeListener("change", this._change);
   },
 
-  componentWillReceiveProps: function (newProps) {
-    FeedApiUtil.fetchPosts(newProps.currentUser.id);
-  },
-
-  render: function() {
+  render: function () {
     return (
-      <div className="page-content">
-        <div className="feed-page">
-          <PostForm profile={this.props.currentUser.profile}/>
-          <FeedPosts posts={this.state.posts} currentUser={this.props.currentUser}/>
-        </div>
-      </div>
+      <ul className="post-list">
+        {
+          this.state.posts.map(function(post) {
+            return <PostDetail post={post} key={post.id}/>;
+          })
+        }
+      </ul>
     );
   },
 

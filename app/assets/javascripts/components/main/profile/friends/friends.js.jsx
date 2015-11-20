@@ -21,11 +21,16 @@ var Friends = React.createClass({
     if (this.state.user) {
       var friends = this.state.user.friends;
       return (
-        <div>
-          <ul>
+        <div className="friends group">
+
+          <ReactRouter.Link to={"/" + this.state.user.username + "/friends"}>
+            <h1>Friends</h1>
+          </ReactRouter.Link>
+
+          <ul className="group">
             {
               friends.map(function(friend) {
-                return friend.name;
+                return <Friend friend={friend}/>;
               })
             }
           </ul>
