@@ -6,6 +6,6 @@ json.albums @user.albums do |album|
   json.extract! album, :id, :title
   json.photo_count album.photos.length
   if album.photos.length > 0
-    json.preview_url asset_path(album.photos.first.image.url)
+    json.preview_url asset_path(album.photos.last.image.url)
   end
 end

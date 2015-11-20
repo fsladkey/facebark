@@ -58,6 +58,7 @@
   left: 200px;
   color: white;
   z-index: -1;
+  text-shadow: 1px 1px 5px black;
 }
 
 .profile-header {
