@@ -173,3 +173,10 @@ div.search-results {
 .search-result.item:hover {
   background: #EBEEF4;
 }
+
+.profile_thumbnail {
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  float: left;
+}

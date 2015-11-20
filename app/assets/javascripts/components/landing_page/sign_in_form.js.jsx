@@ -11,17 +11,17 @@ var LogInForm = React.createClass({
   },
 
   logInAsBailey: function() {
-    this.setState({username: "bprime", password: "bprimebprime"})
+    this.setState({username: "bprime", password: "bprimebprime"});
     window.setTimeout(function() {
       this.handleSubmit();
-    }.bind(this), 5000)
+    }.bind(this), 500);
   },
 
   logInAsUlysses: function() {
-    this.setState({username: "puglyfe", password: "puglyfepuglyfe"})
+    this.setState({username: "puglyfe", password: "puglyfepuglyfe"});
     window.setTimeout(function() {
       this.handleSubmit();
-    }.bind(this), 5000)
+    }.bind(this), 500);
   },
 
   render: function() {
@@ -38,8 +38,8 @@ var LogInForm = React.createClass({
           </div>
             <button onClick={this.handleSubmit} className="log-in-button" type="submit">Log In</button>
         <div className="guest-user-buttons">
-          <button onClick={this.logInAsBailey} className="log-in-button" type="submit">Log in as Bailey</button>
-          <button onClick={this.logInAsUlysses} className="log-in-button" type="submit">Log in as Ulysses</button>
+          <button onClick={this.logInAsBailey} className="log-in-button" type="button">Log in as Bailey</button>
+          <button onClick={this.logInAsUlysses} className="log-in-button" type="button">Log in as Ulysses</button>
         </div>
         </form>
       </div>

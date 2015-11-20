@@ -30,6 +30,7 @@ var PostForm = React.createClass({
       <div className="post-form group">
         <div className="style-div"></div>
         <form onSubmit={this.handleSubmit}>
+          <img className="profile_thumbnail" src={this.props.currentUser.profile_image_url}/>
           <textarea
             className="post-input"
             onChange={this.handleChange}

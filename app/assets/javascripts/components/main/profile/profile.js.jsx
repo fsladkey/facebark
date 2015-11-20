@@ -21,7 +21,11 @@ var Profile = React.createClass({
       <div className="profile-page group">
         <ProfileHeader user={this.state.user}/>
         <div className="page-content">
-          {this.props.children}
+          {
+            React.Children.map(this.props.children,function (child) {
+              return React.cloneElement(child, {currentUser: this.props.currentUser});
+            }, this)
+          }
         </div>
       </div>
     );

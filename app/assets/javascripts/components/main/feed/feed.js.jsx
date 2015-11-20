@@ -22,7 +22,7 @@ var Feed = React.createClass({
     return (
       <div className="page-content">
         <div className="feed-page">
-          <PostForm profile={this.props.currentUser.profile}/>
+          <PostForm profile={this.props.currentUser.profile} currentUser={this.props.currentUser}/>
           <FeedPosts posts={this.state.posts} currentUser={this.props.currentUser}/>
         </div>
       </div>

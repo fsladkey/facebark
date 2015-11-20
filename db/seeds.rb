@@ -41,7 +41,7 @@ bailey.friend_ids = [ulysses.id, morty.id]
 morty.friend_ids = [bailey.id, emma.id]
 ulysses.friend_ids = [bailey.id]
 emma.friend_ids = [morty.id]
-ulysses.friend_request.create!(user_id: emma.id)
+ulysses.friend_requests.create!(user_id: emma.id)
 
 # environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
 

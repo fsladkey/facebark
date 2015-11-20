@@ -164,6 +164,7 @@
 
 .post-form textarea {
   resize: none;
+  float: right;
 }
 
 .post-list li {
@@ -193,13 +194,17 @@
 
 .post-input {
   display: block;
-  height: 65px;
+  height: 90px;
   padding: 5px;
-  width: calc(100% - 10px);
+  width: calc(100% - 110px);
+  float: right;
 }
 
+
+/*try to fix the background for post button?*/
+
 .post-submit-button {
-  background: #e3e9ef;
+  /*background: #e3e9ef;*/
   width: 100%;
   height: 40px;
   border-top: 1px solid lightgrey;
