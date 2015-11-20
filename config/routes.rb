@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-
-  get 'albums/show'
-
   root to: "static_pages#root"
   namespace :api, defaults: {format: :json} do
     resource :session, only: [:create, :destroy, :show]
@@ -11,5 +7,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :delete]
     resources :albums, only: [:create, :show]
     resources :posts, only: [:create, :index]
+    resources :friend_requests, only: [:create, :update, :delete]
+    resources :friends, only: [:index]
   end
 end

@@ -1,18 +1,18 @@
 # == Schema Information
 #
-# Table name: albums
+# Table name: friend_requests
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  title      :string
+#  user_id    :integer          not null
+#  friend_id  :integer          not null
+#  approved   :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  permanent  :boolean          default(FALSE)
 #
 
 require 'test_helper'
 
-class AlbumTest < ActiveSupport::TestCase
+class FriendRequestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

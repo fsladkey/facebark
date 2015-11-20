@@ -32,7 +32,6 @@ column name    | data type | details
 id             | integer   | not null, primary key
 user_id        | integer   | not null, foreign key (references users), indexed
 friend_id      | integer   | not null, foreign key (references users), indexed
-accepted       | boolean   | not null, default: false
 
 ## friendship
 column name    | data type | details

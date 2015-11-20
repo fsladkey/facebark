@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  email           :string           not null
+#  firstname       :string           not null
+#  lastname        :string           not null
+#  birthday        :date             not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  gender          :string
+#  photo_id        :integer
+#
+
 class User < ActiveRecord::Base
   attr_reader :password
 
@@ -32,6 +50,34 @@ class User < ActiveRecord::Base
 
     has_many :albums
     has_many :posts
+
+    has_many(
+      :friend_requests,
+      class_name: "FriendRequest",
+      foreign_key: :friend_id,
+      primary_key: :id
+      )
+
+    has_many(
+      :requested_friends,
+      class_name: "FriendRequest",
+      foreign_key: :user_id,
+      primary_key: :id
+      )
+
+
+    has_many(
+      :friendships,
+      class_name: "Friendship",
+      foreign_key: :user_id,
+      primary_key: :id
+      )
+
+    has_many(
+      :friends,
+      through: :friendships,
+      source: :friend
+      )
 
     def self.find_by_credentials(username, password)
       user = User.find_by(username: username)

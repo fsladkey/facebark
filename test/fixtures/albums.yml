@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: albums
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  permanent  :boolean          default(FALSE)
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
