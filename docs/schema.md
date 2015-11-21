@@ -12,6 +12,7 @@ password_digest | string    | not null
 birthday        | date      | not null
 session_token   | string    | not null, indexed, unique
 gender          | string    | not null
+photo_id        | integer   | (default photo created when user signs up)
 
 
 
@@ -22,8 +23,8 @@ id           | integer   | not null, primary key
 user_id      | integer   | not null, foreign key (references users), indexed
 breed        | string    |
 hometown     | string    |
-gender       | string    |
 bio          | text      |
+photo_id     | integer   | (default photo created when user signs up)
 
 
 ## friend_request
@@ -53,7 +54,8 @@ profile_id  | integer   | not null, foreign key (references profiles), indexed
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-author_id       | integer   | not null, foreign key (references users), indexed
+user_id         | integer   | not null, foreign key (references users), indexed
+body            | string    | not null
 commentable_id  | integer   | not null, foreign key (references commentable), indexed
 commentable_type| string    | not null, foreign key (references commentable), indexed
 
@@ -66,13 +68,20 @@ user_id         | integer   | not null, foreign key (references users), indexed
 likeable_id     | integer   | not null, foreign key (references likeable), indexed
 likeable_type   | string    | not null, foreign key (references likeable), indexed
 
+## albums
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+user_id         | integer   | not null, foreign key
+title           | string    | not null
+permanent       | boolean   | not null (some albums cannot be removed like profile pictures etc)
+
 ## photos
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-attachment      | file      | not null
-imageable_id    | integer   | not null, foreign key (references imageable), indexed
-imageable_type  | string    | not null, foreign key (references imageable), indexed
+album_id        | integer   | not null foreign key, indexed
+image           | paperclip | (default picture supplied)
 
 ## notifications
 column name     | data type | details

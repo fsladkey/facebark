@@ -9,7 +9,6 @@ var FriendRequest = React.createClass({
   },
 
   render: function () {
-    debugger
     var friend = (
       <ReactRouter.Link onClick={this.props.toggleDetail} to={this.props.friendRequest.profile_url}>
         {this.props.friendRequest.potential_friend}

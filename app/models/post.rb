@@ -13,6 +13,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :profile
+  has_many :comments, as: :commentable
 
   def self.friends_posts(user_id)
     Post.where("user_id IN ?", User.find(user_id).friends.select(:id).to_sql)
