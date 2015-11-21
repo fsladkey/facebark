@@ -88,9 +88,9 @@ class User < ActiveRecord::Base
     def self.find_by_search_string(search_string)
       search_string.downcase!
       User.where(<<-SQL
-        LOWER( username ) LIKE '#{search_string}%' OR
-        LOWER( firstname ) LIKE '#{search_string}%' OR
-        LOWER( lastname ) LIKE '#{search_string}%'
+        LOWER( username ) LIKE '%#{search_string}%' OR
+        LOWER( firstname ) LIKE '%#{search_string}%' OR
+        LOWER( lastname ) LIKE '%#{search_string}%'
       SQL
       )
     end
