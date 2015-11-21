@@ -13,12 +13,12 @@ and React.js. Facebark allows users to:
 - [√] Log in / Log out
 - [√] Create, and edit a profile
 - [√] Search for other users
-- [√ ] Upload a profile picture and cover photo to their profile
+- [√] Upload a profile picture and cover photo to their profile
 - [√] keep albums of uploaded photos
-- [ ] Make posts on their profile and the profile of their friends
-- [ ] Add friends and view content of their profiles
-- [ ] Approve or deny friend requests
-- [ ] View all friends recent posts in a "feed"
+- [√] Make posts on their profile and the profile of their friends
+- [√] Add friends and view content of their profiles
+- [√] Approve or deny friend requests
+- [√] View all friends recent posts in a "feed"
 - [ ] Comment on any visible post
 - [ ] "Like" (or lick) a post or comment.
 - [ ] Comment on and like photos.
@@ -84,7 +84,6 @@ Add any additional eye candy that was put off from earlier, create a non trivial
 
 ### Bonus Features (TBD)
 - [ ] Make messaging real time with pusher or other tool.
-- [ ] Add comments to profile pictures
 - [ ] infinite scroll feed
 - [ ] Multiple sessions
 - [ ] auto-updating notifications (no refreshing the page)
