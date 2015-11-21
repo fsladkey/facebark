@@ -48,24 +48,41 @@
 
 
 div.about-bio {
-  float: left;
   padding: 10px;
 }
 
 div.about-bio h3 {
+  display: block;
   float: left;
   padding: 10px;
 }
 
 div.about-bio textarea {
+  margin-top: 9px;
+  display: block;
+  float: left;
   resize: none;
-  margin-top: 10px;
+  margin-top: 9px;
   border: 1px solid grey;
-  width: 200px;
+  width: 300px;
   height: 60px;
+}
+
+.about-bio p {
+  display: block;
+  float: left;
+  margin-top: 9px;
+  border: 1px solid white;
 }
 
 div.about-bio button {
   float: right;
-  padding: 10px;
+  padding: 7px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+div.about-bio button:hover {
+  background: #4C67A1;
 }
