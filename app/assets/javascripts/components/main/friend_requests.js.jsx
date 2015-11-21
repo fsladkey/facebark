@@ -21,7 +21,7 @@ var FriendRequests = React.createClass({
             </li>
             {
               friend_requests.map(function(friendRequest) {
-                return <FriendRequest key={friendRequest.id} friendRequest={friendRequest}/>;
+                return <FriendRequest key={friendRequest.id} toggleDetail={this.toggleDetail} friendRequest={friendRequest}/>;
               }, this)
             }
           </ul>

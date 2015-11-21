@@ -21,6 +21,10 @@ var SearchBar = React.createClass({
     UserStore.on("change", this._change);
   },
 
+  toggleFocus: function () {
+    this.setState({focused: !this.state.focused});
+  },
+
   render: function() {
     var detailComponent;
 
@@ -38,7 +42,7 @@ var SearchBar = React.createClass({
           placeholder="Search Facebark"
           value={this.state.searchString}
           />
-        <button className="search-button">🔍</button>
+        <button onClick={this.toggleFocus} className="search-button">🔍</button>
         {detailComponent}
       </div>
     );
