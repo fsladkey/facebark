@@ -160,6 +160,7 @@
 .post-form {
   border: 1px solid lightgrey;
   /*height: 100px;*/
+  background: white;
 }
 
 .post-form textarea {
@@ -170,6 +171,7 @@
 .post-list li {
   margin-top: 20px;
   border: 1px solid lightgrey;
+  background: white;
 }
 
 .post-list li h3 {

@@ -18,7 +18,7 @@ var App = React.createClass({
   render: function(){
     if (this.state.currentUser) {
       return (
-          <div>
+          <div className="main-layout">
             <Main/>
             {
               React.Children.map(this.props.children,function (child) {
@@ -29,9 +29,7 @@ var App = React.createClass({
       );
     } else {
       return (
-          <div>
-            <LandingPage/>
-          </div>
+          <LandingPage/>
       );
     }
   },
