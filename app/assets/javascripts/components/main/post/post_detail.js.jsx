@@ -17,8 +17,32 @@ var PostDetail = React.createClass({
     }
     return (
       <li>
-      {heading}
-      <p>{this.props.post.body}</p>
+        <div className="group">
+          <img className="profile_thumbnail" src={post.poster_photo_url}/>
+          <div classNam="post-content group">
+            {heading}
+            <p>{this.props.post.body}</p>
+          </div>
+        </div>
+        <div className="like-form">
+        </div>
+
+        <div className="like-info">
+        </div>
+
+        <div className="comment-list">
+          <ul>
+          {
+            post.comments.map(function(comment) {
+              return <CommentDetail key={comment.id} comment={comment}/>;
+            }, this)
+          }
+          </ul>
+        </div>
+
+        <div className="comment-form group">
+          <CommentForm post={this.props.post}/>
+        </div>
       </li>
     );
   }

@@ -13,7 +13,7 @@ var Friends = React.createClass({
           <ul className="group">
             {
               friends.map(function(friend) {
-                return <Friend friend={friend}/>;
+                return <Friend key={friend.id} friend={friend}/>;
               })
             }
           </ul>
