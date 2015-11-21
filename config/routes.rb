@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :index]
     resources :friend_requests, only: [:create, :update, :destroy]
     resources :feed, only: [:index]
+    resources :comments, only: [:create, :update, :destroy]
+    resources :licks, only: [:create, :destroy]
   end
 end

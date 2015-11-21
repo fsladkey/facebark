@@ -5,7 +5,7 @@ var FeedPosts = React.createClass({
       <ul className="post-list">
         {
           this.props.posts.map(function(post) {
-            return <PostDetail post={post} key={post.id}/>;
+            return <PostDetail postType="feed" post={post} key={post.id}/>;
           })
         }
       </ul>

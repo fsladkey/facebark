@@ -246,7 +246,7 @@
   float: left;
 }
 
-textarea.comment-input {
+input.comment-input {
   box-sizing: border-box;
   resize: none;
   display: block;

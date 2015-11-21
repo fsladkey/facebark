@@ -41,7 +41,10 @@ var PostDetail = React.createClass({
         </div>
 
         <div className="comment-form group">
-          <CommentForm post={this.props.post}/>
+          <CommentForm
+            postType={this.props.postType}
+            postCallback={this.postCallback}
+            post={this.props.post}/>
         </div>
       </li>
     );

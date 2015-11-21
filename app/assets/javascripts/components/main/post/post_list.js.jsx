@@ -22,8 +22,8 @@ var PostList = React.createClass({
       <ul className="post-list">
         {
           this.state.posts.map(function(post) {
-            return <PostDetail post={post} key={post.id}/>;
-          })
+            return <PostDetail postType={this.props.postType} post={post} key={post.id}/>;
+          }, this)
         }
       </ul>
     );

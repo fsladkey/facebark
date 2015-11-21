@@ -3,7 +3,6 @@
   var FeedApiUtil = root.FeedApiUtil = {
 
     fetchPosts: function(userId) {
-      console.log("feed api");
       $.ajax({
         url: "api/feed/",
         type: 'GET',

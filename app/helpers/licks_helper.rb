@@ -1,0 +1,2 @@
+module LicksHelper
+end

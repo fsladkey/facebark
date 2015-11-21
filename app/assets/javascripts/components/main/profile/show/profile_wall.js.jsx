@@ -4,7 +4,7 @@ var ProfileWall = React.createClass({
     return (
       <div className="profile-wall group">
         <PostForm currentUser={this.props.currentUser} profile={this.props.profile}/>
-        <PostList profile={this.props.profile}/>
+        <PostList postType={"profile"} profile={this.props.profile}/>
       </div>
     );
   }
