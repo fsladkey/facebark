@@ -39,4 +39,5 @@ var App = React.createClass({
   _change: function() {
     this.setState({currentUser: SessionStore.currentUser()});
   }
+
 });

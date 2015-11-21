@@ -17,7 +17,7 @@ var SearchBar = React.createClass({
     this.setState({focused: false, users: null, searchString: ""});
   },
 
-  componentWillMount: function () {
+  componentDidMount: function () {
     UserStore.on("change", this._change);
   },
 

@@ -1,31 +1,19 @@
 var ProfileShow = React.createClass({
 
-  getInitialState: function() {
-    return {user: UserStore.user()};
-  },
-
-  componentDidMount: function() {
-    var username = this.props.params.username;
-    UserStore.on("change", this._change);
-    if (username) {
-      UserApiUtil.fetchUser(username);
-    }
-  },
-
   componentWillReceiveProps: function(newProps) {
-    UserApiUtil.fetchUser(newProps.params.username);
+    this.forceUpdate();
   },
 
   render: function() {
-    if (this.state.user) {
+    if (this.props.user) {
       return (
         <div>
           <div className="profile-left group">
-            <ProfileInfo user={this.state.user}/>
+            <ProfileInfo user={this.props.user}/>
           </div>
 
           <div className="profile-right group">
-            <ProfileWall currentUser={this.props.currentUser} profile={this.state.user.profile}/>
+            <ProfileWall currentUser={this.props.currentUser} profile={this.props.user.profile}/>
           </div>
         </div>
       );
@@ -33,9 +21,5 @@ var ProfileShow = React.createClass({
       return <div></div>;
     }
   },
-
-  _change: function() {
-    this.setState({user: UserStore.user()});
-  }
 
 });

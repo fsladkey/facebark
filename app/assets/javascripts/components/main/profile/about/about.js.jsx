@@ -1,23 +1,7 @@
 var About = React.createClass({
 
   getInitialState: function() {
-    return {user: UserStore.user(), content: "Info"};
-  },
-
-  componentDidMount: function() {
-    UserStore.on("change", this._change);
-    var username = this.props.params.username;
-    if (username && !(UserStore.user())) {
-      UserApiUtil.fetchUser(username);
-    }
-  },
-  
-  componentWillUnmount: function() {
-    UserStore.removeListener("change", this._change);
-  },
-
-  componentWillReceiveProps: function(newProps) {
-    UserApiUtil.fetchUser(newProps.params.username);
+    return {content: "Info"};
   },
 
   handleClick: function (e) {
@@ -27,9 +11,9 @@ var About = React.createClass({
   render: function() {
     var content;
     if (this.state.content === "Info") {
-      content = <ProfileInfo user={this.state.user}/>;
+      content = <ProfileInfo user={this.props.user}/>;
     } else {
-      content = <ProfileBio user={this.state.user}/>;
+      content = <ProfileBio user={this.props.user}/>;
     }
       return (
         <div className="about">
@@ -49,9 +33,5 @@ var About = React.createClass({
         </div>
       );
   },
-
-  _change: function() {
-    this.setState({user: UserStore.user()});
-  }
 
 });

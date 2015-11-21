@@ -13,7 +13,7 @@ var Feed = React.createClass({
   componentWillUnmount: function () {
     PostStore.removeListener("change", this._change);
   },
-
+  
   componentWillReceiveProps: function (newProps) {
     FeedApiUtil.fetchPosts(newProps.currentUser.id);
   },

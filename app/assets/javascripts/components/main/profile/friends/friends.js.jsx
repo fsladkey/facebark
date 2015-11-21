@@ -1,29 +1,12 @@
 var Friends = React.createClass({
 
-  getInitialState: function() {
-    return {user: UserStore.user()};
-  },
-
-  componentDidMount: function() {
-    var username = this.props.params.username;
-    UserStore.on("change", this._change);
-    if (username) {
-      UserApiUtil.fetchUser(username);
-    }
-  },
-
-  componentWillReceiveProps: function(newProps) {
-    UserApiUtil.fetchUser(newProps.params.username);
-  },
-
-
   render: function() {
-    if (this.state.user) {
-      var friends = this.state.user.friends;
+    if (this.props.user) {
+      var friends = this.props.user.friends;
       return (
         <div className="friends group">
 
-          <ReactRouter.Link to={"/" + this.state.user.username + "/friends"}>
+          <ReactRouter.Link to={"/" + this.props.user.username + "/friends"}>
             <h1>Friends</h1>
           </ReactRouter.Link>
 
@@ -42,9 +25,5 @@ var Friends = React.createClass({
       );
     }
   },
-
-  _change: function() {
-    this.setState({user: UserStore.user()});
-  }
 
 });

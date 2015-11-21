@@ -23,7 +23,10 @@ var Profile = React.createClass({
         <div className="page-content">
           {
             React.Children.map(this.props.children,function (child) {
-              return React.cloneElement(child, {currentUser: this.props.currentUser});
+              return React.cloneElement(
+                child, {currentUser: this.props.currentUser,
+                user: this.state.user
+              });
             }, this)
           }
         </div>
