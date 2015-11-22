@@ -5,7 +5,7 @@ var PostDetail = React.createClass({
   },
 
   focusComment: function () {
-    this.setState({focused: true});
+    this.setState({focused: !this.state.focused});
   },
 
   render: function () {
@@ -64,7 +64,8 @@ var PostDetail = React.createClass({
 
         <div className="comment-form group">
           <CommentForm
-          focused={this.state.focused}
+            focused={this.state.focused}
+            focusComment={this.focusComment}
             postType={this.props.postType}
             post={post}/>
         </div>

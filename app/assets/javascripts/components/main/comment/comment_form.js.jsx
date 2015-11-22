@@ -17,6 +17,7 @@ var CommentForm = React.createClass({
   componentDidUpdate: function () {
     if (this.props.focused) {
       this.refs.commentInput.getDOMNode().focus();
+      this.props.focusComment();
     }
   },
 
