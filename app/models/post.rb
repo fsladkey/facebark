@@ -16,6 +16,11 @@ class Post < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :licks, as: :lickable
 
+  def licked_by?(user)
+    lick = user.licks.find_by(lickable_id: self.id, lickable_type: "Post")
+    return !!lick
+  end
+
   def self.friends_posts(user_id)
     Post.where("user_id IN ?", User.find(user_id).friends.select(:id).to_sql)
 

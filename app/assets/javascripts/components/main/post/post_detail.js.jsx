@@ -1,11 +1,7 @@
 var PostDetail = React.createClass({
 
-  handleLick: function () {
-
-  },
-
   focusComment: function () {
-
+    //use a ref?
   },
 
   render: function () {
@@ -41,8 +37,10 @@ var PostDetail = React.createClass({
           </div>
         </div>
         <div className="lick-form">
-          <button onClick={this.handleLick}>Lick</button>
-          <button onClick={this.focusComment}>Comment</button>
+          <LickForm
+            post={this.props.post}
+            postType={this.props.postType}
+            />
         </div>
 
         <div className="lick-info">
