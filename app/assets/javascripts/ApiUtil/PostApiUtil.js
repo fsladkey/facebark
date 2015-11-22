@@ -26,8 +26,9 @@
 
     lickPost: function(postId, postType) {
       $.ajax({
-        url: "api/posts/" + postId + "lick",
+        url: "api/posts/" + postId + "/lick",
         type: 'POST',
+        data: {post_type: postType},
         success: function(posts) {
           PostActions.recievePosts(posts);
         }
@@ -36,7 +37,7 @@
 
     unlickPost: function(postId, postType) {
       $.ajax({
-        url: "api/posts/" + postId + "unlick",
+        url: "api/posts/" + postId + "/unlick",
         type: 'DELETE',
         data: {post_type: postType},
         success: function(posts) {

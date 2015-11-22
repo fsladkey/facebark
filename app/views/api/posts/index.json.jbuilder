@@ -6,7 +6,7 @@ json.array! @posts do |post|
   json.postee post.profile.user
 
   json.num_licks post.licks.count
-  json.liked post.licked_by?(current_user)
+  json.licked post.licked_by?(current_user)
 
   json.licks post.licks do |lick|
     json.author_name "#{lick.user.firstname} #{lick.user.lastname}"

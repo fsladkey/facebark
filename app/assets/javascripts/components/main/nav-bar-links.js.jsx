@@ -15,7 +15,7 @@ var NavBarLinks = React.createClass({
 
           <ReactRouter.Link to={"/" + this.props.currentUser.username}>
             <button className="group">
-              <img src="/fbtemplogo.png" alt="rss feed" />
+              <img src="/fbtemplogo.png"/>
               <span>{this.props.currentUser.firstname}</span>
             </button>
           </ReactRouter.Link>

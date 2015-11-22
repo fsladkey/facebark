@@ -1,7 +1,11 @@
 var PostDetail = React.createClass({
 
+  getInitialState: function () {
+    return {focused: false};
+  },
+
   focusComment: function () {
-    //use a ref?
+    this.setState({focused: true});
   },
 
   render: function () {
@@ -38,6 +42,7 @@ var PostDetail = React.createClass({
         </div>
         <div className="lick-form">
           <LickForm
+            focusComment={this.focusComment}
             post={this.props.post}
             postType={this.props.postType}
             />
@@ -59,6 +64,7 @@ var PostDetail = React.createClass({
 
         <div className="comment-form group">
           <CommentForm
+          focused={this.state.focused}
             postType={this.props.postType}
             post={post}/>
         </div>

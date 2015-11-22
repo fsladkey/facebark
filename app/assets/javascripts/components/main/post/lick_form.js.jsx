@@ -12,19 +12,24 @@ var LickForm = React.createClass({
     PostApiUtil.unlickPost(this.props.post.id, this.props.postType);
   },
 
+  focusComment: function() {
+    this.props.focusComment();
+  },
+
   render: function () {
-    if (post.licked) {
+    console.log(this.props.postType);
+    if (this.props.post.licked) {
       return (
         <div>
-          <button className="post-licked" onClick={this.unlick}>Licked</button>
-          <button onClick={this.focusComment}>Comment</button>
+          <button className="post-licked" onClick={this.unlick}><img src="lick.png"/>Licked</button>
+          <button onClick={this.focusComment}><img src="comment.png"/>Comment</button>
         </div>
       );
     } else {
       return (
       <div>
-        <button onClick={this.lick}>Lick</button>
-        <button onClick={this.focusComment}>Comment</button>
+        <button onClick={this.lick}><img src="unlick.png"/>Lick</button>
+        <button onClick={this.focusComment}><img src="comment.png"/>Comment</button>
       </div>
       );
     }

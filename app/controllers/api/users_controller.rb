@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
 
   def show
     # swap out find_by for where? equivelent?
-    @user = User.includes(:profile :albums).find_by(username: params[:id])
+    @user = User.includes(:profile, :albums).find_by(username: params[:id])
     render :show
   end
 

@@ -168,3 +168,36 @@ div.search-results {
 .search-result.item:hover {
   background: #EBEEF4;
 }
+
+
+.lick-form {
+  margin: 0 5px;
+  border-top: 1px solid lightgrey;
+  padding: 5px 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(127, 127, 127);
+}
+
+.lick-form button {
+  cursor: pointer;
+  padding: 5px 7px 0 4px;
+  margin: 0 2px;
+}
+
+.lick-form button:hover {
+  text-decoration: underline;
+}
+
+.lick-form img {
+  margin-right: 5px;
+}
+
+
+.lick-form button.post-licked {
+  color: rgb(88, 144, 255);
+}
+
+.focused {
+  
+}
