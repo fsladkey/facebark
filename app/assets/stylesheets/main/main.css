@@ -4,6 +4,7 @@ body {
 
 .nav-bar-full {
   position: fixed;
+  top: 0;
   width: 100%;
   background: linear-gradient(#4C67A1, #3C5A99);
   height: 42px;
@@ -53,7 +54,7 @@ body {
 
 .nav-user-profile-link {
   position: relative;
-  float: left;
+  float: right;
   margin-left: 100px;
   width: 300px;
 }

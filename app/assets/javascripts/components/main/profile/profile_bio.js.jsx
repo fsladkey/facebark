@@ -21,11 +21,12 @@ var ProfileBio = React.createClass({
   },
 
   render: function() {
+    debugger
     var formattedInfo, button;
 
     if (this.state.editing) {
 
-      if (SessionStore.currentUser.id === this.props.user.id) {
+      if (SessionStore.currentUser().id === this.props.user.id) {
         button = <button className="shown-button" onClick={this.handleSubmit}>Save</button>;
       }
 
@@ -40,7 +41,7 @@ var ProfileBio = React.createClass({
       );
     } else {
 
-      if (SessionStore.currentUser.id === this.props.user.id) {
+      if (SessionStore.currentUser().id === this.props.user.id) {
         button = <button onClick={this.toggleEdit}>Edit</button>;
       }
 

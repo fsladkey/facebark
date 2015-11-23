@@ -23,7 +23,7 @@ var ProfileHeader = React.createClass({
       }
 
       return (
-        <div className="profile-header">
+        <div className="profile-header group">
           <ProfileCoverPhoto user={user}/>
           <ProfilePhoto user={user}/>
           {button}

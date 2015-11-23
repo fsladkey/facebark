@@ -1,4 +1,41 @@
 .feed-page {
-  padding-top:20px;
+  float: left;
+  margin-top: 60px;
   width: 500px;
+}
+
+.feed-sidebar {
+  margin-top: 60px;
+  width: 200px;
+  float: left;
+}
+
+.feed-current-user-name {
+  margin-top: 5px;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.feed-thumbnail {
+  cursor: pointer;
+  display: block;
+  float: left;
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 0 3px 1px grey;
+}
+
+.feed-profile-link {
+  padding-bottom: 5px;
+  border-bottom: 1px solid lightgrey;
+  margin: 0 12px;
+}
+
+.feed-profile-link:hover {
+  background: rgb(246, 247, 248);
 }

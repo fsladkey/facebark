@@ -1,6 +1,7 @@
 $(function () {
 
 
+
   var root = document.getElementById('content');
   var Route = ReactRouter.Route;
   var Router = ReactRouter.Router;
@@ -23,5 +24,7 @@ $(function () {
       </Route>
     </div>
   );
+
   React.render(<Router>{routes}</Router>, root);
+
 });

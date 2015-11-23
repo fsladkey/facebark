@@ -18,7 +18,7 @@ var App = React.createClass({
   render: function(){
     if (this.state.currentUser) {
       return (
-        <div>
+        <div className="app">
           <Main/>
           <div className="main-layout">
             <div className="page-content">

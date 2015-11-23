@@ -1,6 +1,13 @@
+
 .profile-left {
   float: left;
   width: 322px;
+  /*margin-top: 70px;*/
+}
+
+.profile-right {
+  float: right;
+  /*margin-top: 70px;*/
 }
 
 .profile-info {
@@ -54,17 +61,15 @@
 .profile-header-name {
   font-size: 28px;
   position: absolute;
-  top: 200px;
+  top: 260px;
   left: 200px;
   color: white;
-  z-index: -1;
   text-shadow: 1px 1px 5px black;
 }
 
 .profile-header {
+  margin-top: 43px;
   position: relative;
-  width: 850px;
-  height: 305px;
   border-right: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
   border-radius: 0 0 5px 5px;
@@ -72,10 +77,14 @@
 
 .profile-cover-photo {
   position: relative;
-  width: 850px;
-  height: 252px;
+  width: 100%;
+  height: 315px;
   background: darkblue;
   z-index: -10;
+}
+
+.profile-cover-photo img {
+  height: 400px;
 }
 
 .profile-profile-photo {
@@ -91,6 +100,7 @@
 }
 
 .profile-header-links {
+  margin-top: -3px;
   background: white;
   border-bottom: 1px solid lightgrey;
 }
@@ -135,7 +145,7 @@
 
 .friend-button {
   position: absolute;
-  top: 200px;
+  top: 265px;
   right: 50px;
   background: black;
   color: rgb(78, 86, 101);
@@ -148,8 +158,8 @@
 
 .profile-photo-container {
   position: absolute;
-  margin-top: -120px;
-  margin-left: 20px;
+  top: 188px;
+  left: 20px;
 }
 
 .upload-profile-photo-button {
@@ -170,13 +180,13 @@
 
 .post-form {
   border: 1px solid lightgrey;
-  /*height: 100px;*/
   background: white;
 }
 
 .post-form textarea {
   resize: none;
   float: right;
+  width: 420px;
 }
 
 .post-list li {

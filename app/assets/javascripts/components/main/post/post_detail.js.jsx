@@ -8,6 +8,10 @@ var PostDetail = React.createClass({
     this.setState({focused: !this.state.focused});
   },
 
+  componentDidMount: function () {
+    jQuery("abbr.timeago").timeago();
+  },
+
   render: function () {
     var post = this.props.post,
         poster_name = post.poster.firstname + " " + post.poster.lastname,
@@ -38,6 +42,7 @@ var PostDetail = React.createClass({
           <div className="post-header group">
             <img className="profile_thumbnail" src={post.poster_photo_url}/>
             {heading}
+            <abbr className="timeago" title={post.time_created}></abbr>
           </div>
             <p className="post-content">{post.body}</p>
           </div>

@@ -20,11 +20,24 @@ var Feed = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="group">
+
+        <div className="feed-sidebar">
+          <div className="feed-profile-link">
+            <ReactRouter.Link to={"/" + this.props.currentUser.username}>
+              <button className="group">
+                <img className="feed-thumbnail" src={this.props.currentUser.profile_image_url}/>
+                <p className="feed-current-user-name">{this.props.currentUser.firstname + " " + this.props.currentUser.lastname}</p>
+              </button>
+            </ReactRouter.Link>
+          </div>
+        </div>
+
         <div className="feed-page">
           <PostForm profile={this.props.currentUser.profile} currentUser={this.props.currentUser}/>
           <FeedPosts posts={this.state.posts} currentUser={this.props.currentUser}/>
         </div>
+        
       </div>
     );
   },

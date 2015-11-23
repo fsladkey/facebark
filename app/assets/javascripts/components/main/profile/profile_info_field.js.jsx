@@ -50,8 +50,7 @@ var ProfileInfoField = React.createClass({
       formattedInfo = "⌂ " +
         this.props.fieldname +
         ": " +
-        this.props.fieldvalue +
-        ".";
+        this.props.fieldvalue;
       return (
         <li>
           {formattedInfo}

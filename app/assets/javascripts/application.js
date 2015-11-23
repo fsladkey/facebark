@@ -19,4 +19,5 @@
 //= require flux
 //= require eventemitter
 //= require react_router.js
+//= require jquery.timeago.js
 //= require_tree .
