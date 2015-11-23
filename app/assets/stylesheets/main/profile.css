@@ -230,7 +230,8 @@
 }
 
 .post-content {
-  float: left;
+  /*float: left;*/
+  background: orange;
   margin-left: 0;
 }
 

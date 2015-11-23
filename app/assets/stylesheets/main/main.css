@@ -204,6 +204,6 @@ div.search-results {
   color: rgb(88, 144, 255);
 }
 
-.focused {
-
+.lick-count {
+  font-size: 11px;
 }

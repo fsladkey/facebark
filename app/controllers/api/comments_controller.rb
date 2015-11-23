@@ -3,21 +3,18 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.create!(comment_params)
     find_posts
-    render "api/posts/index"
   end
 
   def update
     @comment = Comment.find(params[:id])
     @comment.update!(comment_params)
     find_posts
-    render "api/posts/index"
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy!
     find_posts
-    render "api/posts/index"
   end
 
 
@@ -33,6 +30,7 @@ class Api::CommentsController < ApplicationController
     else
       @posts = Post.friends_posts(current_user.id)
     end
+    render "api/posts/index"
   end
 
   def comment_params

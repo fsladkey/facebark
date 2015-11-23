@@ -20,8 +20,10 @@ and React.js. Facebark allows users to:
 - [√] Approve or deny friend requests
 - [√] View all friends recent posts in a "feed"
 - [√] Comment on any visible post
-- [ ] "Like" (or lick) a post or comment.
-- [ ] Comment on and like photos.
+- [√] "Like" (or lick) a posts.
+- [ ] "Like" (or lick) a comments.
+- [ ] Comment on photos.
+- [ ] "Like" photos.
 - [ ] Be notified when someone posts on, comments on, or likes their content.
 - [ ] Send messages to friends. Sending a message starts a conversation. Users should be notified when they are messaged.
 

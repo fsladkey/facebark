@@ -26,16 +26,16 @@ var PostDetail = React.createClass({
     }
 
     if (post.num_licks === 1) {
-      lickCount = post.licks[0].author_name + " licked this post.";
+      lickCount = <p className="lick-count">{post.licks[0].author_name + " licked this post."}</p>;
     }
     if (post.num_licks > 1) {
-      lickCount = post.num_licks + " dogs licked this post.";
+      lickCount = <p className="lick-count" >{post.num_licks + " dogs licked this post."}</p>;
     }
     return (
       <li>
         <div className="group">
-          <img className="profile_thumbnail" src={post.poster_photo_url}/>
           <div classNam="post-content group">
+          <img className="profile_thumbnail" src={post.poster_photo_url}/>
             {heading}
             <p>{post.body}</p>
           </div>

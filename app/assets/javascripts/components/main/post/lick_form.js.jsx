@@ -17,7 +17,6 @@ var LickForm = React.createClass({
   },
 
   render: function () {
-    console.log(this.props.postType);
     if (this.props.post.licked) {
       return (
         <div>

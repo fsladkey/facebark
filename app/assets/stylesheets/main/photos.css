@@ -79,7 +79,7 @@
 
 .photo-album-view {
   width: 180px;
-  height: 250px;
+  height: 180px;
   margin: 20px 0 0 20px;
   border: 1px solid lightgrey;
   float: left;
@@ -90,4 +90,57 @@
   padding: 10px;
   font-size: 18px;
   text-align: center;
+}
+
+
+.photo-detail-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: grey;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000
+}
+
+.photo-detail-content {
+  position: fixed;
+  background: white;
+  position: fixed;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.photo-detail-left {
+  float: left;
+  width: 60%;
+  height: 600px;
+  background-color: grey;
+  background: rgba(0,0,0,0.9);
+}
+.photo-detail-right {
+  float: right;
+  width: 400px;
+}
+
+.photo-detail-image {
+  display: block;
+  margin: auto;
+}
+
+.exit-button {
+  font-size: 16px;
+}
+
+.exit-button button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  float: right;
+  cursor: pointer;
+  color: #aaa;
 }
