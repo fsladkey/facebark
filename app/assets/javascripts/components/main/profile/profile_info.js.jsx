@@ -18,18 +18,22 @@ var ProfileInfo = React.createClass({
         <div className="profile-info">
           <ul>
             <ProfileInfoField
+              user={this.props.user}
               fieldname="Breed"       fieldvalue={this.props.user.profile.breed}
               updateCallback={this.updateProfileAttribute.bind(this, "breed")}
               />
             <ProfileInfoField
+              user={this.props.user}
               fieldname="Gender"       fieldvalue={this.props.user.gender}
               updateCallback={this.updateUserAttribute.bind(this, "gender")}
               />
             <ProfileInfoField
+              user={this.props.user}
               fieldname="Birthday"       fieldvalue={this.props.user.birthday}
               updateCallback={this.updateUserAttribute.bind(this, "birthday")}
               />
             <ProfileInfoField
+              user={this.props.user}
               fieldname="Hometown"       fieldvalue={this.props.user.profile.hometown}
               updateCallback={this.updateProfileAttribute.bind(this, "hometown")}
               />

@@ -32,10 +32,16 @@ var ProfileCoverPhoto = React.createClass({
 
 
   render: function() {
+    var input;
+
+    if (SessionStore.currentUser().id === this.props.user.id) {
+      input = <input className="upload-cover-photo-button" onChange={this.changeFile} type="file"/>;
+    }
+
     return (
       <div>
         <img className="profile-cover-photo" src={this.props.user.cover_image_url}/>
-        <input className="upload-cover-photo-button" onChange={this.changeFile} type="file"/>
+        {input}
       </div>
     );
   }

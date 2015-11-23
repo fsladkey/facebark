@@ -22,12 +22,16 @@ var ProfileInfoField = React.createClass({
   },
 
   render: function() {
-    var formattedInfo;
+    var formattedInfo,
+        button;
 
     if (this.state.editing) {
       formattedInfo = "⌂ " +
         this.props.fieldname +
         ": ";
+      if (SessionStore.currentUser().id === this.props.user.id) {
+        button = <button className="shown-button" onClick={this.handleSubmit}>Save</button>;
+      }
       return (
         <li>
         {formattedInfo}
@@ -36,10 +40,13 @@ var ProfileInfoField = React.createClass({
             value={this.state.fieldvalue}
             onChange={this.handleChange}
             />
-          <button className="shown-button" onClick={this.handleSubmit}>Save</button>
+          {button}
         </li>
       );
     } else {
+        if (SessionStore.currentUser().id === this.props.user.id) {
+          button = <button onClick={this.toggleEdit}>Edit</button>;
+        }
       formattedInfo = "⌂ " +
         this.props.fieldname +
         ": " +
@@ -48,7 +55,7 @@ var ProfileInfoField = React.createClass({
       return (
         <li>
           {formattedInfo}
-          <button onClick={this.toggleEdit}>Edit</button>
+          {button}
         </li>
       );
     }

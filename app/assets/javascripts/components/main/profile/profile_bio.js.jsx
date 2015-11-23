@@ -21,24 +21,34 @@ var ProfileBio = React.createClass({
   },
 
   render: function() {
-    var formattedInfo;
+    var formattedInfo, button;
 
     if (this.state.editing) {
+
+      if (SessionStore.currentUser.id === this.props.user.id) {
+        button = <button className="shown-button" onClick={this.handleSubmit}>Save</button>;
+      }
+
       return (
         <div className="about-bio">
           <h3>Bio: </h3>
             <textarea onChange={this.handleChange}
             >{this.state.bio}</textarea>
 
-            <button className="shown-button" onClick={this.handleSubmit}>Save</button>
+            {button}
           </div>
       );
     } else {
+
+      if (SessionStore.currentUser.id === this.props.user.id) {
+        button = <button onClick={this.toggleEdit}>Edit</button>;
+      }
+
       return (
       <div className="about-bio">
         <h3>Bio: </h3>
           <p>{this.state.bio}</p>
-          <button onClick={this.toggleEdit}>Edit</button>
+          {button}
         </div>
       );
     }
