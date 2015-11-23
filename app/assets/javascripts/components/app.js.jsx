@@ -18,14 +18,20 @@ var App = React.createClass({
   render: function(){
     if (this.state.currentUser) {
       return (
+        <div>
+          <Main/>
           <div className="main-layout">
-            <Main/>
-            {
-              React.Children.map(this.props.children,function (child) {
-                return React.cloneElement(child, {currentUser: this.state.currentUser});
-              }, this)
-            }
+            <div className="page-content">
+              {
+                React.Children.map(this.props.children,function (child) {
+                  return React.cloneElement(child, {currentUser: this.state.currentUser});
+                }, this)
+              }
+            </div>
+            <div className="side-bar">
+            </div>
           </div>
+        </div>
       );
     } else {
       return (

@@ -34,10 +34,12 @@ var PostDetail = React.createClass({
     return (
       <li>
         <div className="group">
-          <div classNam="post-content group">
-          <img className="profile_thumbnail" src={post.poster_photo_url}/>
+          <div className="">
+          <div className="post-header group">
+            <img className="profile_thumbnail" src={post.poster_photo_url}/>
             {heading}
-            <p>{post.body}</p>
+          </div>
+            <p className="post-content">{post.body}</p>
           </div>
         </div>
         <div className="lick-form">

@@ -15,7 +15,7 @@ var NavBarLinks = React.createClass({
 
           <ReactRouter.Link to={"/" + this.props.currentUser.username}>
             <button className="group">
-              <img className="nav-thumbnail"src={this.props.currentUser.profile_image_url}/>
+              <img className="nav-thumbnail" src={this.props.currentUser.profile_image_url}/>
               <span>{this.props.currentUser.firstname}</span>
             </button>
           </ReactRouter.Link>

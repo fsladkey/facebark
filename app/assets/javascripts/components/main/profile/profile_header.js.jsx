@@ -1,32 +1,37 @@
 var ProfileHeader = React.createClass({
 
   friend: function () {
-    
+    FriendRequestApiUtil.requestFriendship(this.props.user.id);
   },
 
   unfriend: function () {
-
+    FriendRequestApiUtil.unfriend(this.props.user.id);
   },
 
   render: function() {
-    var button;
-    if (user.is_friend) {
-      button = <button onClick={this.unfriend} className="friend-button">Unfriend</button>;
-    } else {
-      button = <button onClick={this.friend} className="friend-button">Friend</button>;
-    }
+    var user = this.props.user;
+    if (user) {
+      var button;
 
-    if (this.props.user) {
+      if (user.isFriend) {
+        button = <button onClick={this.unfriend} className="friend-button">Unfriend</button>;
+      } else if (user.friendshipRequested){
+        button = <button className="friend-button">Pending</button>;
+      } else if (user.id === SessionStore.currentUser().id) {
+      } else {
+        button = <button onClick={this.friend} className="friend-button">Friend</button>;
+      }
+
       return (
         <div className="profile-header">
-          <ProfileCoverPhoto user={this.props.user}/>
-          <ProfilePhoto user={this.props.user}/>
+          <ProfileCoverPhoto user={user}/>
+          <ProfilePhoto user={user}/>
           {button}
           <h2
             className="profile-header-name"
-            >{this.props.user.firstname + " " + this.props.user.lastname}
+            >{user.firstname + " " + user.lastname}
             </h2>
-          <ProfileHeaderLinks user={this.props.user}/>
+          <ProfileHeaderLinks user={user}/>
         </div>
       );
     } else {

@@ -2,14 +2,24 @@
 
   var FriendRequestApiUtil = root.FriendRequestApiUtil = {
 
-    requestFriendship: function(freindId) {
-      /// is this what I'm sending?
+    requestFriendship: function(friendId) {
       var params = {friend_request: {friend_id: friendId}};
       $.ajax({
-        url: "/api/friend_requests/" + requestId,
+        url: "/api/friend_requests/",
         type: 'POST',
         data: params,
         success: function(friend_request) {
+          SessionApiUtil.fetchCurrentUser();
+        }
+      });
+    },
+
+    unfriend: function (friendId) {
+      $.ajax({
+        url: "/api/friendships/" + friendId,
+        type: 'DELETE',
+        success: function() {
+          // can also return current user and recieve current user here?
           SessionApiUtil.fetchCurrentUser();
         }
       });

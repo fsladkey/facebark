@@ -36,7 +36,7 @@ var SearchBar = React.createClass({
       detailComponent = <div></div>;
     }
     return (
-      <div className="search-bar">
+      <div className="search-bar group">
         <input
           onChange={this.handleChange}
           placeholder="Search Facebark"

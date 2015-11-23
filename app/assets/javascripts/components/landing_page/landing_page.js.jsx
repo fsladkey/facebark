@@ -1,23 +1,19 @@
 var LandingPage = React.createClass({
 
-  componentDidMount: function() {
-    SessionStore.on("change", this._change);
-  },
-
   render: function(){
     return (
-      <div className="landing-page group">
-        <LandingPageHeader/>
-        <SignUpForm/>
+      <div className="landing-page">
+
+        <div className="full-header">
+          <LandingPageHeader/>
+        </div>
+
+        <div className="landing-page-content group">
+          <SignUpForm/>
+        </div>
+
       </div>
     );
-  },
-
-  _change: function() {
-    var currentUser = SessionStore.currentUser();
   }
 
 });
-
-
-//        <GuestUserSignIn/>

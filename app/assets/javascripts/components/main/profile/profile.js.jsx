@@ -20,7 +20,7 @@ var Profile = React.createClass({
     return (
       <div className="profile-page group">
         <ProfileHeader user={this.state.user}/>
-        <div className="page-content">
+        <div>
           {
             React.Children.map(this.props.children,function (child) {
               return React.cloneElement(

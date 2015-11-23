@@ -116,8 +116,16 @@ class User < ActiveRecord::Base
     end
 
     def is_friend?(user_id)
-      friends = self.friends.where(id: user_id)
-      friends.length > 0;
+      !!self.friends.find_by(id: user_id)
+    end
+
+    def friendship_requested?(user_id)
+      !!self.requested_friends.find_by(friend_id: user_id)
+    end
+
+    def unfriend(user_id)
+      self.friendships.find_by(friend_id: user_id).destroy!
+      User.find(user_id).friendships.find_by(friend_id: self.id).destroy!
     end
 
     def password=(password)

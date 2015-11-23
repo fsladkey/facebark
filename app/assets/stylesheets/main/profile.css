@@ -63,8 +63,6 @@
 
 .profile-header {
   position: relative;
-  margin-left: 262px;
-  top: 42px;
   width: 850px;
   height: 305px;
   border-right: 1px solid lightgrey;
@@ -133,6 +131,19 @@
   top: 5px;
   left: 5px;
   z-index: 50;
+}
+
+.friend-button {
+  position: absolute;
+  top: 200px;
+  right: 50px;
+  background: black;
+  color: rgb(78, 86, 101);
+  font-size: 12px;
+  font-weight: bold;
+  background: white;
+  border: 1px solid black;
+  padding: 5px 10px;
 }
 
 .profile-photo-container {
@@ -230,18 +241,19 @@
 }
 
 .post-content {
-  /*float: left;*/
-  background: orange;
+  float: left;
   margin-left: 0;
 }
 
+.post-header {
+}
 
 .comment-detail {
-
+  background-color: green;
 }
 
 .comment-detail p {
-  float: left;
+  /*float: left;*/
 }
 
 input.comment-input {

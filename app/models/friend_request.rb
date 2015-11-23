@@ -11,7 +11,7 @@
 #
 
 class FriendRequest < ActiveRecord::Base
-  validates :user_id, :friend_id, presence: true
+  validates :user, :friend, presence: true
 
   belongs_to :user
 

@@ -38,8 +38,8 @@ var LogInForm = React.createClass({
           </div>
             <button onClick={this.handleSubmit} className="log-in-button" type="submit">Log In</button>
         <div className="guest-user-buttons">
-          <button onClick={this.logInAsBailey} className="log-in-button" type="button">Log in as Bailey</button>
-          <button onClick={this.logInAsUlysses} className="log-in-button" type="button">Log in as Ulysses</button>
+          <button onClick={this.logInAsBailey} className="guest-user-button" type="button">Log in as Bailey</button>
+          <button onClick={this.logInAsUlysses} className="guest-user-button" type="button">Log in as Ulysses</button>
         </div>
         </form>
       </div>
