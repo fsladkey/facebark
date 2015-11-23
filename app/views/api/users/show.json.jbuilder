@@ -1,6 +1,7 @@
 json.extract! @user, :id, :username, :email, :firstname, :lastname, :birthday, :gender, :profile
 json.profile_image_url asset_path(@user.profile_picture.image.url)
 json.cover_image_url asset_path(@user.profile.cover_photo.image.url)
+json.is_friend @user.is_friend?(current_user.id)
 
 json.friend_requests @user.friend_requests do |friend_request|
   json.id friend_request.id

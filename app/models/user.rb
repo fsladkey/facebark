@@ -115,6 +115,11 @@ class User < ActiveRecord::Base
       Photo.find(self.photo_id)
     end
 
+    def is_friend?(user_id)
+      friends = self.friends.where(id: user_id)
+      friends.length > 0;
+    end
+
     def password=(password)
       @password = password
       self.password_digest = BCrypt::Password.create(password)

@@ -5,18 +5,18 @@ class Api::CommentsController < ApplicationController
     find_posts
   end
 
-  def update
-    @comment = Comment.find(params[:id])
-    @comment.update!(comment_params)
-    find_posts
-  end
+  #not currently in use
+  # def update
+  #   @comment = Comment.find(params[:id])
+  #   @comment.update!(comment_params)
+  #   find_posts
+  # end
 
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy!
-    find_posts
-  end
-
+  # def destroy
+  #   @comment = Comment.find(params[:id])
+  #   @comment.destroy!
+  #   find_posts
+  # end
 
   private
 

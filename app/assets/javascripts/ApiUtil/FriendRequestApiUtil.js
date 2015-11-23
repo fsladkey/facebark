@@ -9,7 +9,7 @@
         url: "/api/friend_requests/" + requestId,
         type: 'POST',
         data: params,
-        success: function(photo) {
+        success: function(friend_request) {
           SessionApiUtil.fetchCurrentUser();
         }
       });
