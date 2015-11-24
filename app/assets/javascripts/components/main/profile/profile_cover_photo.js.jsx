@@ -1,7 +1,7 @@
 var ProfileCoverPhoto = React.createClass({
 
   getInitialState: function () {
-    return {file: null, focused: false};
+    return {file: null};
   },
 
   changeFile: function(e) {
@@ -30,11 +30,7 @@ var ProfileCoverPhoto = React.createClass({
   },
 
   showDetail: function () {
-    this.setState({focused: true});
-  },
-
-  hideDetail: function () {
-    this.setState({focused: false});
+    PhotoApiUtil.showPhoto(this.props.user.profile.photo_id, ModalActions.showModal());
   },
 
 
