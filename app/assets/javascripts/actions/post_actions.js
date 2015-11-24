@@ -5,5 +5,12 @@ var PostActions = {
         actionType: PostConstants.RECIEVE_POSTS,
         posts: posts
     });
+  },
+
+  recieveComment: function (comment) {
+    AppDispatcher.dispatch({
+        actionType: PostConstants.RECIEVE_COMMENT,
+        comment: comment
+    });
   }
 };

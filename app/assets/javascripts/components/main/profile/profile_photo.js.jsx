@@ -1,7 +1,7 @@
 var ProfilePhoto = React.createClass({
 
   getInitialState: function () {
-    return {file: null};
+    return {file: null, focused: false};
   },
 
   changeFile: function(e) {
@@ -29,8 +29,22 @@ var ProfilePhoto = React.createClass({
     PhotoApiUtil.createPhoto(formData, this.afterUpload);
   },
 
+  showDetail: function () {
+    this.setState({focused: true});
+  },
+
+  hideDetail: function () {
+  this.setState({focused: false});
+  },
 
   render: function() {
+    var detail;
+    if (this.state.focused) {
+      detail = <PhotoDetail
+        hideDetail={this.hideDetail}
+        photo={this.props.user.profile_image}/>;
+    }
+
     var input;
 
     if (SessionStore.currentUser().id === this.props.user.id) {
@@ -39,8 +53,9 @@ var ProfilePhoto = React.createClass({
 
     return (
       <div className="profile-photo-container">
-        <img className="profile-profile-photo" src={this.props.user.profile_image_url}/>
+        <img onClick={this.showDetail} className="profile-profile-photo" src={this.props.user.profile_image.image_url}/>
         {input}
+        {detail}
       </div>
     );
   }

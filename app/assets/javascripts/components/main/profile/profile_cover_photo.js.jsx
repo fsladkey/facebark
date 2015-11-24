@@ -1,7 +1,7 @@
 var ProfileCoverPhoto = React.createClass({
 
   getInitialState: function () {
-    return {file: null};
+    return {file: null, focused: false};
   },
 
   changeFile: function(e) {
@@ -29,10 +29,25 @@ var ProfileCoverPhoto = React.createClass({
     PhotoApiUtil.createPhoto(formData, this.afterUpload);
   },
 
+  showDetail: function () {
+    this.setState({focused: true});
+  },
+
+  hideDetail: function () {
+    this.setState({focused: false});
+  },
 
 
   render: function() {
-    var input;
+    var detail,
+        input;
+
+    if (this.state.focused) {
+      detail = <PhotoDetail
+        hideDetail={this.hideDetail}
+        photo={this.props.user.cover_image}/>;
+    }
+
 
     if (SessionStore.currentUser().id === this.props.user.id) {
       input = <input className="upload-cover-photo-button" onChange={this.changeFile} type="file"/>;
@@ -40,8 +55,9 @@ var ProfileCoverPhoto = React.createClass({
 
     return (
       <div>
-        <img className="profile-cover-photo" src={this.props.user.cover_image_url}/>
-        {input}
+          <img onClick={this.showDetail} className="profile-cover-photo" src={this.props.user.cover_image_url}/>
+          {input}
+        {detail}
       </div>
     );
   }

@@ -1,7 +1,20 @@
 json.extract! @user, :id, :username, :email, :firstname, :lastname, :birthday, :gender, :profile
 json.fullname "#{@user.firstname} #{@user.lastname}"
+
 json.profile_image_url asset_path(@user.profile_picture.image.url)
+
+json.profile_image do
+  json.image_url asset_path(@user.profile_picture.image.url)
+  json.comments @user.profile_picture.comments
+end
+
 json.cover_image_url asset_path(@user.profile.cover_photo.image.url)
+
+json.cover_image do
+  json.image_url asset_path(@user.profile.cover_photo.image.url)
+  json.comments @user.profile.cover_photo.comments
+end
+
 json.isFriend current_user.is_friend?(@user.id)
 json.friendshipRequested current_user.friendship_requested?(@user.id)
 

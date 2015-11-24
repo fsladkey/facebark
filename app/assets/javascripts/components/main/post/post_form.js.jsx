@@ -12,7 +12,8 @@ var PostForm = React.createClass({
     this.setState({body: e.currentTarget.value});
   },
 
-  handleSubmit: function () {
+  handleSubmit: function (e) {
+    e.preventDefault();
     var params = {body: this.state.body, profile_id: this.props.profile.id};
     this.setState({body: ""});
     PostApiUtil.createPost(params, this.props.postType);

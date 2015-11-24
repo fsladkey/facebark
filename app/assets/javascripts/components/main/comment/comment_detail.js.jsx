@@ -1,11 +1,11 @@
 var CommentDetail = React.createClass({
 
   lick: function () {
-    CommentApiUtil.lickComment(this.props.comment.id, this.props.postType);
+    PostCommentApiUtil.lickComment(this.props.comment.id, this.props.postType);
   },
 
   unlick: function () {
-    CommentApiUtil.unlickComment(this.props.comment.id, this.props.postType);
+    PostCommentApiUtil.unlickComment(this.props.comment.id, this.props.postType);
   },
 
   render: function () {
