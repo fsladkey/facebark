@@ -17,6 +17,7 @@ json.array! @posts do |post|
     json.extract! comment, :id, :body
     json.user comment.user
     json.num_licks comment.licks.count
+    json.licked comment.licked_by?(current_user)
     json.user_photo_url comment.user.profile_picture.image.url
   end
 

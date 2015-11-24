@@ -4,4 +4,10 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, polymorphic: true
   has_many :licks, as: :lickable
+
+  def licked_by?(user)
+    lick = user.licks.find_by(lickable_id: self.id, lickable_type: "Comment")
+    return !!lick
+  end
+
 end

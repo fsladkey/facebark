@@ -63,7 +63,7 @@ var PostDetail = React.createClass({
           <ul>
           {
             post.comments.map(function(comment) {
-              return <CommentDetail key={comment.id} comment={comment}/>;
+              return <CommentDetail postType={this.props.postType} key={comment.id} comment={comment}/>;
             }, this)
           }
           </ul>

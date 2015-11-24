@@ -223,3 +223,13 @@ div.search-results {
   width: 850px;
   /*background: orange;*/
 }
+
+.comment-lick-button {
+  font-size: 12px;
+  color: rgb(59, 89, 152);
+  padding-right: 10px;
+}
+
+.comment-lick-button:hover {
+  text-decoration: underline;
+}

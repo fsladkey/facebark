@@ -14,7 +14,6 @@ class Api::CommentsController < ApplicationController
       @lick = @comment.licks.create!(user_id: current_user.id)
     end
     find_posts
-    render "api/posts/index"
   end
 
   def unlick
@@ -26,7 +25,6 @@ class Api::CommentsController < ApplicationController
       @lick.destroy!
     end
     find_posts
-    render "api/posts/index"
   end
 
   #not currently in use

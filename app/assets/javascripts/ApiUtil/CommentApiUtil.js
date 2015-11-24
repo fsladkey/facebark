@@ -12,7 +12,7 @@
         }
       });
     },
-    
+
     lickComment: function(commentId, postType) {
       $.ajax({
         url: "api/comments/" + commentId + "/lick",
@@ -24,7 +24,7 @@
       });
     },
 
-    unlickPost: function(commentId, postType) {
+    unlickComment: function(commentId, postType) {
       $.ajax({
         url: "api/comments/" + commentId + "/unlick",
         type: 'DELETE',
