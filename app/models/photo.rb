@@ -19,4 +19,10 @@ class Photo < ActiveRecord::Base
   belongs_to :album
   has_many :comments, as: :commentable
   has_many :licks, as: :lickable
+
+  def licked_by?(user)
+    lick = user.licks.find_by(lickable_id: self.id, lickable_type: "Photo")
+    return !!lick
+  end
+
 end

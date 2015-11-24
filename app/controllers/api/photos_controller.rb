@@ -19,24 +19,23 @@ class Api::PhotosController < ApplicationController
   def lick
     @photo = Photo.find(params[:id])
     @lick = Lick.find_by(
-     lickable_id: @post.id, lickable_type: "Photo", user_id: current_user.id
+     lickable_id: @photo.id, lickable_type: "Photo", user_id: current_user.id
     )
     unless @lick
-      @lick = @post.licks.create!(user_id: current_user.id)
+      @lick = @photo.licks.create!(user_id: current_user.id)
     end
-    render :index
+    render :show
   end
 
   def unlick
-    @post = Photo.find(params[:id])
+    @photo = Photo.find(params[:id])
     @lick = Lick.find_by(
-     lickable_id: @post.id, lickable_type: "Photo", user_id: current_user.id
+     lickable_id: @photo.id, lickable_type: "Photo", user_id: current_user.id
     )
     if @lick
       @lick.destroy!
     end
-    find_posts
-    render :index
+    render :show
   end
 
   private
