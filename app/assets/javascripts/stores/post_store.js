@@ -10,7 +10,19 @@
     var post = _posts.find(function(post) {
       return post.id === comment.commentable_id;
     });
-    post.comments.push(comment);
+    var index;
+
+    var oldComment = post.comments.find(function(postComment, count) {
+      if (comment.id === postComment.id) {
+        index = count;
+        return true;
+      }
+    });
+    if (oldComment) {
+      post.comments[index] = comment;
+    } else {
+      post.comments.push(comment);
+    }
   };
 
   root.PostStore = $.extend({}, EventEmitter.prototype, {

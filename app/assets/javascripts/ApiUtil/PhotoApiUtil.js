@@ -16,8 +16,16 @@
       });
     },
 
+    showPhoto: function(photoId, callback) {
+      $.ajax({
+        url: "api/photos/" + photoId,
+        type: 'GET',
+        success: function(photo) {
+          PhotoActions.receivePhoto(photo);
+          callback && callback();
+        }
+      });
+    },
   };
-
-
 
 })(this);

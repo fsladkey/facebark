@@ -6,7 +6,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def lick
-    @comment = Comment.find(params[:id]).includes(:user, :licks)
+    @comment = Comment.find(params[:id])
     @lick = Lick.find_by(
      lickable_id: @comment.id, lickable_type: "Comment", user_id: current_user.id
     )

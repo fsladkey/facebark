@@ -122,8 +122,10 @@
   background: rgba(0,0,0,0.9);
 }
 .photo-detail-right {
+  box-sizing: border-box;
+  padding: 10px;
   float: right;
-  width: 400px;
+  width: 40%;
 }
 
 .photo-detail-image {
@@ -143,4 +145,13 @@
   float: right;
   cursor: pointer;
   color: #aaa;
+}
+
+.photo-header {
+  background: purple;
+}
+
+.photo-comment-form input.comment-input {
+  background: green;
+  width: 300px;
 }

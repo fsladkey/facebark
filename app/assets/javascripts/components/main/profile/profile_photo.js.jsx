@@ -1,9 +1,5 @@
 var ProfilePhoto = React.createClass({
 
-  getInitialState: function () {
-    return {file: null, focused: false};
-  },
-
   changeFile: function(e) {
     e.preventDefault();
     var reader = new FileReader();
@@ -30,21 +26,10 @@ var ProfilePhoto = React.createClass({
   },
 
   showDetail: function () {
-    this.setState({focused: true});
-  },
-
-  hideDetail: function () {
-  this.setState({focused: false});
+    PhotoApiUtil.showPhoto(this.props.user.photo_id, ModalActions.showModal());
   },
 
   render: function() {
-    var detail;
-    if (this.state.focused) {
-      detail = <PhotoDetail
-        hideDetail={this.hideDetail}
-        photo={this.props.user.profile_image}/>;
-    }
-
     var input;
 
     if (SessionStore.currentUser().id === this.props.user.id) {
@@ -53,9 +38,8 @@ var ProfilePhoto = React.createClass({
 
     return (
       <div className="profile-photo-container">
-        <img onClick={this.showDetail} className="profile-profile-photo" src={this.props.user.profile_image.image_url}/>
+        <img onClick={this.showDetail} className="profile-profile-photo" src={this.props.user.profile_image_url}/>
         {input}
-        {detail}
       </div>
     );
   }

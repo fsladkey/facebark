@@ -1,7 +1,5 @@
 $(function () {
 
-
-
   var root = document.getElementById('content');
   var Route = ReactRouter.Route;
   var Router = ReactRouter.Router;
@@ -11,14 +9,18 @@ $(function () {
     <div>
       <Route path="/" component={App}>
         <IndexRoute component={Feed}/>
+
         <Route path=":username" component={Profile}>
           <IndexRoute component={ProfileShow}/>
+
           <Route path="about" component={About}></Route>
+
           <Route path="photos" component={Photos}>
             <IndexRoute component={AlbumList}/>
             <Route path=":album_id" component={Album}>
             </Route>
           </Route>
+
           <Route path="friends" component={Friends}></Route>
         </Route>
       </Route>

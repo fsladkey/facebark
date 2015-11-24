@@ -8,7 +8,7 @@
         type: 'POST',
         data: {comment: params},
         success: function(comment) {
-          PhotoActions.recieveComment(comment);
+          PhotoActions.receiveComment(comment);
         }
       });
     },
@@ -19,7 +19,7 @@
         type: 'POST',
         data: {post_type: "photo"},
         success: function(comment) {
-          PhotoActions.recieveComment(comment);
+          PhotoActions.receiveComment(comment);
         }
       });
     },
@@ -30,7 +30,7 @@
         type: 'DELETE',
         data: {post_type: "photo"},
         success: function(comment) {
-          PhotoActions.recieveComment(comment);
+          PhotoActions.receiveComment(comment);
         }
       });
     }
