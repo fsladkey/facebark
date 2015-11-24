@@ -21,7 +21,7 @@ and React.js. Facebark allows users to:
 - [√] View all friends recent posts in a "feed"
 - [√] Comment on any visible post
 - [√] "Like" (or lick) a posts.
-- [ ] "Like" (or lick) a comments.
+- [√] "Like" (or lick) a comments.
 - [ ] Comment on photos.
 - [ ] "Like" photos.
 - [ ] Be notified when someone posts on, comments on, or likes their content.
