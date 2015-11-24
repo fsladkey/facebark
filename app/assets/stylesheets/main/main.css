@@ -189,6 +189,7 @@ div.search-results {
 .lick-form {
   margin: 0 5px;
   border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   padding: 5px 0;
   font-size: 12px;
   font-weight: bold;

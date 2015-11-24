@@ -2,11 +2,11 @@
 
   var PostApiUtil = root.PostApiUtil = {
 
-    createPost: function(params) {
+    createPost: function(params, postType) {
       $.ajax({
         url: "api/posts/",
         type: 'POST',
-        data: {post: params},
+        data: {post: params, post_type: postType},
         success: function(posts) {
           PostActions.recievePosts(posts);
         }

@@ -13,6 +13,7 @@
         case PostConstants.RECIEVE_POSTS:
           setPosts(payload.posts);
           PostStore.emit("change");
+          console.log("POST STORE CHANGED")
           break;
       }
     }),

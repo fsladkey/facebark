@@ -21,7 +21,6 @@ var ProfileBio = React.createClass({
   },
 
   render: function() {
-    debugger
     var formattedInfo, button;
 
     if (this.state.editing) {

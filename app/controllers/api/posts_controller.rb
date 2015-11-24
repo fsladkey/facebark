@@ -10,13 +10,12 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.create!(post_params)
-    @posts = Profile.find(post.profile_id).posts.includes(:user).includes(:comments).order('updated_at DESC')
+    @post = current_user.posts.create!(post_params)
+    find_posts
     render :index
   end
 
   def lick
-    puts params[:post_type]
     @post = Post.find(params[:id])
     @lick = Lick.find_by(
      lickable_id: @post.id, lickable_type: "Post", user_id: current_user.id
@@ -25,7 +24,7 @@ class Api::PostsController < ApplicationController
       @lick = @post.licks.create!(user_id: current_user.id)
     end
     find_posts
-    render "api/posts/index"
+    render :index
   end
 
   def unlick
@@ -37,7 +36,7 @@ class Api::PostsController < ApplicationController
       @lick.destroy!
     end
     find_posts
-    render "api/posts/index"
+    render :index
   end
 
   private
@@ -45,8 +44,7 @@ class Api::PostsController < ApplicationController
   def find_posts
     if params[:post_type] == "profile"
       @posts = Profile.find(@post.profile.id).
-          posts.includes(:user).
-          includes(:comments).
+          posts.includes(:user, :comments).
           includes(:user).
           order('updated_at DESC')
     else

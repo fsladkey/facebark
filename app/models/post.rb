@@ -22,8 +22,6 @@ class Post < ActiveRecord::Base
   end
 
   def self.friends_posts(user_id)
-    Post.where("user_id IN ?", User.find(user_id).friends.select(:id).to_sql)
-
     Post.find_by_sql(<<-SQL
       SELECT "posts".*
       FROM "posts"
@@ -33,7 +31,8 @@ class Post < ActiveRecord::Base
         INNER JOIN "friendships"
         ON "users"."id" = "friendships"."friend_id"
         WHERE "friendships"."user_id" = #{user_id}
-      )
+      ) OR user_id = #{user_id}
+      ORDER BY "posts"."created_at" DESC
     SQL
     )
   end

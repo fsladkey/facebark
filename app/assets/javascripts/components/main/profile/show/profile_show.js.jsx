@@ -10,6 +10,7 @@ var ProfileShow = React.createClass({
         <div>
           <div className="profile-left group">
             <ProfileInfo user={this.props.user}/>
+            <ProfileFriends user={this.props.user}/>
           </div>
 
           <div className="profile-right group">

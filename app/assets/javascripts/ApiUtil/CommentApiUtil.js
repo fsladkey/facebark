@@ -12,6 +12,29 @@
         }
       });
     },
+    
+    lickComment: function(commentId, postType) {
+      $.ajax({
+        url: "api/comments/" + commentId + "/lick",
+        type: 'POST',
+        data: {post_type: postType},
+        success: function(posts) {
+          PostActions.recievePosts(posts);
+        }
+      });
+    },
+
+    unlickPost: function(commentId, postType) {
+      $.ajax({
+        url: "api/comments/" + commentId + "/unlick",
+        type: 'DELETE',
+        data: {post_type: postType},
+        success: function(posts) {
+          PostActions.recievePosts(posts);
+        }
+      });
+    }
+
 
   };
 

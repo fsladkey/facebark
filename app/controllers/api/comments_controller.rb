@@ -5,6 +5,30 @@ class Api::CommentsController < ApplicationController
     find_posts
   end
 
+  def lick
+    @comment = Comment.find(params[:id])
+    @lick = Lick.find_by(
+     lickable_id: @comment.id, lickable_type: "Comment", user_id: current_user.id
+    )
+    unless @lick
+      @lick = @comment.licks.create!(user_id: current_user.id)
+    end
+    find_posts
+    render "api/posts/index"
+  end
+
+  def unlick
+    @comment = Comment.find(params[:id])
+    @lick = Lick.find_by(
+     lickable_id: @comment.id, lickable_type: "Comment", user_id: current_user.id
+    )
+    if @lick
+      @lick.destroy!
+    end
+    find_posts
+    render "api/posts/index"
+  end
+
   #not currently in use
   # def update
   #   @comment = Comment.find(params[:id])
@@ -17,6 +41,7 @@ class Api::CommentsController < ApplicationController
   #   @comment.destroy!
   #   find_posts
   # end
+
 
   private
 

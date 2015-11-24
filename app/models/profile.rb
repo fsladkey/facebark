@@ -14,6 +14,7 @@
 
 class Profile < ActiveRecord::Base
   validates :user, presence: true
+  # find a way for this to work.
 
   belongs_to :user
   has_many :posts

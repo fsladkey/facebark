@@ -10,6 +10,31 @@
   /*margin-top: 70px;*/
 }
 
+.profile-friend-detail {
+  float: left;
+  position: relative;
+}
+
+.profile-friend-detail img {
+  width: 100px;
+  height: 100px;
+}
+
+.profile-friend-detail p {
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  color: white;
+}
+
+.profile-friends {
+  background: white;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 12px;
+  border: 1px solid lightgrey;
+}
+
 .profile-info {
   background: white;
   padding: 10px;
@@ -189,7 +214,7 @@
   width: 420px;
 }
 
-.post-list li {
+.post-list > li {
   margin-top: 20px;
   border: 1px solid lightgrey;
   background: white;
@@ -259,7 +284,6 @@
 }
 
 .comment-detail {
-  background-color: green;
 }
 
 .comment-detail p {
