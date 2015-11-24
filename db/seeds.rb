@@ -1,19 +1,25 @@
 User.destroy_all
 
-ulysses = User.create!({username: "puglyfe", email: "puglyfe@dog.com", firstname: "Ulysses", lastname: "Sladkey", birthday: "2013-07-28", password_digest: "$2a$10$uIcBmoKgFJDRJKqYPlhWp.XliXIJABdnFmK9RyRC0xCb3BQWx2zLS", gender: "male"})
+ulysses = User.create!({username: "puglyfe", email: "puglyfe@dog.com", firstname: "Ulysses", lastname: "Sladkey", birthday: "2010-07-28", password_digest: "$2a$10$uIcBmoKgFJDRJKqYPlhWp.XliXIJABdnFmK9RyRC0xCb3BQWx2zLS", gender: "Male"})
 ulysses.set_up!
-bailey = User.create!({username: "bprime", email: "bprime@dog.com", firstname: "Bailey", lastname: "Primero", birthday: "2014-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "male"})
+bailey = User.create!({username: "bprime", email: "bprime@dog.com", firstname: "Bailey", lastname: "Primero", birthday: "2009-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
 bailey.set_up!
-morty = User.create!({username: "morty", email: "morty@dog.com", firstname: "Morty", lastname: "Chase", birthday: "2014-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "male"})
+morty = User.create!({username: "morty", email: "morty@dog.com", firstname: "Morty", lastname: "Chase", birthday: "2011-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
 morty.set_up!
-emma = User.create!({username: "emma", email: "emma@dog.com", firstname: "Emma", lastname: "Chase", birthday: "2014-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "male"})
+emma = User.create!({username: "emma", email: "emma@dog.com", firstname: "Emma", lastname: "Chase", birthday: "2014-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Female"})
 emma.set_up!
+aske = User.create!({username: "snowdogsrule", email: "aske@dog.com", firstname: "Aske", lastname: "Sladkey", birthday: "1999-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
+aske.set_up!
+paul = User.create!({username: "paul", email: "paul@dog.com", firstname: "Paul", lastname: "Smith", birthday: "2008-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
+paul.set_up!
 
 
 bailey.profile.update!(breed: "Mutt", hometown: "Miami", bio: "I'm just a dog!")
-ulysses.profile.update!(breed: "Pug", hometown: "Arlington", bio: nil,)
-morty.profile.update!(breed: "Chihuahua", hometown: "NYC", bio: nil)
-emma.profile.update!(breed: "Oodle", hometown: "NYC", bio: nil)
+ulysses.profile.update!(breed: "Pug", hometown: "Arlington", bio: "",)
+morty.profile.update!(breed: "Chihuahua", hometown: "NYC", bio: "I'm some kind of chihuahua or something.")
+emma.profile.update!(breed: "Oodle", hometown: "NYC", bio: "I'm a dog! In new york! That's it!")
+aske.profile.update!(breed: "Norweigen Elkhound", hometown: "Arlington", bio: "I'm pretty much the best!")
+paul.profile.update!(breed: "Golden", hometown: "NYC", bio: "Paul Smith? This doesn't even sound like a dog's name!")
 
 bprof = bailey.albums.first.photos.create!(image: File.open("#{Rails.root}/app/assets/images/bailey_profile.jpg"))
 bcov = bailey.albums[1].photos.create!(image: File.open("#{Rails.root}/app/assets/images/miami_cover.jpg"))
@@ -27,31 +33,53 @@ ecov = emma.albums[1].photos.create!(image: File.open("#{Rails.root}/app/assets/
 mprof = morty.albums.first.photos.create!(image: File.open("#{Rails.root}/app/assets/images/morty_profile.jpg"))
 mcov = morty.albums[1].photos.create!(image: File.open("#{Rails.root}/app/assets/images/nyc_cover.jpg"))
 
+aprof = aske.albums.first.photos.create!(image: File.open("#{Rails.root}/app/assets/images/aske_profile.jpg"))
+acov = aske.albums[1].photos.create!(image: File.open("#{Rails.root}/app/assets/images/norway_cover.jpg"))
+
+pprof = paul.albums.first.photos.create!(image: File.open("#{Rails.root}/app/assets/images/paul_profile.jpg"))
+pcov = paul.albums[1].photos.create!(image: File.open("#{Rails.root}/app/assets/images/la_cover.jpg"))
+
 bailey.update!(photo_id: bprof.id)
 ulysses.update!(photo_id: uprof.id)
 emma.update!(photo_id: eprof.id)
 morty.update!(photo_id: mprof.id)
+aske.update!(photo_id: aprof.id)
+paul.update!(photo_id: pprof.id)
 
 bailey.profile.update!(photo_id: bcov.id)
 ulysses.profile.update!(photo_id: ucov.id)
 emma.profile.update!(photo_id: ecov.id)
 morty.profile.update!(photo_id: mcov.id)
+aske.profile.update!(photo_id: acov.id)
+paul.profile.update!(photo_id: pcov.id)
 
-bailey.friend_ids = [ulysses.id, morty.id]
-morty.friend_ids = [bailey.id, emma.id]
-ulysses.friend_ids = [bailey.id]
-emma.friend_ids = [morty.id]
-ulysses.friend_requests.create!(user_id: emma.id)
+# bailey.friend_ids = [ulysses.id, morty.id, aske.id]
+bailey.friend(ulysses.id)
+bailey.friend(morty.id)
+bailey.friend(aske.id)
+bailey.friend(paul.id)
+ulysses.friend(morty.id)
+ulysses.friend(aske.id)
+ulysses.friend(emma.id)
+# morty.friend_ids = [bailey.id, emma.id, paul.id, aske.id]
+morty.friend(emma.id)
+morty.friend(aske.id)
+paul.friend(morty.id)
+paul.friend(emma.id)
 
-# environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
+ulysses.friend_requests.create!(user_id: paul.id)
+bailey.friend_requests.create!(user_id: emma.id)
 
-# ADD FRIENDSHIP SEEEEEEEEDSSSSS
 
 ulysses.posts.create!(body: "Hey buddy! How's NY?", profile_id: bailey.profile.id)
-ulysses.posts.create!(body: "Anyone got any tips for cleaning the wrinkles in your own face without thumbs?", profile_id: ulysses.profile.id)
+ulysses.posts.create!(body: "Fine I admit it, my tail looks like a cinnabon.", profile_id: ulysses.profile.id)
+ulysses.posts.create!(body: "Anyone got any tips for cleaning the wrinkles on your own face without thumbs?", profile_id: ulysses.profile.id)
 bailey.posts.create!(body: "Can anyone explain how I'm typing this right now?", profile_id: bailey.profile.id)
+bailey.posts.create!(body: "#dale #mr305", profile_id: bailey.profile.id)
 bailey.posts.create!(body: "Hola hermano. How's it going?", profile_id: ulysses.profile.id)
 morty.posts.create!(body: "Anyone else hungry?", profile_id: morty.profile.id)
 morty.posts.create!(body: "Anyone?", profile_id: morty.profile.id)
 emma.posts.create!(body: "Hey there sailor.", profile_id: morty.profile.id)
 emma.posts.create!(body: "Guys! Facebark is changing it's policy, if you don't want to pay $7 a month you have to twirl around three times and take a nap. Someone posted it on Barkr it must be true.", profile_id: emma.profile.id)
+emma.posts.create!(body: "Hey everybody!", profile_id: aske.profile.id)
+emma.posts.create!(body: "What am I doing?!", profile_id: aske.profile.id)

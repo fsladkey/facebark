@@ -18,6 +18,12 @@ body {
   margin: auto;
 }
 
+
+/*Add this!*/
+.nav-bar-link-button:hover {
+  background: #23355B;
+}
+
 .small-logo {
   margin: 10px 8px;
   float:left;

@@ -128,6 +128,11 @@ class User < ActiveRecord::Base
       User.find(user_id).friendships.find_by(friend_id: self.id).destroy!
     end
 
+    def friend(friend_id)
+      self.friendships.create!(friend_id: friend_id)
+      User.find(friend_id).friendships.create!(friend_id: self.id)
+    end
+
     def password=(password)
       @password = password
       self.password_digest = BCrypt::Password.create(password)
