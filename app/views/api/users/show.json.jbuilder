@@ -5,6 +5,7 @@ json.cover_image_url asset_path(@user.profile.cover_photo.image.url)
 json.isFriend current_user.is_friend?(@user.id)
 json.friendshipRequested current_user.friendship_requested?(@user.id)
 
+json.numFriendRequests @user.friend_requests.count
 json.friend_requests @user.friend_requests do |friend_request|
   json.id friend_request.id
   json.potential_friend "#{friend_request.user.firstname} #{friend_request.user.lastname}"

@@ -10,7 +10,18 @@ var FriendRequests = React.createClass({
 
   render: function () {
     var friend_requests = this.props.currentUser.friend_requests,
-        dropdown;
+        dropdown,
+        badge;
+
+    if (this.props.currentUser.numFriendRequests > 0) {
+      badge = (
+        <badge
+          className="friend-requests-badge"
+          >
+          {this.props.currentUser.numFriendRequests}
+        </badge>
+      );
+    }
 
     if (this.state.detailShown) {
       dropdown = (
@@ -31,7 +42,16 @@ var FriendRequests = React.createClass({
 
     return (
       <div className="friend-requests">
-        <button onClick={this.toggleDetail} className="friend-requests-button">Friend Requests</button>
+        <button
+          onClick={this.toggleDetail}
+          className="friend-requests-button"
+          >
+          <img
+            className="friend-request-logo"
+            src="friend_request_logo2.png"
+            />
+            {badge}
+          </button>
         {dropdown}
       </div>
     );
