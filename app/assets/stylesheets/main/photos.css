@@ -147,11 +147,11 @@
   color: #aaa;
 }
 
-.photo-header {
-  background: purple;
+.photo-header h3 {
+
 }
 
 .photo-comment-form input.comment-input {
-  background: green;
-  width: 300px;
+  width: 230px;
+  float: right;
 }

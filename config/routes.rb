@@ -11,6 +11,13 @@ Rails.application.routes.draw do
     resources :friend_requests, only: [:create, :update, :destroy]
     resources :feed, only: [:index]
 
+    resources :photos, only: [:create, :delete, :show] do
+      member do
+        post "lick"
+        delete "unlick"
+      end
+    end
+
     resources :posts, only: [:create, :index] do
       member do
         post "lick"

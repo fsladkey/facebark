@@ -1,7 +1,11 @@
 var LickForm = React.createClass({
 
   lick: function () {
-    PostApiUtil.lickPost(this.props.post.id, this.props.postType);
+    if (this.props.postType === "photo") {
+      PhotoApiUtil.lickPost(this.props.post.id, this.props.postType);
+    } else {
+      PostApiUtil.lickPost(this.props.post.id, this.props.postType);
+    }
   },
 
   unlick: function () {

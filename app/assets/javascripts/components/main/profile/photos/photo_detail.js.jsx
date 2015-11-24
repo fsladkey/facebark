@@ -23,21 +23,20 @@ var PhotoDetail = React.createClass({
 
   commentInfo: function () {
     var photo = this.state.photo,
-        poster_name = photo.user.firstname + " " + photo.user.lastname,
         lickCount;
 
     if (photo.num_licks === 1) {
-      lickCount = <p className="lick-count">{post.licks[0].author_name + " licked this post."}</p>;
+      lickCount = <p className="lick-count">{photo.licks[0].author_name + " licked this post."}</p>;
     }
     if (photo.num_licks > 1) {
-      lickCount = <p className="lick-count" >{post.num_licks + " dogs licked this post."}</p>;
+      lickCount = <p className="lick-count" >{photo.num_licks + " dogs licked this post."}</p>;
     }
     return (
       <div>
         <div className="group">
           <div className="photo-header group">
-            <img className="profile_thumbnail" src={photo.user.profile_image_url}/>
-            <h3><a href={"#/" + photo.user.username}>{poster_name}</a></h3>,
+            <img className="profile_thumbnail" src={photo.user_profile_image_url}/>
+            <h3><a href={"#/" + photo.user.username}>{photo.user_fullname}</a></h3>
             <abbr className="timeago" title={photo.time_created}></abbr>
           </div>
             {this.state.photo.caption}

@@ -26,6 +26,27 @@
         }
       });
     },
-  };
+
+  lickPhoto: function(postId) {
+    $.ajax({
+      url: "api/photos/" + postId + "/lick",
+      type: 'POST',
+      success: function(photo) {
+          PhotoActions.receivePhoto(photo);
+      }
+    });
+  },
+
+  unlickPhoto: function(postId) {
+    $.ajax({
+      url: "api/photos/" + postId + "/unlick",
+      type: 'DELETE',
+      success: function(posts) {
+        PhotoActions.receivePhoto(photo);
+      }
+    });
+  }
+
+};
 
 })(this);
