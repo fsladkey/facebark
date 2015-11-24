@@ -11,8 +11,7 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create!(post_params)
-    find_posts
-    render :index
+    render :show
   end
 
   def lick
@@ -23,8 +22,7 @@ class Api::PostsController < ApplicationController
     unless @lick
       @lick = @post.licks.create!(user_id: current_user.id)
     end
-    find_posts
-    render :index
+    render :show
   end
 
   def unlick
@@ -35,22 +33,21 @@ class Api::PostsController < ApplicationController
     if @lick
       @lick.destroy!
     end
-    find_posts
-    render :index
+    render :show
   end
 
   private
 
-  def find_posts
-    if params[:post_type] == "profile"
-      @posts = Profile.find(@post.profile.id).
-          posts.includes(:user, :comments).
-          includes(:user).
-          order('updated_at DESC')
-    else
-      @posts = Post.friends_posts(current_user.id)
-    end
-  end
+  # def find_posts
+  #   if params[:post_type] == "profile"
+  #     @posts = Profile.find(@post.profile.id).
+  #         posts.includes(:user, :comments).
+  #         includes(:user).
+  #         order('updated_at DESC')
+  #   else
+  #     @posts = Post.friends_posts(current_user.id)
+  #   end
+  # end
 
   def post_params
     params.require(:post).permit(:body, :profile_id)

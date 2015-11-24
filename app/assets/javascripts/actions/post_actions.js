@@ -7,6 +7,13 @@ var PostActions = {
     });
   },
 
+  recievePost: function (post) {
+    AppDispatcher.dispatch({
+        actionType: PostConstants.RECIEVE_POST,
+        post: post
+    });
+  },
+
   recieveComment: function (comment) {
     AppDispatcher.dispatch({
         actionType: PostConstants.RECIEVE_COMMENT,

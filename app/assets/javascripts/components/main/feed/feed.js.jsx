@@ -14,11 +14,6 @@ var Feed = React.createClass({
     PostStore.removeListener("change", this._change);
   },
 
-  // this should probably go!
-  // componentWillReceiveProps: function (newProps) {
-  //   FeedApiUtil.fetchPosts(newProps.currentUser.id);
-  // },
-
   render: function() {
     if (this.props.currentUser) {
       return (
