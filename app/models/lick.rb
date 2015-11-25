@@ -3,4 +3,5 @@ class Lick < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :lickable, polymorphic: true
+  has_many :notifications, as: :notifiable
 end

@@ -8,6 +8,10 @@ var Notifications = React.createClass({
     this.setState({detailShown: false});
   },
 
+  showDetail: function(e) {
+    this.setState({detailShown: true});
+  },
+
   toggleDetail: function(e) {
     this.setState({detailShown: !this.state.detailShown});
   },
@@ -28,9 +32,13 @@ var Notifications = React.createClass({
     }
 
     if (this.state.detailShown) {
-
+      $(document).on("click", function(e) {
+      if ($(e.target).parents('div').get(0) !== this.refs.dropdown.getDOMNode()) {
+          this.hideDetail();
+        }
+      }.bind(this))
       dropdown = (
-        <div className="friend-requests-dropdown">
+        <div ref="dropdown" className="friend-requests-dropdown">
           <ul className="group">
             <li className="group">
               <p className="request-header">Notifications:</p>
@@ -43,10 +51,11 @@ var Notifications = React.createClass({
           </ul>
         </div>
       );
+    } else {
+      $(document).off();
     }
-
     return (
-      <div className="friend-requests" onClick={this.toggleDetail}>
+      <div className="friend-requests" onClick={this.showDetail}>
         <button
           className="friend-requests-button"
           >

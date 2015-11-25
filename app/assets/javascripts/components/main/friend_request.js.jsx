@@ -21,8 +21,8 @@ var FriendRequest = React.createClass({
     return (
       <li className="group">
         <p >{friend}</p>
-        <button onClick={this.addFriend}>Accept</button>
-        <button onClick={this.deleteRequest}>Delete</button>
+        <button className="add-friend" onClick={this.addFriend}>Accept</button>
+        <button className="deny-friend" onClick={this.deleteRequest}>Delete</button>
       </li>
     );
   }

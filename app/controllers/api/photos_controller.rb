@@ -21,9 +21,15 @@ class Api::PhotosController < ApplicationController
     @lick = Lick.find_by(
      lickable_id: @photo.id, lickable_type: "Photo", user_id: current_user.id
     )
+
     unless @lick
       @lick = @photo.licks.create!(user_id: current_user.id)
+      
+      unless @lick.lickable.user.id == current_user.id
+        @lick.notifications.create!(user_id: @lick.lickable.user.id)
+      end
     end
+
     render :show
   end
 

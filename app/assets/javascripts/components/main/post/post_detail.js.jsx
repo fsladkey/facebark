@@ -30,7 +30,7 @@ var PostDetail = React.createClass({
     }
 
     if (post.num_licks === 1) {
-      lickCount = <p className="lick-count">{post.licks[0].author_name + " licked this post."}</p>;
+      lickCount = <p className="lick-count"><a href={"#/" + post.licks[0].author_username}>{post.licks[0].author_name}</a> licked this post.</p>;
     }
     if (post.num_licks > 1) {
       lickCount = <p className="lick-count" >{post.num_licks + " dogs licked this post."}</p>;

@@ -25,6 +25,10 @@ class Api::PostsController < ApplicationController
     )
     unless @lick
       @lick = @post.licks.create!(user_id: current_user.id)
+
+      unless @lick.lickable.user.id == current_user.id
+        @lick.notifications.create!(user_id: @lick.lickable.user.id)
+      end
     end
     render :show
   end

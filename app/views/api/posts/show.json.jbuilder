@@ -10,6 +10,7 @@ json.licked @post.licked_by?(current_user)
 
 json.licks @post.licks do |lick|
   json.author_name "#{lick.user.firstname} #{lick.user.lastname}"
+  json.author_username lick.user.username
 end
 
 json.comments @post.comments.reverse do |comment|

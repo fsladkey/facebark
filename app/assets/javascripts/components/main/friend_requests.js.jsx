@@ -3,16 +3,17 @@ var FriendRequests = React.createClass({
   getInitialState: function() {
     return {detailShown: false};
   },
-  //
-  // toggleDetail: function(e) {
-  //   e && e.stopPropagation();
-  //   this.setState({detailShown: !this.state.detailShown});
-  // },
 
-
+  stopProp: function (e) {
+    e.stopPropagation();
+  },
 
   hideDetail: function(e) {
     this.setState({detailShown: false});
+  },
+
+  showDetail: function(e) {
+    this.setState({detailShown: true});
   },
 
   toggleDetail: function(e) {
@@ -35,13 +36,13 @@ var FriendRequests = React.createClass({
     }
 
     if (this.state.detailShown) {
-        // $(document).on("click", (function (e) {
-        //   debugger
-        //   this.hideDetail();
-        // }.bind(this)))
-
+        $(document).on("click", function(e) {
+        if ($(e.target).parents('div').get(0) !== this.refs.dropdown.getDOMNode()) {
+            this.hideDetail();
+          }
+        }.bind(this))
       dropdown = (
-        <div className="friend-requests-dropdown">
+        <div ref="dropdown" className="friend-requests-dropdown">
           <ul className="group">
             <li className="group">
               <p className="request-header">Friend Requests:</p>
@@ -55,15 +56,13 @@ var FriendRequests = React.createClass({
         </div>
       );
     } else {
-      // $(document).off("click", (function (e) {
-      //   debugger
-      //   this.hideDetail();
-      // }.bind(this)))
+      $(document).off();
     }
 
     return (
-      <div className="friend-requests" onClick={this.toggleDetail}>
+      <div className="friend-requests">
         <button
+          onClick={this.showDetail}
           className="friend-requests-button"
           >
           <img

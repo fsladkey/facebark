@@ -15,6 +15,10 @@ class Api::CommentsController < ApplicationController
     )
     unless @lick
       @lick = @comment.licks.create!(user_id: current_user.id)
+      
+      unless @lick.lickable.user.id == current_user.id
+        @lick.notifications.create!(user_id: @lick.lickable.user.id)
+      end
     end
     render :show
   end
