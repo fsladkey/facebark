@@ -18,6 +18,11 @@ class Api::PostsController < ApplicationController
     render :show
   end
 
+  def show
+    @post = Post.find(params[:id])
+    render :show
+  end
+
   def lick
     @post = Post.find(params[:id])
     @lick = Lick.find_by(

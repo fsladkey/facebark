@@ -310,3 +310,7 @@ input.comment-input {
   border: 1px solid lightgrey;
   padding: 5px;
 }
+
+.notification-description {
+  padding-top: 22px;
+}

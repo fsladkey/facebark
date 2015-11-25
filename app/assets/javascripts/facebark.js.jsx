@@ -10,6 +10,10 @@ $(function () {
       <Route path="/" component={App}>
         <IndexRoute component={Feed}/>
 
+        <Route path="posts" component={Posts}>
+          <Route path=":post_id" component={PostShow}></Route>
+        </Route>
+
         <Route path=":username" component={Profile}>
           <IndexRoute component={ProfileShow}/>
 
@@ -18,10 +22,11 @@ $(function () {
           <Route path="photos" component={Photos}>
             <IndexRoute component={AlbumList}/>
             <Route path=":album_id" component={Album}>
-            </Route>
           </Route>
 
           <Route path="friends" component={Friends}></Route>
+        </Route>
+
         </Route>
       </Route>
     </div>

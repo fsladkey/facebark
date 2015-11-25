@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :posts, only: [:create, :index] do
+    resources :posts, only: [:create, :index, :show] do
       member do
         post "lick"
         delete "unlick"

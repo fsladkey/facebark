@@ -24,6 +24,16 @@
       });
     },
 
+    fetchPost: function(postId) {
+      $.ajax({
+        url: "api/posts/" + postId,
+        type: 'GET',
+        success: function(post) {
+          PostActions.recievePostShow(post);
+        }
+      });
+    },
+
     lickPost: function(postId, postType) {
       $.ajax({
         url: "api/posts/" + postId + "/lick",

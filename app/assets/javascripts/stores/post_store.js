@@ -54,6 +54,10 @@
           loadPost(payload.post);
           PostStore.emit("change");
           break;
+        case PostConstants.RECIEVE_POST_SHOW:
+          _posts = [payload.post];
+          PostStore.emit("change");
+          break;
         case PostConstants.RECIEVE_COMMENT:
           loadComment(payload.comment);
           PostStore.emit("change");

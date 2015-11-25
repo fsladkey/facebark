@@ -26,6 +26,7 @@ json.numNotifications @user.notifications.count
 json.notifications @user.notifications do |notification|
   json.extract! notification, :id, :notifiable_id, :notifiable_type
   json.description notification.description
+  json.user_photo_url notification.user.profile_picture.image.url
 end
 
 json.albums @user.albums do |album|

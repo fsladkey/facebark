@@ -7,6 +7,7 @@ var LogInForm = React.createClass({
   },
 
   handleSubmit: function(e) {
+    e && e.preventDefault();
     SessionApiUtil.logInUser(this.state);
   },
 

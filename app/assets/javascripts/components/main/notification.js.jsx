@@ -4,7 +4,8 @@ var Notification = React.createClass({
 
     return (
       <li className="group">
-        <p >{this.props.notification.description}</p>
+        <img className="profile_thumbnail" src={this.props.notification.user_photo_url}/>
+        <p className="notification-description">{this.props.notification.description}</p>
       </li>
     );
   }
