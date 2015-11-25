@@ -41,7 +41,9 @@ var PhotoUpload = React.createClass({
         <img className="photo-preview-image" src={this.state.url}></img>
         <form onSubmit={this.handleSubmit}>
           <input className="file-upload" onChange={this.changeFile} type="file"/>
-          <button className="upload-button">Upload Photo</button>
+          <label>
+            <button className="upload-button">Upload Photo</button>
+          </label>
         </form>
       </div>
     );

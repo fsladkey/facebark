@@ -8,7 +8,7 @@ var SearchDetail = React.createClass({
                 <ul>
                   <li
                     className="search-result-item">
-                    <button>"No results found"</button>
+                    <button>* No results found *</button>
                   </li>
                 </ul>
               </div>

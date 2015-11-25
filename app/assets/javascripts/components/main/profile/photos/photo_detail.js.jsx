@@ -102,7 +102,6 @@ var PhotoDetail = React.createClass({
   },
 
   _change: function () {
-    debugger
     this.setState({photo: PhotoStore.photo()});
   }
 

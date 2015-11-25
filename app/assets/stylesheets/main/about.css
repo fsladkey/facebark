@@ -56,6 +56,7 @@ div.about-bio h3 {
   display: block;
   float: left;
   padding: 10px;
+  font-size: 13px;
 }
 
 div.about-bio textarea {
@@ -67,6 +68,7 @@ div.about-bio textarea {
   border: 1px solid grey;
   width: 300px;
   height: 60px;
+  font-size: 13px;
 }
 
 .about-bio p {
@@ -74,6 +76,7 @@ div.about-bio textarea {
   float: left;
   margin-top: 9px;
   border: 1px solid white;
+  font-size: 13px;
 }
 
 div.about-bio button {

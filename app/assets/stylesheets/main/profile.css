@@ -118,9 +118,29 @@
   width: 160px;
   height: 160px;
   background: white;
-  z-index: 1;
+  z-index: 1000;
   border: 1px solid grey;
   border-radius: 3px;
+}
+
+.photo-upload-icon {
+  z-index: 1001;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 120px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.cover-photo-upload-icon {
+  z-index: 1001;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
 }
 
 .profile-header-links {
@@ -164,7 +184,7 @@
   position: absolute;
   top: 5px;
   left: 5px;
-  z-index: 50;
+  z-index: -1;
 }
 
 .friend-button {
