@@ -36,7 +36,7 @@ var FriendRequests = React.createClass({
 
     if (this.state.detailShown) {
         $(document).click(function () {
-          this.toggleDetail();
+          this.hideDetail();
         }.bind(this));
 
       dropdown = (
@@ -56,9 +56,8 @@ var FriendRequests = React.createClass({
     }
 
     return (
-      <div className="friend-requests">
+      <div className="friend-requests" onClick={this.showDetail}>
         <button
-          onClick={this.showDetail}
           className="friend-requests-button"
           >
           <img
