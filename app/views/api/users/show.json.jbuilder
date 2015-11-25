@@ -8,10 +8,12 @@ json.profile_photo_id @user.profile.photo_id
 
 json.isFriend current_user.is_friend?(@user.id)
 json.friendshipRequested current_user.friendship_requested?(@user.id)
+json.waitingForFriendshipResponse @user.friendship_requested?(current_user.id)
 
 json.numFriendRequests @user.friend_requests.count
 json.friend_requests @user.friend_requests do |friend_request|
   json.id friend_request.id
+  json.user_id friend_request.user_id
   json.potential_friend "#{friend_request.user.firstname} #{friend_request.user.lastname}"
   json.profile_url "/#{friend_request.user.username}"
 end

@@ -9,6 +9,10 @@ var PostShow = React.createClass({
     PostApiUtil.fetchPost(this.props.params.post_id);
   },
 
+  componentWillUnmount: function () {
+    PostStore.removeListener("change", this._change);
+  },
+
   componentWillReceiveProps(newProps) {
     PostApiUtil.fetchPost(newProps.params.post_id);
   },

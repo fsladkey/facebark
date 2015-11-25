@@ -24,8 +24,10 @@ and React.js. Facebark allows users to:
 - [√] "Like" (or lick) a comments.
 - [√] Comment on photos.
 - [√] "Like" photos.
-- [ ] Be notified when someone posts on, comments on, or likes their content.
+- [√] Be notified when someone posts on, comments on, or likes their content.
 - [ ] Send messages to friends. Sending a message starts a conversation. Users should be notified when they are messaged.
+- [ ] Make messaging real time with pusher or other tool.
+- [ ] infinite scroll feed
 
 ## Design Docs
 * [View Wireframes][view]
@@ -85,8 +87,6 @@ Users should be able to send messages to their friends. Users should be able to 
 Add any additional eye candy that was put off from earlier, create a non trivial amount of interesting database seed data. Panic because there's so much more I wanted to do.
 
 ### Bonus Features (TBD)
-- [ ] Make messaging real time with pusher or other tool.
-- [ ] infinite scroll feed
 - [ ] Multiple sessions
 - [ ] auto-updating notifications (no refreshing the page)
 - [ ] create events with time and location, users can rsvp an comment on event

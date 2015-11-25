@@ -33,9 +33,11 @@ var Notifications = React.createClass({
 
     if (this.state.detailShown) {
       $(document).on("click", function(e) {
-      if ($(e.target).parents('div').get(0) !== this.refs.dropdown.getDOMNode()) {
-          this.hideDetail();
+      if (this.refs.dropdown) {
+        if ($(e.target).parents('div').get(0) !== this.refs.dropdown.getDOMNode()) {
+            this.hideDetail();
         }
+      }
       }.bind(this))
       dropdown = (
         <div ref="dropdown" className="friend-requests-dropdown">

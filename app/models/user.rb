@@ -140,6 +140,10 @@ class User < ActiveRecord::Base
       !!self.requested_friends.find_by(friend_id: user_id)
     end
 
+    def friendship_request_id(user_id)
+      self.requested_friends.find_by(friend_id: user_id).id
+    end
+
     def unfriend(user_id)
       self.friendships.find_by(friend_id: user_id).destroy!
       User.find(user_id).friendships.find_by(friend_id: self.id).destroy!

@@ -12,6 +12,10 @@ var Profile = React.createClass({
     }
   },
 
+  componentWillUnmount: function() {
+    UserStore.removeListener("change", this._change);
+  },
+
   componentWillReceiveProps: function(newProps) {
     UserApiUtil.fetchUser(newProps.params.username);
   },

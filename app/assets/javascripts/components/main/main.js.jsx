@@ -10,6 +10,10 @@
     }
   },
 
+  componentWillUnmount: function() {
+    SessionStore.removeListener("change", this._change);
+  },
+
   render: function() {
     return (
         <NavBar
