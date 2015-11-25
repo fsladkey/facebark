@@ -22,7 +22,7 @@ var Feed = React.createClass({
           <div className="feed-sidebar">
             <div className="feed-profile-link">
               <ReactRouter.Link to={"/" + this.props.currentUser.username}>
-                <div className="group">
+                <div className="group feed-profile-link">
                   <img className="feed-thumbnail" src={this.props.currentUser.profile_image_url}/>
                   <p className="feed-current-user-name">{this.props.currentUser.firstname + " " + this.props.currentUser.lastname}</p>
                 </div>
@@ -34,6 +34,7 @@ var Feed = React.createClass({
             <PostForm postType="feed" profile={this.props.currentUser.profile} currentUser={this.props.currentUser}/>
             <FeedPosts posts={this.state.posts} currentUser={this.props.currentUser}/>
           </div>
+          <SponseredPost />
 
         </div>
       );

@@ -34,8 +34,32 @@
   padding-bottom: 5px;
   border-bottom: 1px solid lightgrey;
   margin: 0 12px;
+  position: fixed;
 }
 
 .feed-profile-link:hover {
   background: rgb(246, 247, 248);
+}
+
+.sponsed-post {
+  padding: 10px;
+  background: white;
+  margin-top: 60px;
+  margin-left: 720px;
+  position: fixed;
+  color: #3b5998;
+}
+.sponsed-post h3 {
+  padding: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.sponsed-post p {
+  margin-left: 5px;
+}
+
+.sponsed-post img {
+  display: block;
+  width: 300px;
+  height: 200px;
 }
