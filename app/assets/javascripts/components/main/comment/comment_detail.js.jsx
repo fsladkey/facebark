@@ -1,11 +1,19 @@
 var CommentDetail = React.createClass({
 
   lick: function () {
-    CommentApiUtil.lickComment(this.props.comment.id, this.props.postType);
+    if (this.props.postType === "photo") {
+      PhotoCommentApiUtil.lickComment(this.props.comment.id);
+    } else {
+      PostCommentApiUtil.lickComment(this.props.comment.id);
+    }
   },
 
   unlick: function () {
-    CommentApiUtil.unlickComment(this.props.comment.id, this.props.postType);
+    if (this.props.postType === "photo") {
+      PhotoCommentApiUtil.unlickComment(this.props.comment.id);
+    } else {
+      PostCommentApiUtil.unlickComment(this.props.comment.id);
+    }
   },
 
   render: function () {

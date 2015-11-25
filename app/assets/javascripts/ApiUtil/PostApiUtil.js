@@ -7,8 +7,8 @@
         url: "api/posts/",
         type: 'POST',
         data: {post: params, post_type: postType},
-        success: function(posts) {
-          PostActions.recievePosts(posts);
+        success: function(post) {
+          PostActions.recievePost(post);
         }
       });
     },
@@ -29,8 +29,8 @@
         url: "api/posts/" + postId + "/lick",
         type: 'POST',
         data: {post_type: postType},
-        success: function(posts) {
-          PostActions.recievePosts(posts);
+        success: function(post) {
+          PostActions.recievePost(post);
         }
       });
     },
@@ -40,8 +40,8 @@
         url: "api/posts/" + postId + "/unlick",
         type: 'DELETE',
         data: {post_type: postType},
-        success: function(posts) {
-          PostActions.recievePosts(posts);
+        success: function(post) {
+          PostActions.recievePost(post);
         }
       });
     }

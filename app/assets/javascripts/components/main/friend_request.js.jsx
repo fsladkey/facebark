@@ -2,10 +2,12 @@ var FriendRequest = React.createClass({
 
   addFriend: function () {
     FriendRequestApiUtil.acceptRequest(this.props.friendRequest.id);
+    this.props.toggleDetail();
   },
 
   deleteRequest: function () {
     FriendRequestApiUtil.rejectRequest(this.props.friendRequest.id);
+    this.props.toggleDetail();
   },
 
   render: function () {

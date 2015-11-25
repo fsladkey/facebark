@@ -8,9 +8,15 @@ var CommentForm = React.createClass({
     this.setState({body: e.currentTarget.value});
   },
 
-  handleSubmit: function () {
+  handleSubmit: function (e) {
+    e.preventDefault();
     var params = {commentable_id: this.props.post.id, commentable_type: "Post", body: this.state.body};
-    CommentApiUtil.createComment(params, this.props.postType);
+    if (this.props.postType === "photo") {
+      params.commentable_type = "Photo";
+      PhotoCommentApiUtil.createComment(params);
+    } else {
+      PostCommentApiUtil.createComment(params);
+    }
     this.setState({body: ""});
   },
 

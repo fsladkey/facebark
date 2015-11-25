@@ -5,11 +5,18 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :users, only: [:index, :create, :show, :update]
     resources :profiles, only: [:update]
-    resources :photos, only: [:create, :delete]
+    resources :photos, only: [:create, :delete, :show]
     resources :albums, only: [:create, :show]
     resources :friendships, only: [:destroy]
     resources :friend_requests, only: [:create, :update, :destroy]
     resources :feed, only: [:index]
+
+    resources :photos, only: [:create, :delete, :show] do
+      member do
+        post "lick"
+        delete "unlick"
+      end
+    end
 
     resources :posts, only: [:create, :index] do
       member do

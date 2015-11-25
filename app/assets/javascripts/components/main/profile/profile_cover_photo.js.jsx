@@ -29,10 +29,21 @@ var ProfileCoverPhoto = React.createClass({
     PhotoApiUtil.createPhoto(formData, this.afterUpload);
   },
 
+  showDetail: function () {
+    PhotoApiUtil.showPhoto(this.props.user.profile.photo_id, ModalActions.showModal());
+  },
 
 
   render: function() {
-    var input;
+    var detail,
+        input;
+
+    if (this.state.focused) {
+      detail = <PhotoDetail
+        hideDetail={this.hideDetail}
+        photo={this.props.user.cover_image}/>;
+    }
+
 
     if (SessionStore.currentUser().id === this.props.user.id) {
       input = <input className="upload-cover-photo-button" onChange={this.changeFile} type="file"/>;
@@ -40,8 +51,9 @@ var ProfileCoverPhoto = React.createClass({
 
     return (
       <div>
-        <img className="profile-cover-photo" src={this.props.user.cover_image_url}/>
-        {input}
+          <img onClick={this.showDetail} className="profile-cover-photo" src={this.props.user.cover_image_url}/>
+          {input}
+        {detail}
       </div>
     );
   }

@@ -1,4 +1,4 @@
-var Main = React.createClass({
+ var Main = React.createClass({
   getInitialState: function() {
     return {currentUser: SessionStore.currentUser()};
   },

@@ -1,0 +1,4 @@
+var PhotoConstants = {
+  RECEIVE_PHOTO: "RECEIVE_PHOTO",
+  RECEIVE_COMMENT: "RECEIVE_COMMENT"
+};

@@ -1,9 +1,5 @@
 var ProfilePhoto = React.createClass({
 
-  getInitialState: function () {
-    return {file: null};
-  },
-
   changeFile: function(e) {
     e.preventDefault();
     var reader = new FileReader();
@@ -29,6 +25,9 @@ var ProfilePhoto = React.createClass({
     PhotoApiUtil.createPhoto(formData, this.afterUpload);
   },
 
+  showDetail: function () {
+    PhotoApiUtil.showPhoto(this.props.user.photo_id, ModalActions.showModal());
+  },
 
   render: function() {
     var input;
@@ -39,7 +38,7 @@ var ProfilePhoto = React.createClass({
 
     return (
       <div className="profile-photo-container">
-        <img className="profile-profile-photo" src={this.props.user.profile_image_url}/>
+        <img onClick={this.showDetail} className="profile-profile-photo" src={this.props.user.profile_image_url}/>
         {input}
       </div>
     );

@@ -20,6 +20,12 @@ var NavBarLinks = React.createClass({
             </button>
           </ReactRouter.Link>
 
+          <ReactRouter.Link to={"/"}>
+            <button className="group">
+              <span>Home</span>
+            </button>
+          </ReactRouter.Link>
+
           <FriendRequests currentUser={this.props.currentUser}/>
 
           <ReactRouter.Link to={"/"}>

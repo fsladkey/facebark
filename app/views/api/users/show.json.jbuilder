@@ -1,10 +1,15 @@
 json.extract! @user, :id, :username, :email, :firstname, :lastname, :birthday, :gender, :profile
 json.fullname "#{@user.firstname} #{@user.lastname}"
+
 json.profile_image_url asset_path(@user.profile_picture.image.url)
 json.cover_image_url asset_path(@user.profile.cover_photo.image.url)
+json.photo_id @user.photo_id
+json.profile_photo_id @user.profile.photo_id
+
 json.isFriend current_user.is_friend?(@user.id)
 json.friendshipRequested current_user.friendship_requested?(@user.id)
 
+json.numFriendRequests @user.friend_requests.count
 json.friend_requests @user.friend_requests do |friend_request|
   json.id friend_request.id
   json.potential_friend "#{friend_request.user.firstname} #{friend_request.user.lastname}"

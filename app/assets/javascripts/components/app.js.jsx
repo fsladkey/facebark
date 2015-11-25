@@ -1,24 +1,30 @@
 var App = React.createClass({
 
   getInitialState: function() {
-    return {currentUser: SessionStore.currentUser()};
+    return {currentUser: SessionStore.currentUser(), showModal: ModalStore.show()};
   },
 
   componentWillMount: function() {
-    SessionStore.on("change", this._change);
+    SessionStore.on("change", this._changeCurrentUser);
+    ModalStore.on("change", this._changeModalStatus);
     if (!SessionStore.currentUser()) {
       SessionApiUtil.fetchCurrentUser();
     }
   },
 
   componentWillUnmount: function() {
-    SessionStore.removeListener("change", this._change);
+    SessionStore.removeListener("change", this._changeCurrentUser);
   },
 
   render: function(){
+    var modal;
+    if (this.state.showModal) {
+      modal = <PhotoDetail/>;
+    }
     if (this.state.currentUser) {
       return (
         <div className="app">
+          {modal}
           <Main/>
           <div className="main-layout">
             <div className="page-content">
@@ -40,8 +46,12 @@ var App = React.createClass({
     }
   },
 
-  _change: function() {
+  _changeCurrentUser: function () {
     this.setState({currentUser: SessionStore.currentUser()});
+  },
+
+  _changeModalStatus: function () {
+    this.setState({showModal: ModalStore.show()});
   }
 
 });
