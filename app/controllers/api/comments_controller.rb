@@ -2,6 +2,9 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.create!(comment_params)
+    unless @comment.commentable.user.id == current_user.id
+      @comment.notifications.create!(user_id: @comment.commentable.user.id)
+    end
     render :show
   end
 

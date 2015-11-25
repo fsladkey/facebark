@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123155131) do
+ActiveRecord::Schema.define(version: 20151125152820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,14 @@ ActiveRecord::Schema.define(version: 20151123155131) do
 
   add_index "licks", ["lickable_type", "lickable_id"], name: "index_licks_on_lickable_type_and_lickable_id", using: :btree
   add_index "licks", ["user_id"], name: "index_licks_on_user_id", using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "notifiable_id"
+    t.string  "notifiable_type"
+  end
+
+  add_index "notifications", ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "album_id"

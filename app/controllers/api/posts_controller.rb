@@ -11,6 +11,10 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create!(post_params)
+    profile_user = @post.profile.user
+    unless profile_user.id == current_user.id
+      @post.notifications.create!(user_id: @post.profile.user.id)
+    end
     render :show
   end
 

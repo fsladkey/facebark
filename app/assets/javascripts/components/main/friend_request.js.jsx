@@ -1,14 +1,12 @@
 var FriendRequest = React.createClass({
 
   addFriend: function (e) {
-    debugger
     e.stopPropagation();
     FriendRequestApiUtil.acceptRequest(this.props.friendRequest.id);
     this.props.hideDetail();
   },
 
   deleteRequest: function (e) {
-    debugger
     e.stopPropagation();
     FriendRequestApiUtil.rejectRequest(this.props.friendRequest.id);
     this.props.hideDetail();

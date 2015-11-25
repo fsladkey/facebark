@@ -52,6 +52,7 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :comments
     has_many :licks
+    has_many :notifications
 
     has_many(
       :friend_requests,
@@ -109,6 +110,10 @@ class User < ActiveRecord::Base
       self.photo_id = default_profile_picture.id
       profile.photo_id = default_cover_photo.id
       profile.save!
+    end
+
+    def full_name
+      "#{self.firstname} #{self.lastname}"
     end
 
     def profile_picture

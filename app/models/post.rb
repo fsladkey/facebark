@@ -15,6 +15,7 @@ class Post < ActiveRecord::Base
   belongs_to :profile
   has_many :comments, as: :commentable
   has_many :licks, as: :lickable
+  has_many :notifications, as: :notifiable
 
   def licked_by?(user)
     lick = user.licks.find_by(lickable_id: self.id, lickable_type: "Post")

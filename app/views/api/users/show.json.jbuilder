@@ -22,6 +22,12 @@ json.friends @user.friends do |friend|
   json.profile_image_url asset_path(friend.profile_picture.image.url)
 end
 
+json.numNotifications @user.notifications.count
+json.notifications @user.notifications do |notification|
+  json.extract! notification, :id, :notifiable_id, :notifiable_type
+  json.description notification.description
+end
+
 json.albums @user.albums do |album|
   json.extract! album, :id, :title
   json.photo_count album.photos.length

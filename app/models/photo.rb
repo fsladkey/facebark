@@ -17,6 +17,12 @@ class Photo < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :album
+  has_one(
+    :user,
+    through: :album,
+    source: :user
+    )
+
   has_many :comments, as: :commentable
   has_many :licks, as: :lickable
 
