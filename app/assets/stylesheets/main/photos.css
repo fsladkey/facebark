@@ -107,30 +107,54 @@
 .photo-detail-content {
   position: fixed;
   background: white;
-  position: fixed;
-  height: 600px;
+  height: 500px;
+  width: 1000px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .photo-detail-left {
+  position: relative;
   float: left;
-  width: 60%;
-  height: 600px;
+  width: 600px;
+  height: 500px;
   background-color: grey;
   background: rgba(0,0,0,0.9);
 }
+
 .photo-detail-right {
   box-sizing: border-box;
   padding: 10px;
   float: right;
-  width: 40%;
+  width: 400px;
 }
 
 .photo-detail-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
-  margin: auto;
+  max-height: 500px;
+  max-width: 600px;
+}
+
+.photo-author-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(59, 89, 152);
+}
+
+.photo-author-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(59, 89, 152);
+  padding-top: 20px;
+}
+
+.photo-detail-content .comment-detail p {
+  padding-top: 12px;
 }
 
 .exit-button {
@@ -147,11 +171,6 @@
   color: #aaa;
 }
 
-.photo-header h3 {
-
-}
-
 .photo-comment-form input.comment-input {
-  width: 230px;
-  float: right;
+  width: 300px;
 }

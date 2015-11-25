@@ -12,7 +12,7 @@ json.licks @photo.licks do |lick|
   json.author_name "#{lick.user.firstname} #{lick.user.lastname}"
 end
 
-json.comments @photo.comments do |comment|
+json.comments @photo.comments.reverse do |comment|
   json.extract! comment, :id, :body
   json.user comment.user
   json.user_photo_url comment.user.profile_picture.image.url

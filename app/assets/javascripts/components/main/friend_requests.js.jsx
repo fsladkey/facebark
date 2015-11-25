@@ -3,20 +3,20 @@ var FriendRequests = React.createClass({
   getInitialState: function() {
     return {detailShown: false};
   },
+  //
+  // toggleDetail: function(e) {
+  //   e && e.stopPropagation();
+  //   this.setState({detailShown: !this.state.detailShown});
+  // },
 
-  toggleDetail: function(e) {
-    e && e.stopPropagation();
-    this.setState({detailShown: !this.state.detailShown});
-  },
 
-  showDetail: function(e) {
-    e && e.stopPropagation();
-    this.setState({detailShown: true});
-  },
 
   hideDetail: function(e) {
-    e && e.stopPropagation();
     this.setState({detailShown: false});
+  },
+
+  toggleDetail: function(e) {
+    this.setState({detailShown: !this.state.detailShown});
   },
 
   render: function () {
@@ -35,9 +35,10 @@ var FriendRequests = React.createClass({
     }
 
     if (this.state.detailShown) {
-        $(document).click(function () {
-          this.hideDetail();
-        }.bind(this));
+        // $(document).on("click", (function (e) {
+        //   debugger
+        //   this.hideDetail();
+        // }.bind(this)))
 
       dropdown = (
         <div className="friend-requests-dropdown">
@@ -47,16 +48,21 @@ var FriendRequests = React.createClass({
             </li>
             {
               friend_requests.map(function(friendRequest) {
-                return <FriendRequest key={friendRequest.id} toggleDetail={this.toggleDetail} friendRequest={friendRequest}/>;
+                return <FriendRequest key={friendRequest.id} hideDetail={this.hideDetail} friendRequest={friendRequest}/>;
               }, this)
             }
           </ul>
         </div>
       );
+    } else {
+      // $(document).off("click", (function (e) {
+      //   debugger
+      //   this.hideDetail();
+      // }.bind(this)))
     }
 
     return (
-      <div className="friend-requests" onClick={this.showDetail}>
+      <div className="friend-requests" onClick={this.toggleDetail}>
         <button
           className="friend-requests-button"
           >

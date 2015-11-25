@@ -299,16 +299,6 @@
   margin-left: 0;
 }
 
-.post-header {
-}
-
-.comment-detail {
-}
-
-.comment-detail p {
-  /*float: left;*/
-}
-
 input.comment-input {
   box-sizing: border-box;
   resize: none;

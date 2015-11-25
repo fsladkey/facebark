@@ -1,18 +1,22 @@
 var FriendRequest = React.createClass({
 
   addFriend: function (e) {
+    debugger
+    e.stopPropagation();
     FriendRequestApiUtil.acceptRequest(this.props.friendRequest.id);
-    this.props.toggleDetail();
+    this.props.hideDetail();
   },
 
   deleteRequest: function (e) {
+    debugger
+    e.stopPropagation();
     FriendRequestApiUtil.rejectRequest(this.props.friendRequest.id);
-    this.props.toggleDetail();
+    this.props.hideDetail();
   },
 
   render: function () {
     var friend = (
-      <ReactRouter.Link onClick={this.props.toggleDetail} to={this.props.friendRequest.profile_url}>
+      <ReactRouter.Link onClick={this.props.hideDetail} to={this.props.friendRequest.profile_url}>
         {this.props.friendRequest.potential_friend}
       </ReactRouter.Link>
     );

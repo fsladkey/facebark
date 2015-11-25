@@ -30,8 +30,8 @@ var AlbumList = React.createClass({
 
       return (
         <li key={album.id} className="album-preview">
-          <div className="album-preview-image">{preview}</div>
           <ReactRouter.Link to={"/" + this.state.user.username + "/photos/" + album.id}>
+          <div className="album-preview-image">{preview}</div>
           <h3>{album.title}</h3>
           </ReactRouter.Link>
         </li>
