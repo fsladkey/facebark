@@ -1,6 +1,7 @@
 var Notification = React.createClass({
 
   render: function () {
+    debugger
 
     return (
       <li className="group">

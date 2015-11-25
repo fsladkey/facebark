@@ -28,4 +28,25 @@ class Notification < ActiveRecord::Base
     end
     "\"#{text}\""
   end
+
+  def content_id
+    if self.notifiable_type == "Post"
+      return self.notifiable_id
+    elsif self.notifiable_type == "Comment"
+      return self.notifiable.commentable_id
+    elsif self.notifiable_type == "Lick"
+      return self.notifiable.lickable_type == "Comment" ? self.notifiable.lickable.commentable_id : self.notifiable.lickable_id
+    end
+  end
+
+  def content_type
+    if self.notifiable_type == "Post"
+      return "Post"
+    elsif self.notifiable_type == "Comment"
+      return self.notifiable.commentable_type
+    elsif self.notifiable_type == "Lick"
+      return self.notifiable.lickable_type == "Comment" ? self.notifiable.lickable.commentable_type : self.notifiable.lickable_type
+    end
+  end
+
 end
