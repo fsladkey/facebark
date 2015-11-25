@@ -17,9 +17,6 @@ body {
   width: 1000px;
   margin: auto;
 }
-
-
-/*Add this!*/
 .nav-bar-link-button:hover {
   background: #23355B;
 }
@@ -102,7 +99,6 @@ body {
 }
 
 .friend-requests-button:hover {
-  background:
 }
 
 .friend-requests-dropdown {
