@@ -22,13 +22,13 @@ json.friends @user.friends do |friend|
   json.profile_image_url asset_path(friend.profile_picture.image.url)
 end
 
-json.numNotifications @user.notifications.count
-json.notifications @user.notifications do |notification|
-  json.extract! notification, :id, :notifiable_id, :notifiable_type
+json.newNotifications @user.new_notifications
+json.notifications @user.all_shown_notifications do |notification|
+  json.extract! notification, :id, :notifiable_id, :notifiable_type, :viewed
 
   json.description notification.description
   json.user_photo_url notification.user.profile_picture.image.url
-  
+
   json.content_id notification.content_id
   json.content_type notification.content_type
 end

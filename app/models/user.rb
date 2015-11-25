@@ -98,6 +98,18 @@ class User < ActiveRecord::Base
       )
     end
 
+    def all_shown_notifications
+      notifications = self.notifications.where(viewed: false)
+      notifications = notifications + self.notifications.
+        where(viewed: true).
+        limit(notifications.length > 10 ? 0 : 10 - notifications.length).
+        reverse
+    end
+
+    def new_notifications
+      self.notifications.where(viewed: false).count
+    end
+
     def set_up!
       profile = Profile.create!(user_id: self.id)
 

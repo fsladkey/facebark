@@ -21,12 +21,12 @@ var Notifications = React.createClass({
         dropdown,
         badge;
 
-    if (this.props.currentUser.numNotifications > 0) {
+    if (this.props.currentUser.newNotifications > 0) {
       badge = (
         <badge
           className="friend-requests-badge"
           >
-          {this.props.currentUser.numNotifications}
+          {this.props.currentUser.newNotifications}
         </badge>
       );
     }

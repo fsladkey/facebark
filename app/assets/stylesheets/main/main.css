@@ -127,7 +127,6 @@ body {
   margin: 5px;
 }
 
-
 .request-header {
   display: block;
   float: left;
@@ -149,6 +148,20 @@ body {
   background: red;
   font-size: 10px;
 }
+
+.new-notification-badge {
+  position: absolute;
+  right: 4px;
+  top: 45px;
+  border-radius: 5px;
+  padding: 2px 5px;
+  box-shadow: 0 0 2px grey;
+  background: red;
+  font-size: 10px;
+  color: white;
+}
+
+
 
 .friend-requests-dropdown button {
   display: block;
