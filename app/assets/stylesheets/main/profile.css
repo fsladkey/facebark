@@ -222,6 +222,10 @@
   float: right;
 }
 
+.notification {
+  cursor: pointer;
+}
+
 .post-form {
   border: 1px solid lightgrey;
   background: white;

@@ -27,7 +27,7 @@ var NavBarLinks = React.createClass({
           </ReactRouter.Link>
 
           <FriendRequests currentUser={this.props.currentUser}/>
-          <Notifications currentUser={this.props.currentUser}/>
+          <Notifications history={this.props.history} currentUser={this.props.currentUser}/>
 
           <ReactRouter.Link to={"/"}>
           <button

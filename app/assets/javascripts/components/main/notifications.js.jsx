@@ -45,7 +45,7 @@ var Notifications = React.createClass({
             </li>
             {
               notifications.map(function(notification) {
-                return <Notification key={notification.id} hideDetail={this.hideDetail} notification={notification}/>;
+                return <Notification key={notification.id} hideDetail={this.hideDetail} notification={notification} hideDetail={this.hideDetail}history={this.props.history}/>;
               }, this)
             }
           </ul>
@@ -55,8 +55,9 @@ var Notifications = React.createClass({
       $(document).off();
     }
     return (
-      <div className="friend-requests" onClick={this.showDetail}>
+      <div className="friend-requests">
         <button
+          onClick={this.showDetail}
           className="friend-requests-button"
           >
           <img

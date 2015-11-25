@@ -25,7 +25,7 @@ var App = React.createClass({
       return (
         <div className="app">
           {modal}
-          <Main/>
+          <Main history={this.props.history}/>
           <div className="main-layout">
             <div className="page-content">
               {

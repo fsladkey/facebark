@@ -13,6 +13,7 @@
   render: function() {
     return (
         <NavBar
+          history={this.props.history}
           currentUser={this.state.currentUser}
           />
     );

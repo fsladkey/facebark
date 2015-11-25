@@ -12,6 +12,7 @@ var NavBar = React.createClass({
 
           <SearchBar/>
           <NavBarLinks
+            history={this.props.history}
             currentUser={this.props.currentUser}
             />
         </div>

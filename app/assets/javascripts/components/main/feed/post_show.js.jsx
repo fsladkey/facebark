@@ -9,6 +9,10 @@ var PostShow = React.createClass({
     PostApiUtil.fetchPost(this.props.params.post_id);
   },
 
+  componentWillReceiveProps(newProps) {
+    PostApiUtil.fetchPost(newProps.params.post_id);
+  },
+
   render: function () {
     if (this.state.post) {
       return (
