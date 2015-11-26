@@ -29,7 +29,9 @@ var ConversationDetail = React.createClass({
   },
 
   componentWillReceiveProps: function () {
-    this.scrollToBottom();
+    window.setTimeout(function () {
+      this.scrollToBottom();
+    }.bind(this), 50);
   },
 
   componentDidMount: function () {

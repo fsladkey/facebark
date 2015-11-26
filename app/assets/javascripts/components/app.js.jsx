@@ -29,7 +29,7 @@ var App = React.createClass({
     SessionStore.removeListener("change", this._changeCurrentUser);
     if (this.state.currentUser) {
       pusher.unsubscribe('private-' + currentUser.id);
-      SessionStore.notConnected = true; //probably unneccassary
+      SessionStore.notConnected = true;
     }
   },
 
@@ -66,13 +66,9 @@ var App = React.createClass({
   _changeCurrentUser: function () {
     var currentUser = SessionStore.currentUser();
 
-    if (!currentUser) {
-      this.disconnectFromPusher();
-    } else {
-      if (SessionStore.notConnected) {
-        this.connectToPusher(currentUser);
-        SessionStore.notConnected = false;
-      }
+    if (SessionStore.notConnected) {
+      this.connectToPusher(currentUser);
+      SessionStore.notConnected = false;
     }
 
     this.setState({currentUser: currentUser});
