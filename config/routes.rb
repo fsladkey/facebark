@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :feed, only: [:index]
     resources :notifications, only: [:update]
     resources :messages, only: [:create]
+    resources :conversations, only: [:index]
 
     resources :photos, only: [:create, :delete, :show] do
       member do

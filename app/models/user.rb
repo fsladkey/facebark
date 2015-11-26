@@ -166,6 +166,7 @@ class User < ActiveRecord::Base
     def friend(friend_id)
       self.friendships.create!(friend_id: friend_id)
       User.find(friend_id).friendships.create!(friend_id: self.id)
+      Conversation.create!(user1_id: self.id, user2_id: friend_id)
     end
 
     def password=(password)
@@ -175,6 +176,10 @@ class User < ActiveRecord::Base
 
     def valid_password?(password)
       BCrypt::Password.new(self.password_digest).is_password?(password)
+    end
+
+    def conversations
+      Conversation.where("user1_id = #{self.id} OR user2_id = #{self.id}")
     end
 
     def reset_session_token!

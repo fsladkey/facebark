@@ -1,0 +1,12 @@
+.chat-friend-list {
+  border: 1px solid darkgrey;
+  width: 225px;
+  height: 475px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.conversation-item {
+  padding: 20px;
+}

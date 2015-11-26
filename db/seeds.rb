@@ -53,7 +53,6 @@ morty.profile.update!(photo_id: mcov.id)
 aske.profile.update!(photo_id: acov.id)
 paul.profile.update!(photo_id: pcov.id)
 
-# bailey.friend_ids = [ulysses.id, morty.id, aske.id]
 bailey.friend(ulysses.id)
 bailey.friend(morty.id)
 bailey.friend(aske.id)
@@ -61,7 +60,6 @@ bailey.friend(paul.id)
 ulysses.friend(morty.id)
 ulysses.friend(aske.id)
 ulysses.friend(emma.id)
-# morty.friend_ids = [bailey.id, emma.id, paul.id, aske.id]
 morty.friend(emma.id)
 morty.friend(aske.id)
 paul.friend(morty.id)

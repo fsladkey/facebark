@@ -1,0 +1,3 @@
+var ConversationConstants = {
+  RECEIVE_CONVERSATIONS: "RECEIVE_CONVERSATIONS"
+};

@@ -16,10 +16,15 @@
 
   render: function() {
     return (
+      <div>
         <NavBar
           history={this.props.history}
           currentUser={this.state.currentUser}
           />
+        <Chat
+          currentUser={this.state.currentUser}
+          />
+      </div>
     );
   },
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126155149) do
+ActiveRecord::Schema.define(version: 20151126163059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20151126155149) do
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "user1_id",   null: false
+    t.integer  "user2_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "conversations", ["user1_id"], name: "index_conversations_on_user1_id", using: :btree
+  add_index "conversations", ["user2_id"], name: "index_conversations_on_user2_id", using: :btree
 
   create_table "friend_requests", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -68,11 +78,12 @@ ActiveRecord::Schema.define(version: 20151126155149) do
   add_index "licks", ["user_id"], name: "index_licks_on_user_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "sender_id",   null: false
-    t.integer  "receiver_id", null: false
+    t.integer  "sender_id",       null: false
+    t.integer  "receiver_id",     null: false
     t.string   "body"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "conversation_id"
   end
 
   create_table "notifications", force: :cascade do |t|
