@@ -16,6 +16,7 @@
       $.ajax({
         url: "api/messages/",
         type: 'POST',
+        data: {message: params},
         success: function(message) {
           ConversationActions.receiveMessage(message);
         }

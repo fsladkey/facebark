@@ -9,20 +9,13 @@
     }, this);
   };
 
-  // var addComment = function(comment) {
-  //   var index;
-  //   oldComment = _photo.comments.find(function (photoComment, idx) {
-  //     if (comment.id === photoComment.id) {
-  //       index = idx;
-  //       return true;
-  //     }
-  //   });
-  //   if (oldComment) {
-  //     _photo.comments[index] = comment;
-  //   } else {
-  //     _photo.comments.push(comment);
-  //   }
-  // };
+  var addMessage = function(message) {
+    conversation = _conversations.find(function (conversation) {
+      return conversation.id === message.conversation_id;
+    });
+
+    conversation.messages.push(message);
+  };
 
   root.ConversationStore = $.extend({}, EventEmitter.prototype, {
 
@@ -40,10 +33,10 @@
           removeConversation(payload.conversation);
           ConversationStore.emit("change");
           break;
-        // case PhotoConstants.RECEIVE_COMMENT:
-        //   addComment(payload.comment);
-        //   ConversationStore.emit("change");
-        //   break;
+        case ConversationConstants.RECEIVE_MESSAGE:
+          addMessage(payload.message);
+          ConversationStore.emit("change");
+          break;
       }
     }),
 

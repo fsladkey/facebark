@@ -5,6 +5,8 @@
   position: fixed;
   right: 0;
   bottom: 0;
+  z-index: 200;
+  background: #E9EAED;
 }
 
 .conversation-item {
@@ -46,7 +48,7 @@
   border: 1px solid lightgrey;
   background: white;
   width: 250px;
-  margin: 0 20px;
+  margin-top: 20px;
 }
 
 .active-chat-header {
@@ -98,4 +100,10 @@ li.friend-message p {
   background: lightblue;
   padding: 7px 10px;
   border-radius: 10px;
+}
+
+.chat-input {
+  padding: 10px;
+  display: block;
+  width: 220px;
 }

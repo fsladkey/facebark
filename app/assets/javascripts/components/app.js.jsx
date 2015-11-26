@@ -16,8 +16,8 @@ var App = React.createClass({
     var pusher = new Pusher('9f37adb8ceb342038022');
     var channel = pusher.subscribe('private-' + currentUser.id);
 
-    channel.bind('new_message', function(data) {
-      debugger
+    channel.bind('new_message', function(message) {
+      ConversationActions.receiveMessage(message);
     });
 
     // Some useful debug msgs
