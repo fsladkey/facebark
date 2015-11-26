@@ -62,8 +62,8 @@ var ConversationDetail = React.createClass({
               className="chat-input"
               onChange={this.updateInput}type="text"
               placeholder="Send a message"
+              value={this.state.input}
               >
-              {this.state.input}
             </input>
           </form>
 

@@ -1,16 +1,16 @@
 User.destroy_all
 
-ulysses = User.create!({username: "puglyfe", email: "puglyfe@dog.com", firstname: "Ulysses", lastname: "Sladkey", birthday: "2010-07-28", password_digest: "$2a$10$uIcBmoKgFJDRJKqYPlhWp.XliXIJABdnFmK9RyRC0xCb3BQWx2zLS", gender: "Male"})
+ulysses = User.create!({username: "puglyfe", email: "puglyfe@dog.com", firstname: "Ulysses", lastname: "Sladkey", birthday: "2010-07-28", password: "puglyfepuglyfe", gender: "Male"})
 ulysses.set_up!
-bailey = User.create!({username: "bprime", email: "bprime@dog.com", firstname: "Bailey", lastname: "Primero", birthday: "2009-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
+bailey = User.create!({username: "bprime", email: "bprime@dog.com", firstname: "Bailey", lastname: "Primero", birthday: "2009-01-01", password: "bprimebprime", gender: "Male"})
 bailey.set_up!
-morty = User.create!({username: "morty", email: "morty@dog.com", firstname: "Morty", lastname: "Chase", birthday: "2011-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
+morty = User.create!({username: "morty", email: "morty@dog.com", firstname: "Morty", lastname: "Chase", birthday: "2011-01-01", password: "mortymorty", gender: "Male"})
 morty.set_up!
-emma = User.create!({username: "emma", email: "emma@dog.com", firstname: "Emma", lastname: "Chase", birthday: "2014-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Female"})
+emma = User.create!({username: "emma", email: "emma@dog.com", firstname: "Emma", lastname: "Chase", birthday: "2014-01-01", password: "emmaemma", gender: "Female"})
 emma.set_up!
-aske = User.create!({username: "snowdogsrule", email: "aske@dog.com", firstname: "Aske", lastname: "Sladkey", birthday: "1999-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
+aske = User.create!({username: "snowdogsrule", email: "aske@dog.com", firstname: "Aske", lastname: "Sladkey", birthday: "1999-01-01", password: "snowdogsrule", gender: "Male"})
 aske.set_up!
-paul = User.create!({username: "paul", email: "paul@dog.com", firstname: "Paul", lastname: "Smith", birthday: "2008-01-01", password_digest: "$2a$10$jHoOjlUK0AIp4SFSyUEkOeOPCA4DgtfK33TuucR1sQiHRO0giAtRm", gender: "Male"})
+paul = User.create!({username: "paul", email: "paul@dog.com", firstname: "Paul", lastname: "Smith", birthday: "2008-01-01", password: "paulpaul", gender: "Male"})
 paul.set_up!
 
 
