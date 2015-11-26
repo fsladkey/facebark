@@ -42,7 +42,7 @@ Rails.application.configure do
 
   require 'pusher'
 
-  Pusher.app_id = '157351'
-  Pusher.key = '8ac9682df29166fb7759'
-  Pusher.secret = 'f80fad81a38de7b19ee4'
+  Pusher.app_id = ENV["pusher_app_id"]
+  Pusher.key = ENV["pusher_key"]
+  Pusher.secret = ENV["pusher_secret"]
 end
