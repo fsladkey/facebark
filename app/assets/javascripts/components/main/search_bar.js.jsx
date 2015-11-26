@@ -21,6 +21,10 @@ var SearchBar = React.createClass({
     UserStore.on("change", this._change);
   },
 
+  componentWillUnmount: function () {
+    UserStore.removeListener("change", this._change);
+  },
+
   toggleFocus: function () {
     this.setState({focused: !this.state.focused});
   },

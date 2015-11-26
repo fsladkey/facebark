@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "static_pages#root"
+  post 'pusher/auth'
   namespace :api, defaults: {format: :json} do
 
     resource :session, only: [:create, :destroy, :show]
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     resources :friend_requests, only: [:create, :update, :destroy]
     resources :feed, only: [:index]
     resources :notifications, only: [:update]
+    resources :messages, only: [:create]
 
     resources :photos, only: [:create, :delete, :show] do
       member do

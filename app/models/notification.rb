@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  notifiable_id   :integer
+#  notifiable_type :string
+#  viewed          :boolean          default(FALSE)
+#
+
 class Notification < ActiveRecord::Base
   validates :user_id, :notifiable_id, :notifiable_type, presence: true
 

@@ -25,6 +25,8 @@
       return _currentUser;
     },
 
+    notConnected: true
+
   });
 
 })(this);

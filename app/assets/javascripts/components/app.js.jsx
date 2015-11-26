@@ -12,8 +12,39 @@ var App = React.createClass({
     }
   },
 
+  connectToPusher: function (currentUser) {
+    var pusher = new Pusher('9f37adb8ceb342038022');
+    var channel = pusher.subscribe('private-' + currentUser.id);
+
+    channel.bind('new_message', function(data) {
+      debugger
+    });
+
+    // Some useful debug msgs
+    pusher.connection.bind('connecting', function() {
+      $('div#status').text('Connecting to Pusher...');
+    });
+    pusher.connection.bind('connected', function() {
+      $('div#status').text('Connected to Pusher!');
+    });
+    pusher.connection.bind('failed', function() {
+      $('div#status').text('Connection to Pusher failed :(');
+    });
+    channel.bind('subscription_error', function(status) {
+      $('div#status').text('Pusher subscription_error');
+    });
+  },
+
+  disconnectFromPusher: function () {
+    pusher.unsubscribe('private-' + currentUser.id);
+  },
+
   componentWillUnmount: function() {
     SessionStore.removeListener("change", this._changeCurrentUser);
+    if (this.state.currentUser) {
+      pusher.unsubscribe('private-' + currentUser.id);
+      SessionStore.notConnected = true; //probably unneccassary
+    }
   },
 
   render: function(){
@@ -47,7 +78,18 @@ var App = React.createClass({
   },
 
   _changeCurrentUser: function () {
-    this.setState({currentUser: SessionStore.currentUser()});
+    var currentUser = SessionStore.currentUser();
+
+    if (!currentUser) {
+      this.disconnectFromPusher();
+    } else {
+      if (SessionStore.notConnected) {
+        this.connectToPusher(currentUser);
+        SessionStore.notConnected = false;
+      }
+    }
+
+    this.setState({currentUser: currentUser});
   },
 
   _changeModalStatus: function () {

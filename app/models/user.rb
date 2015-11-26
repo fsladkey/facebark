@@ -55,6 +55,20 @@ class User < ActiveRecord::Base
     has_many :notifications
 
     has_many(
+      :sent_messages,
+      class_name: "Message",
+      foreign_key: :sender_id,
+      primary_key: :id
+      )
+
+    has_many(
+      :recieved_messages,
+      class_name: "Message",
+      foreign_key: :receiver_id,
+      primary_key: :id
+      )
+
+    has_many(
       :friend_requests,
       class_name: "FriendRequest",
       foreign_key: :friend_id,
@@ -179,6 +193,5 @@ class User < ActiveRecord::Base
       #to be implemented, should always check client side though so not super important.
       true
     end
-
 
 end
