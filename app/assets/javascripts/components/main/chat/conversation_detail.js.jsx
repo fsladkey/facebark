@@ -1,7 +1,7 @@
 var ConversationDetail = React.createClass({
 
   hideDetail: function () {
-
+    
   },
 
   render: function () {
@@ -17,8 +17,8 @@ var ConversationDetail = React.createClass({
             <ul>
               {
                 this.props.conversation.messages.map(function(message) {
-                  return <Message message={this.props.message} conversation={this.props.conversation}/>;
-                })
+                  return <Message message={message} key={message.id} conversation={this.props.conversation}/>;
+                }, this)
               }
             </ul>
           </div>

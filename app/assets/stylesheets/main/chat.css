@@ -69,6 +69,7 @@
   height: 330px;
   overflow: scroll;
 }
+
 li.chat-message {
   display: block;
   padding: 10px;
