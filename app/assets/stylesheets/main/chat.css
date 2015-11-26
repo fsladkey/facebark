@@ -8,5 +8,69 @@
 }
 
 .conversation-item {
-  padding: 20px;
+  cursor: pointer;
+  display: block;
+  margin: 5px;
+}
+
+.conversation-item:hover {
+  background: rgb(246, 247, 248);
+}
+
+
+.conversation-item h3 {
+  margin-top: 25px;
+  float: left;
+}
+
+.chat-thumbnail {
+  float: left;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+.chat-active-conversation-list {
+  position: fixed;
+  z-index: 200;
+  right: 226px;
+  bottom: 0;
+}
+
+.chat-active-conversation-list li {
+  display: block;
+  float: left;
+}
+
+.chat-active-conversation {
+  border: 1px solid lightgrey;
+  background: white;
+  width: 250px;
+  margin: 0 20px;
+}
+
+.active-chat-header {
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  background: #4E69A2;
+}
+
+.active-chat-header > h3 {
+  display: inline;
+}
+
+.active-chat-header > button {
+  cursor: pointer;
+  float: right;
+}
+
+.chat-message-list {
+  height: 330px;
+  overflow: scroll;
+}
+li.chat-message {
+  display: block;
+  padding: 10px;
+  float: none;
 }

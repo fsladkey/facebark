@@ -3,7 +3,21 @@ class Conversation < ActiveRecord::Base
 
   has_many :messages
 
-  belongs_to :user_1
-  belongs_to :user_2
+  belongs_to(
+    :user_1,
+    class_name: "User",
+    foreign_key: :user1_id,
+    primary_key: :id
+    )
+  belongs_to(
+    :user_2,
+    class_name: "User",
+    foreign_key: :user2_id,
+    primary_key: :id
+    )
+
+  def other_user(user_id)
+    self.user1_id == user_id ? self.user_2 : self.user_1
+  end
 
 end

@@ -5,5 +5,12 @@ var ConversationActions = {
         actionType: ConversationConstants.RECEIVE_CONVERSATIONS,
         conversations: conversations
     });
+  },
+
+  activateConversation: function (conversation) {
+    AppDispatcher.dispatch({
+        actionType: ConversationConstants.ACTIVATE_CONVERSATION,
+        conversation: conversation
+    });
   }
 };

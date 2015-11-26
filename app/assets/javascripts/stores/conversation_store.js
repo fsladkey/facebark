@@ -1,6 +1,7 @@
 (function (root){
 
   var _conversations = [];
+  var _activeConversations = [];
 
   // var addComment = function(comment) {
   //   var index;
@@ -22,8 +23,11 @@
     dispatcherId: AppDispatcher.register(function(payload) {
       switch (payload.actionType) {
         case ConversationConstants.RECEIVE_CONVERSATIONS:
-          debugger
           _conversations = payload.conversations;
+          ConversationStore.emit("change");
+          break;
+        case ConversationConstants.ACTIVATE_CONVERSATION:
+          _activeConversations.push(payload.conversation);
           ConversationStore.emit("change");
           break;
         // case PhotoConstants.RECEIVE_COMMENT:
@@ -35,6 +39,10 @@
 
     all: function () {
       return _conversations;
+    },
+
+    allActive: function () {
+      return _activeConversations;
     },
 
   });
