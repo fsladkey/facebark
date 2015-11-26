@@ -75,3 +75,27 @@ li.chat-message {
   padding: 10px;
   float: none;
 }
+
+li.current-user-message {
+  padding: 15px;
+  float: none;
+  text-align: right;
+}
+li.current-user-message p {
+  background: lightgreen;
+  border-radius: 10px;
+  float: right;
+  padding: 7px 10px;
+}
+
+li.friend-message {
+  float: none;
+}
+
+li.friend-message p {
+  float: left;
+  margin-top: 20px;
+  background: lightblue;
+  padding: 7px 10px;
+  border-radius: 10px;
+}

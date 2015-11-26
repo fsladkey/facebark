@@ -3,6 +3,12 @@
   var _conversations = [];
   var _activeConversations = [];
 
+  var removeConversation = function (conversation) {
+    _activeConversations = _activeConversations.filter(function (activeConversation) {
+      return conversation.id != activeConversation.id;
+    }, this);
+  };
+
   // var addComment = function(comment) {
   //   var index;
   //   oldComment = _photo.comments.find(function (photoComment, idx) {
@@ -28,6 +34,10 @@
           break;
         case ConversationConstants.ACTIVATE_CONVERSATION:
           _activeConversations.push(payload.conversation);
+          ConversationStore.emit("change");
+          break;
+        case ConversationConstants.DEACTIVATE_CONVERSATION:
+          removeConversation(payload.conversation);
           ConversationStore.emit("change");
           break;
         // case PhotoConstants.RECEIVE_COMMENT:

@@ -12,6 +12,16 @@
       });
     },
 
+    sendMessage: function(params) {
+      $.ajax({
+        url: "api/messages/",
+        type: 'POST',
+        success: function(message) {
+          ConversationActions.receiveMessage(message);
+        }
+      });
+    },
+
   };
 
 })(this);

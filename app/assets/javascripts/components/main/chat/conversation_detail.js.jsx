@@ -1,7 +1,24 @@
 var ConversationDetail = React.createClass({
 
+  getInitialState: function () {
+    return {input: ""};
+  },
+
+  updateInput: function (e) {
+    this.setState({input: e.currentTarget.value});
+  },
+
+  handleSubmit: function (e) {
+    e.preventDefault();
+    var params = {
+      body: this.state.input,
+      conversation_id: this.props.conversation.id
+    };
+    ConversationApiUtil.sendMessage(params);
+  },
+
   hideDetail: function () {
-    
+    ConversationActions.deactivateConversation(this.props.conversation);
   },
 
   render: function () {
@@ -24,7 +41,7 @@ var ConversationDetail = React.createClass({
           </div>
 
           <form>
-            THE FORM!
+            <input onChange={this.updateInput}type="text">this.state.input</input>
           </form>
 
         </div>

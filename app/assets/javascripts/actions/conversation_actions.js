@@ -12,5 +12,12 @@ var ConversationActions = {
         actionType: ConversationConstants.ACTIVATE_CONVERSATION,
         conversation: conversation
     });
+  },
+
+  deactivateConversation: function (conversation) {
+    AppDispatcher.dispatch({
+        actionType: ConversationConstants.DEACTIVATE_CONVERSATION,
+        conversation: conversation
+    });
   }
 };
