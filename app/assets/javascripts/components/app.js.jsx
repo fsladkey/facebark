@@ -13,25 +13,11 @@ var App = React.createClass({
   },
 
   connectToPusher: function (currentUser) {
-    var pusher = new Pusher('9f37adb8ceb342038022');
+    var pusher = new Pusher(window.pusherKey);
     var channel = pusher.subscribe('private-' + currentUser.id);
 
     channel.bind('new_message', function(message) {
       ConversationActions.receiveMessage(message);
-    });
-
-    // Some useful debug msgs
-    pusher.connection.bind('connecting', function() {
-      $('div#status').text('Connecting to Pusher...');
-    });
-    pusher.connection.bind('connected', function() {
-      $('div#status').text('Connected to Pusher!');
-    });
-    pusher.connection.bind('failed', function() {
-      $('div#status').text('Connection to Pusher failed :(');
-    });
-    channel.bind('subscription_error', function(status) {
-      $('div#status').text('Pusher subscription_error');
     });
   },
 
