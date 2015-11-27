@@ -113,7 +113,7 @@ class User < ActiveRecord::Base
     end
 
     def all_shown_notifications
-      notifications = self.notifications.where(viewed: false)
+      notifications = self.notifications.where(viewed: false).reverse
       notifications = notifications + self.notifications.
         where(viewed: true).
         limit(notifications.length > 10 ? 0 : 10 - notifications.length).
