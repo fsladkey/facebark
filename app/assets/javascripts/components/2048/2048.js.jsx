@@ -39,7 +39,9 @@ var TwenyFortyBoard = React.createClass({
           direction = "down";
           break;
       }
-      this.state.board.makeMoveInDirection(direction);
+      if (direction) {
+        this.state.board.makeMoveInDirection(direction);
+      }
     }.bind(this));
   },
 

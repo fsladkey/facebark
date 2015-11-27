@@ -4,6 +4,14 @@ var SponseredPost = React.createClass({
     return (
       <div className="sponsed-post">
         <div>
+          <a href="http://rainwav.herokuapp.com/">
+             <img className="rainwav-logo" src="rainwav-logo.png"/>
+         </a>
+       </div>
+       <h3><a href="http://rainwav.herokuapp.com/">RainWav: Get your ears wet</a></h3>
+       <p><a href="http://rainwav.herokuapp.com/">rainwav.herokuapp.com</a></p>
+
+        <div>
           <a href="http://fight-club-app.herokuapp.com">
              <img className="fight-club-logo" src="fightclub-logo.png"/>
          </a>
@@ -18,14 +26,6 @@ var SponseredPost = React.createClass({
        </div>
        <h3><a href="http://serene-hamlet-4726.herokuapp.com/">Spamless</a></h3>
        <p><a href="http://serene-hamlet-4726.herokuapp.com/">Spamless.com</a></p>
-
-        <div>
-          <a href="http://http://rainwav.herokuapp.com/">
-             <img className="rainwav-logo" src="rainwav-logo.png"/>
-         </a>
-       </div>
-       <h3><a href="http://http://rainwav.herokuapp.com/">RainWav: Get your ears wet</a></h3>
-       <p><a href="http://http://rainwav.herokuapp.com/">rainwav.herokuapp.com</a></p>
 
 
 

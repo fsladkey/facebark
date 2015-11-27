@@ -40,15 +40,10 @@
 .feed-profile-link:hover {
   background: rgb(246, 247, 248);
 }
-/*
-.2048-link {
-  padding-bottom: 5px;
-  border-bottom: 1px solid lightgrey;
-  margin: 0 12px;
+
+.twentyforty {
   top: 100px;
-  position: fixed;
-  background: blue;
-}*/
+}
 
 .sponsed-post {
   padding: 10px;
