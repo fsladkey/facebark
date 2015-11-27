@@ -8,7 +8,7 @@
         type: 'POST',
         data: {user: user},
         success: function(currentUser) {
-          SessionActions.receiveCurrentUser(user);
+          SessionActions.receiveCurrentUser(currentUser);
         }
       });
     },
