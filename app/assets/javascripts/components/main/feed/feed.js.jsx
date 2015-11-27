@@ -27,8 +27,8 @@ var Feed = React.createClass({
                   <p className="feed-current-user-name">{this.props.currentUser.firstname + " " + this.props.currentUser.lastname}</p>
                 </div>
               </ReactRouter.Link>
-
             </div>
+            
             <div className="feed-profile-link twentyforty group">
               <ReactRouter.Link to="games/twentyfortyeight">
                 <div className="group feed-profile-link">
@@ -36,8 +36,17 @@ var Feed = React.createClass({
                   <p className="feed-current-user-name">2048</p>
                 </div>
               </ReactRouter.Link>
-
             </div>
+
+            <div className="feed-profile-link snake group">
+              <ReactRouter.Link to="games/snake">
+                <div className="group feed-profile-link">
+                  <img className="feed-thumbnail" src="snake-logo.jpg"/>
+                  <p className="feed-current-user-name">Snake</p>
+                </div>
+              </ReactRouter.Link>
+            </div>
+
           </div>
 
           <div className="feed-page">

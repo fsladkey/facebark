@@ -1,0 +1,81 @@
+#snake-game {
+  position: relative;
+  margin: auto;
+  width: 480px;
+  height: 480px;
+  display: block;
+}
+
+.container > h1 {
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.container > p {
+  display: block;
+  font-size: 20px;
+  text-align: center
+}
+
+.snake-grid {
+  display: block;
+  margin: auto;
+  border: 1px solid black;
+  width: 480px;
+  height: 480px;
+  overflow: hidden;
+  background: linear-gradient(lightblue, grey);
+}
+
+.snake-grid > li {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  float: left;
+  position: relative;
+}
+
+.snake-color {
+  position: relative;
+  border: 1px solid black !important;
+  background: linear-gradient(#064F13, #62A16D);
+  z-index: 1;
+}
+
+.snake-dead {
+  border: 1px solid black;
+  background: linear-gradient(orange, black);
+  z-index: 1;
+}
+
+
+.apple-color {
+  background: linear-gradient(#EB0E0E, #961717);
+  border-radius: 50%;
+  border: 1px solid black !important;
+  z-index: 1;
+}
+
+.apple-color:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  transform: rotate(20deg);
+  border-top: 10px solid green;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.snake-score {
+  z-index: 10;
+  top: 50px;
+  left: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+}

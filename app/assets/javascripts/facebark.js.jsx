@@ -16,7 +16,9 @@ $(function () {
 
         <Route path="games" component={Posts}>
           <Route path="twentyfortyeight" component={TwenyFortyBoard}/>
+          <Route path="snake" component={Snake}/>
         </Route>
+
 
         <Route path=":username" component={Profile}>
           <IndexRoute component={ProfileShow}/>
