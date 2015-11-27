@@ -19,7 +19,7 @@ var Feed = React.createClass({
       return (
         <div className="group">
 
-          <div className="feed-sidebar">
+          <div className="feed-sidebar group">
             <div className="feed-profile-link">
               <ReactRouter.Link to={"/" + this.props.currentUser.username}>
                 <div className="group feed-profile-link">
@@ -27,6 +27,7 @@ var Feed = React.createClass({
                   <p className="feed-current-user-name">{this.props.currentUser.firstname + " " + this.props.currentUser.lastname}</p>
                 </div>
               </ReactRouter.Link>
+
             </div>
           </div>
 

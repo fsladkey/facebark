@@ -14,6 +14,10 @@ $(function () {
           <Route path=":post_id" component={PostShow}></Route>
         </Route>
 
+        <Route path="games" component={Posts}>
+          <Route path="twentyfortyeight" component={TwenyFortyBoard}/>
+        </Route>
+
         <Route path=":username" component={Profile}>
           <IndexRoute component={ProfileShow}/>
 
