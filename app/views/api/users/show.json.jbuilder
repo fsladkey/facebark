@@ -24,7 +24,7 @@ json.friends @user.friends do |friend|
   json.profile_image_url asset_path(friend.profile_picture.image.url)
 end
 
-json.newNotifications @user.new_notifications
+json.newNotifications @user.new_notifications.reverse
 json.notifications @user.all_shown_notifications do |notification|
   json.extract! notification, :id, :notifiable_id, :notifiable_type, :viewed
 
