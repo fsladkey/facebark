@@ -85,3 +85,8 @@
   padding: 30px;
   background: linear-gradient(#0a2a8f, #05164C);
 }
+.rainwav-logo {
+  box-sizing: border-box;
+  padding: 0px 40px;
+  background: #1FBFED;
+}

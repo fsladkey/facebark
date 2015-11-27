@@ -20,12 +20,12 @@ var SponseredPost = React.createClass({
        <p><a href="http://serene-hamlet-4726.herokuapp.com/">Spamless.com</a></p>
 
         <div>
-          <a href="http://serene-hamlet-4726.herokuapp.com">
-             <img className="spamless-logo" src="spamless-logo.png"/>
+          <a href="http://http://rainwav.herokuapp.com/">
+             <img className="rainwav-logo" src="rainwav-logo.png"/>
          </a>
        </div>
-       <h3><a href="http://serene-hamlet-4726.herokuapp.com/">Spamless</a></h3>
-       <p><a href="http://serene-hamlet-4726.herokuapp.com/">Spamless.com</a></p>
+       <h3><a href="http://http://rainwav.herokuapp.com/">RainWav: Get your ears wet</a></h3>
+       <p><a href="http://http://rainwav.herokuapp.com/">rainwav.herokuapp.com</a></p>
 
 
 
