@@ -1,6 +1,6 @@
 # Facebark
 
-[Heroku link][heroku] https://facebark.herokuapp.com/
+[Heroku link][heroku] facebark.herokuapp.com/
 
 [heroku]: https://facebark.herokuapp.com/
 
@@ -25,8 +25,8 @@ and React.js. Facebark allows users to:
 - [√] Comment on photos.
 - [√] "Like" photos.
 - [√] Be notified when someone posts on, comments on, or likes their content.
-- [√] Send messages to friends. Sending a message starts a conversation. Users should be notified when they are messaged.
-- [√] Make messaging real time with pusher or other tool.
+- [ ] Send messages to friends. Sending a message starts a conversation. Users should be notified when they are messaged.
+- [ ] Make messaging real time with pusher or other tool.
 - [ ] infinite scroll feed
 
 ## Design Docs
