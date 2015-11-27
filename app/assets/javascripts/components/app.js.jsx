@@ -17,7 +17,11 @@ var App = React.createClass({
     var channel = pusher.subscribe('private-' + currentUser.id);
 
     channel.bind('new_message', function(message) {
+      var conversation = ConversationStore.all().find(function(conversation) {
+        return conversation.id == message.conversation_id;
+      });
       ConversationActions.receiveMessage(message);
+      ConversationActions.activateConversation(conversation);
     });
   },
 
