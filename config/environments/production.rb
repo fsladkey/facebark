@@ -77,10 +77,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.react.addons = true # defaults to false
-
-  require 'pusher'
-
-  Pusher.app_id = ENV["pusher_app_id"]
-  Pusher.key = ENV["pusher_key"]
-  Pusher.secret = ENV["pusher_secret"]
+  # 
+  # require 'pusher'
+  #
+  # Pusher.app_id = ENV["pusher_app_id"]
+  # Pusher.key = ENV["pusher_key"]
+  # Pusher.secret = ENV["pusher_secret"]
 end
