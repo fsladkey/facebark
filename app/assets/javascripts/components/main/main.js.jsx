@@ -3,33 +3,35 @@
     return {currentUser: SessionStore.currentUser()};
   },
 
-  componentDidMount: function() {
-    SessionStore.on("change", this._change);
-    if (!SessionStore.currentUser()) {
-      SessionApiUtil.fetchCurrentUser();
-    }
-  },
+  // remove all this niave junk smartypants!!
 
-  componentWillUnmount: function() {
-    SessionStore.removeListener("change", this._change);
-  },
+  // componentDidMount: function() {
+  //   SessionStore.on("change", this._change);
+  //   if (!SessionStore.currentUser()) {
+  //     SessionApiUtil.fetchCurrentUser();
+  //   }
+  // },
+  //
+  // componentWillUnmount: function() {
+  //   SessionStore.removeListener("change", this._change);
+  // },
+  //
+  // _change: function() {
+  //   this.setState({currentUser: SessionStore.currentUser()});
+  // }
 
   render: function() {
     return (
       <div>
         <NavBar
           history={this.props.history}
-          currentUser={this.state.currentUser}
+          currentUser={SessionStore.currentUser()}
           />
         <Chat
-          currentUser={this.state.currentUser}
+          currentUser={SessionStore.currentUser()}
           />
       </div>
     );
   },
-
-  _change: function() {
-    this.setState({currentUser: SessionStore.currentUser()});
-  }
 
 });

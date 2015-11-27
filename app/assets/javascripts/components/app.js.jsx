@@ -12,6 +12,15 @@ var App = React.createClass({
     }
   },
 
+  componentWillUnmount: function() {
+    SessionStore.removeListener("change", this._changeCurrentUser);
+    ModalStore.removeListener("change", this._changeModalStatus);
+    if (this.state.currentUser) {
+      pusher.unsubscribe('private-' + currentUser.id);
+      SessionStore.notConnected = true;
+    }
+  },
+
   connectToPusher: function (currentUser) {
     var pusher = new Pusher(window.pusherKey);
     var channel = pusher.subscribe('private-' + currentUser.id);
@@ -27,14 +36,6 @@ var App = React.createClass({
 
   disconnectFromPusher: function () {
     pusher.unsubscribe('private-' + currentUser.id);
-  },
-
-  componentWillUnmount: function() {
-    SessionStore.removeListener("change", this._changeCurrentUser);
-    if (this.state.currentUser) {
-      pusher.unsubscribe('private-' + currentUser.id);
-      SessionStore.notConnected = true;
-    }
   },
 
   render: function(){

@@ -17,14 +17,15 @@ $(function () {
         <Route path=":username" component={Profile}>
           <IndexRoute component={ProfileShow}/>
 
-          <Route path="about" component={About}></Route>
+          <Route path="friends" component={Friends}/>
+
+          <Route path="about" component={About}/>
 
           <Route path="photos" component={Photos}>
             <IndexRoute component={AlbumList}/>
             <Route path=":album_id" component={Album}>
           </Route>
 
-          <Route path="friends" component={Friends}></Route>
         </Route>
 
         </Route>

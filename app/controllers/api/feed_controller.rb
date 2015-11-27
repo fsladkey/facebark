@@ -4,6 +4,8 @@ class Api::FeedController < ApplicationController
     if logged_in?
       @posts = Post.friends_posts(current_user.id)
       render "api/posts/index"
+    else
+      render text: "goodbye!"
     end
   end
 

@@ -15,7 +15,7 @@ var Feed = React.createClass({
   },
 
   render: function() {
-    if (this.props.currentUser) {
+    if (SessionStore.currentUser()) {
       return (
         <div className="group">
 
