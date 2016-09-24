@@ -41,19 +41,19 @@ var SignUpForm = React.createClass({
     return year + "-" + month + "-" + day;
   },
 
-  handleSubmit: function(e) {
-    e.preventDefault();
-    user = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      username: this.state.username,
-      email: this.state.email,
-      password: this.state.password,
-      birthday: this.formatDate(),
-      gender: this.state.gender
-    };
-    UserApiUtil.createUser(user);
-  },
+  // handleSubmit: function(e) {
+  //   e.preventDefault();
+  //   user = {
+  //     firstname: this.state.firstname,
+  //     lastname: this.state.lastname,
+  //     username: this.state.username,
+  //     email: this.state.email,
+  //     password: this.state.password,
+  //     birthday: this.formatDate(),
+  //     gender: this.state.gender
+  //   };
+  //   UserApiUtil.createUser(user);
+  // },
 
   render: function() {
     var subText = "It's free, because dogs have no concept of currency.";
@@ -62,7 +62,7 @@ var SignUpForm = React.createClass({
       <div className="sign-up-form group">
       <h3 className="sign-up-form-header">Sign Up</h3>
         <p className="sign-up-form-sub-header">{subText}</p>
-        <form className="group" onSubmit={this.handleSubmit}>
+        <form className="group" action="/session" method="POST">
           <label/>
             <input
               valueLink={this.linkState("firstname")}

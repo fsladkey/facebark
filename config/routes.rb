@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "static_pages#root"
   post 'pusher/auth'
+  resource :session, only: [:create]
   namespace :api, defaults: {format: :json} do
 
     resource :session, only: [:create, :destroy, :show]

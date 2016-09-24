@@ -1,3 +1,7 @@
+function fadeIn(self) {
+  $(self.getDOMNode()).hide().fadeIn();
+}
+
 var PostDetail = React.createClass({
 
   getInitialState: function () {
@@ -36,7 +40,7 @@ var PostDetail = React.createClass({
       lickCount = <p className="lick-count" >{post.num_licks + " dogs licked this post."}</p>;
     }
     return (
-      <li>
+      <li ref={ fadeIn }>
         <div className="group">
           <div className="">
           <div className="post-header group">

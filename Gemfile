@@ -15,7 +15,7 @@ gem 'figaro'
 gem 'pusher'
 gem 'aws-sdk', '1.6'
 gem 'underscore-rails'
-gem 'react-rails', '~> 1.3.0'
+gem 'react-rails', '~> 1.5.0'
 gem 'flux-rails-assets', '~> 2.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

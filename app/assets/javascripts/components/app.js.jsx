@@ -1,28 +1,21 @@
 var App = React.createClass({
 
   getInitialState: function() {
-    return {currentUser: SessionStore.currentUser(), showModal: ModalStore.show()};
+    return { showModal: ModalStore.show() };
   },
 
   componentWillMount: function() {
-    SessionStore.on("change", this._changeCurrentUser);
     ModalStore.on("change", this._changeModalStatus);
-    if (!SessionStore.currentUser()) {
-      SessionApiUtil.fetchCurrentUser();
-    }
   },
 
   componentWillUnmount: function() {
-    SessionStore.removeListener("change", this._changeCurrentUser);
     ModalStore.removeListener("change", this._changeModalStatus);
-    if (this.state.currentUser) {
-      pusher.unsubscribe('private-' + currentUser.id);
-      SessionStore.notConnected = true;
-    }
+    this.pusher.unsubscribe('private-' + currentUser.id);
+    SessionStore.notConnected = true;
   },
 
   connectToPusher: function (currentUser) {
-    var pusher = new Pusher(window.pusherKey);
+    this.pusher = new Pusher(window.pusherKey);
     var channel = pusher.subscribe('private-' + currentUser.id);
 
     channel.bind('new_message', function(message) {
@@ -40,47 +33,28 @@ var App = React.createClass({
 
   render: function(){
     var modal;
-    if (this.state.showModal) {
-      modal = <PhotoDetail/>;
-    }
-    if (this.state.currentUser) {
-      return (
-        <div className="app">
-          {modal}
-          <Main history={this.props.history}/>
-          <div className="main-layout">
-            <div className="page-content">
-              {
-                React.Children.map(this.props.children,function (child) {
-                  return React.cloneElement(child, {currentUser: this.state.currentUser});
-                }, this)
-              }
-            </div>
-            <div className="side-bar">
-            </div>
+    if (this.state.showModal) modal = <PhotoDetail/>;
+    return (
+      <div className="app">
+        {modal}
+        <Main history={this.props.history}/>
+        <div className="main-layout">
+          <div className="page-content">
+            {
+              React.Children.map(this.props.children, (child) => {
+                return React.cloneElement(child, {currentUser: this.state.currentUser});
+              })
+            }
+          </div>
+          <div className="side-bar">
           </div>
         </div>
-      );
-    } else {
-      return (
-          <LandingPage/>
-      );
-    }
-  },
-
-  _changeCurrentUser: function () {
-    var currentUser = SessionStore.currentUser();
-
-    if (SessionStore.notConnected) {
-      this.connectToPusher(currentUser);
-      SessionStore.notConnected = false;
-    }
-
-    this.setState({currentUser: currentUser});
+      </div>
+    );
   },
 
   _changeModalStatus: function () {
-    this.setState({showModal: ModalStore.show()});
+    this.setState({ showModal: ModalStore.show() });
   }
 
 });
