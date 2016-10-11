@@ -1,7 +1,7 @@
 var PostShow = React.createClass({
 
   getInitialState: function () {
-    return {post: PostStore.all()[0]};
+    return { post: PostStore.all()[0] };
   },
 
   componentDidMount: function () {

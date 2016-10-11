@@ -1,45 +1,57 @@
 .chat-friend-list {
-  border: 1px solid darkgrey;
-  width: 225px;
-  height: 475px;
+  box-shadow: -2px 2px 5px #ccc;
+  width: 270px;
+  height: 335px;
   position: fixed;
-  right: 0;
+  right: 15px;
   bottom: 0;
-  z-index: 200;
-  background: #f1f2f4;
+  background: #f6f7f9;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.chat-friend-list ul {
+  overflow: auto;
+}
+
+.chat-friend-list h2 {
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  border-bottom: 1px solid darkgrey;
+  background: #4080ff;
 }
 
 .conversation-item {
   cursor: pointer;
-  display: block;
-  margin: 5px;
+  display: flex;
+  font-size: 12px;
+  padding: 10px 10px;
+  letter-spacing: 0.5px;
+}
+
+.conversation-item span {
+  padding: 10px 7px;
 }
 
 .conversation-item:hover {
-  background: rgb(246, 247, 248);
-}
-
-
-.conversation-item h3 {
-  margin-top: 25px;
-  float: left;
+  background-color: #e9ebee;
 }
 
 .chat-thumbnail {
-  float: left;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 2px;
 }
 
 .chat-active-conversation-list {
   position: fixed;
-  z-index: 200;
-  right: 226px;
+  right: 290px;
   bottom: 0;
 }
 
-.chat-active-conversation-list li {
+.chat-active-conversation-list > ul > li {
   display: block;
   float: left;
 }
@@ -47,15 +59,19 @@
 .chat-active-conversation {
   border: 1px solid lightgrey;
   background: white;
-  width: 250px;
   margin-top: 20px;
+  height: 332px;
+  width: 250px;
+  font-size: 13px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 }
 
 .active-chat-header {
   padding: 10px;
   color: white;
   font-weight: bold;
-  background: #4E69A2;
+  background: #4080ff;
 }
 
 .active-chat-header > h3 {
@@ -68,42 +84,65 @@
 }
 
 .chat-message-list {
-  height: 330px;
   overflow: scroll;
 }
 
 li.chat-message {
   display: block;
   padding: 10px;
-  float: none;
 }
 
 li.current-user-message {
   padding: 15px;
-  float: none;
-  text-align: right;
+  flex-direction: row-reverse;
+}
+
+li.current-user-message span {
+  background-color: #4080ff;
+  color: white;
 }
 li.current-user-message p {
   background: lightgreen;
   border-radius: 10px;
-  float: right;
   padding: 7px 10px;
 }
 
 li.friend-message {
-  float: none;
+  padding-left: 50px;
+  position: relative;
 }
 
-li.friend-message p {
-  float: left;
-  margin-top: 20px;
+li.friend-message span {
   background: lightblue;
-  padding: 7px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f1f0f0;
+}
+
+.message {
+  display: flex;
+}
+
+.message span {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
   border-radius: 10px;
 }
 
+.message-thumbnail {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
 .chat-input {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+  width: calc(100% - 20px);
   padding: 10px;
-  display: block;
-  width: 220px;
 }

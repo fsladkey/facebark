@@ -23,22 +23,15 @@ var Profile = React.createClass({
   render: function() {
     return (
       <div className="profile-page group">
-        <ProfileHeader user={this.state.user}/>
+        <ProfileHeader user={ this.state.user }/>
         <div>
-          {
-            React.Children.map(this.props.children,function (child) {
-              return React.cloneElement(
-                child, {currentUser: this.props.currentUser,
-                user: this.state.user
-              });
-            }, this)
-          }
+          { this.props.children }
         </div>
       </div>
     );
   },
 
   _change: function() {
-    this.setState({user: UserStore.user()});
+    this.setState({ user: UserStore.user() });
   }
 });

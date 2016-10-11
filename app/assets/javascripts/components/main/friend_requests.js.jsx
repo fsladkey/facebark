@@ -1,7 +1,11 @@
+function hideDetail(e) {
+  this.hideDetail();
+}
+
 var FriendRequests = React.createClass({
 
   getInitialState: function() {
-    return {detailShown: false};
+    return { detailShown: false };
   },
 
   stopProp: function (e) {
@@ -9,54 +13,58 @@ var FriendRequests = React.createClass({
   },
 
   hideDetail: function(e) {
-    this.setState({detailShown: false});
+    this.setState({ detailShown: false });
+    $(document).off(hideDetail);
   },
 
   showDetail: function(e) {
-    this.setState({detailShown: true});
+    this.setState({ detailShown: true });
+    $(document).on("click", hideDetail);
   },
 
   toggleDetail: function(e) {
-    this.setState({detailShown: !this.state.detailShown});
+    this.setState({ detailShown: !this.state.detailShown });
   },
 
   render: function () {
-    var friend_requests = this.props.currentUser.friend_requests,
+    var currentUser = SessionStore.currentUser();
+    var friend_requests = currentUser.friend_requests,
         dropdown,
         badge;
 
-    if (this.props.currentUser.numFriendRequests > 0) {
+    if (currentUser.numFriendRequests > 0) {
       badge = (
-        <badge
-          className="friend-requests-badge"
-          >
-          {this.props.currentUser.numFriendRequests}
+        <badge className="friend-requests-badge">
+          { currentUser.numFriendRequests }
         </badge>
       );
     }
 
     if (this.state.detailShown) {
-        $(document).on("click", function(e) {
-        if ($(e.target).parents('div').get(0) !== this.refs.dropdown.getDOMNode()) {
-            this.hideDetail();
-          }
-        }.bind(this))
       dropdown = (
-        <div ref="dropdown" className="friend-requests-dropdown">
+        <div
+          ref={ dropdown => this.dropdown = dropdown }
+          className="friend-requests-dropdown"
+          onClick={ e => e.stopPropagation() }
+          >
           <ul className="group">
             <li className="group">
               <p className="request-header">Friend Requests:</p>
             </li>
             {
-              friend_requests.map(function(friendRequest) {
-                return <FriendRequest key={friendRequest.id} hideDetail={this.hideDetail} friendRequest={friendRequest}/>;
-              }, this)
+              friend_requests.map(friendRequest => {
+                return (
+                  <FriendRequest
+                    key={ friendRequest.id }
+                    hideDetail={ this.hideDetail }
+                    friendRequest={ friendRequest }
+                    />
+                );
+              })
             }
           </ul>
         </div>
       );
-    } else {
-      $(document).off();
     }
 
     return (
@@ -71,7 +79,7 @@ var FriendRequests = React.createClass({
             />
             {badge}
           </button>
-        {dropdown}
+        { dropdown }
       </div>
     );
   }

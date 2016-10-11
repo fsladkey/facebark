@@ -15,14 +15,18 @@ var FriendRequest = React.createClass({
   render: function () {
     var friend = (
       <ReactRouter.Link onClick={this.props.hideDetail} to={this.props.friendRequest.profile_url}>
-        {this.props.friendRequest.potential_friend}
+        { this.props.friendRequest.potential_friend }
       </ReactRouter.Link>
     );
     return (
       <li className="group">
         <p >{friend}</p>
-        <button className="add-friend" onClick={this.addFriend}>Accept</button>
-        <button className="deny-friend" onClick={this.deleteRequest}>Delete</button>
+        <button className="add-friend" onClick={ this.addFriend }>
+          Accept
+        </button>
+        <button className="deny-friend" onClick={ this.deleteRequest }>
+          Delete
+        </button>
       </li>
     );
   }

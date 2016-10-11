@@ -22,7 +22,7 @@ var LogInForm = React.createClass({
   logInAs: function(username, password) {
     this.typeValue(username, "username", () => {
       this.typeValue(password, "password", () => {
-        this.form.getDOMNode().submit();
+        this.form.submit();
       });
     });
   },

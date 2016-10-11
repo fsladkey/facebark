@@ -8,8 +8,7 @@ var Snake = React.createClass({
 
   render: function () {
     return (
-      <figure id="snake-game" class="group">
-      </figure>
+      <figure id="snake-game" class="group" />
     );
   }
 });

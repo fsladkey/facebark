@@ -14,7 +14,7 @@ var ProfileShow = React.createClass({
           </div>
 
           <div className="profile-right group">
-            <ProfileWall currentUser={this.props.currentUser} profile={this.props.user.profile}/>
+            <ProfileWall profile={this.props.user.profile}/>
           </div>
         </div>
       );

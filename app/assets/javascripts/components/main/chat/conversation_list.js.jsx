@@ -19,22 +19,23 @@ var ConversationList = React.createClass({
   render: function () {
     return (
       <div>
-        <div className="chat-friend-list">
+        <section className="chat-friend-list">
+          <h2>Chat</h2>
           <ul>
             {
-              this.state.conversations.map(function (conversation) {
+              this.state.conversations.map((conversation) => {
                 return (
                   <ConversationItem key={conversation.id} conversation={conversation}/>
                 );
               })
             }
           </ul>
-        </div>
+        </section>
 
         <div className="chat-active-conversation-list">
           <ul className="group">
             {
-              this.state.activeConversations.map(function (conversation) {
+              this.state.activeConversations.map(conversation => {
                 return (
                   <ConversationDetail key={conversation.id} conversation={conversation}/>
                 );

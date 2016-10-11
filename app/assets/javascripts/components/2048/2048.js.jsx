@@ -75,7 +75,13 @@ var TwenyFortyBoard = React.createClass({
         }
       }
 
-      tiles.push(<li key={idx} style={style} className={className}><p style={numberStyle}>{number}</p></li>);
+      tiles.push(
+        <li key={idx} style={style} className={className}>
+          <p style={numberStyle}>
+            { number }
+          </p>
+        </li>
+      );
     }
     return tiles;
   },

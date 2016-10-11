@@ -18,9 +18,15 @@ var SearchDetail = React.createClass({
               <div className="search-results group">
                 <ul>
                   {
-                    this.props.users.map(function(user){
-                      return <SearchResult key={user.id} clearSearch={this.props.clearSearch} user={user}/>;
-                    }, this)
+                    this.props.users.map(user => {
+                      return (
+                        <SearchResult
+                          key={user.id}
+                          clearSearch={this.props.clearSearch}
+                          user={user}
+                          />
+                      );
+                    })
                   }
                 </ul>
               </div>

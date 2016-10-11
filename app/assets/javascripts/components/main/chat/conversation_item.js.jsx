@@ -6,9 +6,9 @@ var ConversationItem = React.createClass({
 
   render: function () {
     return (
-      <li onClick={this.showConversation}className="conversation-item group">
-        <img className="chat-thumbnail" src={this.props.conversation.friendPhotoUrl}/>
-        <h3>{this.props.conversation.friendFullname}</h3>
+      <li onClick={ this.showConversation } className="conversation-item">
+        <img className="chat-thumbnail" src={ this.props.conversation.friendPhotoUrl }/>
+        <span>{ this.props.conversation.friendFullname }</span>
       </li>
     );
   }

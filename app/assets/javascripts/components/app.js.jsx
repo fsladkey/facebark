@@ -36,17 +36,11 @@ var App = React.createClass({
     if (this.state.showModal) modal = <PhotoDetail/>;
     return (
       <div className="app">
-        {modal}
+        { modal }
         <Main history={this.props.history}/>
         <div className="main-layout">
           <div className="page-content">
-            {
-              React.Children.map(this.props.children, (child) => {
-                return React.cloneElement(child, {currentUser: this.state.currentUser});
-              })
-            }
-          </div>
-          <div className="side-bar">
+            { this.props.children }
           </div>
         </div>
       </div>

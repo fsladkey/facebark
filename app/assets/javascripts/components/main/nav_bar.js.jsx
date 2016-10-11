@@ -5,16 +5,13 @@ var NavBar = React.createClass({
       <div className="nav-bar-full group">
         <div className="nav-bar group">
           <ReactRouter.Link to="/">
+            <button></button>
             <h1 className="small-logo">
-              <img src="/fbtemplogo.png" alt="rss feed" />
             </h1>
           </ReactRouter.Link>
 
           <SearchBar/>
-          <NavBarLinks
-            history={this.props.history}
-            currentUser={this.props.currentUser}
-            />
+          <NavBarLinks history={ this.props.history } />
         </div>
       </div>
     );

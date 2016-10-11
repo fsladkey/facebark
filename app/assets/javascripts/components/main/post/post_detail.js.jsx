@@ -1,15 +1,15 @@
 function fadeIn(self) {
-  $(self.getDOMNode()).hide().fadeIn();
+  $(self).hide().fadeIn();
 }
 
 var PostDetail = React.createClass({
 
   getInitialState: function () {
-    return {focused: false};
+    return { focused: false };
   },
 
   focusComment: function () {
-    this.setState({focused: !this.state.focused});
+    this.setState({ focused: !this.state.focused });
   },
 
   componentDidMount: function () {
@@ -45,7 +45,7 @@ var PostDetail = React.createClass({
           <div className="">
           <div className="post-header group">
             <img className="profile_thumbnail" src={post.poster_photo_url}/>
-            {heading}
+              { heading }
             <abbr className="timeago" title={post.time_created}></abbr>
           </div>
             <p className="post-content">{post.body}</p>
@@ -60,15 +60,15 @@ var PostDetail = React.createClass({
         </div>
 
         <div className="lick-info">
-          {lickCount}
+          { lickCount }
         </div>
 
         <div className="comment-list">
           <ul>
           {
-            post.comments.map(function(comment) {
+            post.comments.map(comment => {
               return <CommentDetail postType={this.props.postType} key={comment.id} comment={comment}/>;
-            }, this)
+            })
           }
           </ul>
         </div>

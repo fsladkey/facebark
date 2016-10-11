@@ -3,27 +3,32 @@ body {
 }
 
 .nav-bar-full {
+  background: linear-gradient(#4C67A1, #3C5A99);
+  box-shadow: 0px 1.5px 2px black;
+  padding: 7px 0;
   position: fixed;
   top: 0;
-  width: 100%;
-  background: linear-gradient(#4C67A1, #3C5A99);
-  height: 42px;
-  box-shadow: 0px 1.5px 2px black;
-  z-index: 1999;
+  left: 0;
+  right: 0;
 }
 
 .nav-bar {
-  height: 42px;
   width: 1000px;
+  padding-right: 100px;
   margin: auto;
 }
+
 .nav-bar-link-button:hover {
   background: #23355B;
 }
 
 .small-logo {
-  margin: 10px 8px;
-  float:left;
+  margin-right: 10px;
+  background-size: contain;
+  height: 25px;
+  width: 25px;
+  background-image: asset-url('fbtemplogo.png');
+  float: left;
 }
 
 .search-bar {
@@ -33,38 +38,39 @@ body {
 }
 
 .search-bar input {
-  padding-left: 8px;
+  position: relative;
+  padding: 4.5px 8px;
   background: white;
-  width: 400px;
-  height: 24px;
-  margin-top: 9px;
+  width: 450px;
   border-radius: 2px 0 0 2px;
   float: left;
 }
 
-
-.search-button {
-  display: block;
-  float: left;
-  background: #F6F7F8;
-  height: 24px;
+.mg-container {
+  background-color: #f6f7f9;
   width: 40px;
-  padding: 0 10px;
-  margin-top: 9px;
-  border-radius: 0 2px 2px 0;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+.fa.search-button {
+  position: absolute;
   cursor: pointer;
+  top: 5px;
+  right: 15px;
+  opacity: 0.7;
+  font-size: 1.1em;
 }
 
 .nav-user-profile-link {
   position: relative;
   float: right;
-  margin-left: 100px;
-  width: 300px;
+  display: flex;
 }
 
 .nav-user-profile-link button {
   cursor: pointer;
-  margin-top: 10px;
   float: left;
 }
 
@@ -80,14 +86,14 @@ body {
 
 
 .nav-user-profile-link img {
-  display: block;
-  float: left;
 }
 
 .nav-thumbnail {
-  width: 22px;
-  height: 22px;
+  display: inline;
+  width: 24px;
+  height: 24px;
   box-shadow: 0 0 2px 1px black;
+  margin-left: 10px;
 }
 
 .friend-requests-button {
@@ -161,8 +167,6 @@ body {
   color: white;
 }
 
-
-
 .friend-requests-dropdown button {
   display: block;
   float: right;
@@ -170,7 +174,6 @@ body {
   padding: 5px;
   margin: 5px;
 }
-
 
 .nav-log-out-button {
   display: block;
@@ -183,12 +186,8 @@ body {
 
 .main-layout {
   width: 1000px;
-  margin: auto;
-}
-
-.side-bar {
-  float: right;
-  width: 150px;
+  margin: 45px auto;
+  padding-right: 100px;
 }
 
 .search-bar {

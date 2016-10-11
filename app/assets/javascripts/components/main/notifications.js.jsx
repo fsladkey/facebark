@@ -17,16 +17,17 @@ var Notifications = React.createClass({
   },
 
   render: function () {
-    var notifications = this.props.currentUser.notifications,
+    const currentUser = SessionStore.currentUser();
+    var notifications = currentUser.notifications,
         dropdown,
         badge;
 
-    if (this.props.currentUser.newNotifications > 0) {
+    if (currentUser.newNotifications > 0) {
       badge = (
         <badge
           className="friend-requests-badge"
           >
-          {this.props.currentUser.newNotifications}
+          {currentUser.newNotifications}
         </badge>
       );
     }

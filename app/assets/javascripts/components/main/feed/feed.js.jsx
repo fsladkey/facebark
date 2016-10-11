@@ -18,35 +18,37 @@ var Feed = React.createClass({
     return (
       <div className="group">
 
-        <div className="feed-sidebar">
-          <div className="feed-profile-link group">
+        <ul className="feed-sidebar">
+          <li className="feed-profile-link group">
             <ReactRouter.Link to={"/" + currentUser.username}>
-              <div className="group feed-profile-link">
+              <div className="feed-profile-link">
                 <img className="feed-thumbnail" src={currentUser.profile_image_url}/>
-                <p className="feed-current-user-name">{currentUser.firstname + " " + currentUser.lastname}</p>
+                <span className="feed-current-user-name">
+                  { currentUser.firstname + " " + currentUser.lastname }
+                </span>
               </div>
             </ReactRouter.Link>
-          </div>
+          </li>
 
-          <div className="feed-profile-link twentyforty group">
+          <li className="feed-profile-link twentyforty group">
             <ReactRouter.Link to="games/twentyfortyeight">
               <div className="group feed-profile-link">
                 <img className="feed-thumbnail" src="2048-logo.jpg"/>
                 <p className="feed-current-user-name">2048</p>
               </div>
             </ReactRouter.Link>
-          </div>
+          </li>
 
-          <div className="feed-profile-link snake group">
+          <li className="feed-profile-link snake group">
             <ReactRouter.Link to="games/snake">
               <div className="group feed-profile-link">
                 <img className="feed-thumbnail" src="snake-logo.jpg"/>
                 <p className="feed-current-user-name">Snake</p>
               </div>
             </ReactRouter.Link>
-          </div>
+          </li>
 
-        </div>
+        </ul>
 
         <div className="feed-page">
           <PostForm postType="feed" profile={currentUser.profile} currentUser={currentUser}/>

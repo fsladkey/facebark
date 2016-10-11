@@ -1,47 +1,36 @@
 var NavBarLinks = React.createClass({
 
-  componentWillRecieveProps: function() {
+  componentWillReceiveProps: function() {
     this.forceUpdate();
   },
 
-  handleLogOut: function () {
-    SessionApiUtil.logOut();
-  },
-
   render: function () {
-    if (this.props.currentUser) {
-      return (
-        <div className="nav-user-profile-link group">
+    const currentUser = SessionStore.currentUser();
+    return (
+      <div className="nav-user-profile-link">
 
-          <ReactRouter.Link to={"/" + this.props.currentUser.username}>
-            <button className="group">
-              <img className="nav-thumbnail" src={this.props.currentUser.profile_image_url}/>
-              <span>{this.props.currentUser.firstname}</span>
-            </button>
-          </ReactRouter.Link>
+        <ReactRouter.Link to={"/" + currentUser.username}>
+          <img className="nav-thumbnail" src={currentUser.thumb_url}/>
+          <span>{currentUser.firstname}</span>
+        </ReactRouter.Link>
 
-          <ReactRouter.Link to={"/"}>
-            <button className="group">
-              <span>Home</span>
-            </button>
-          </ReactRouter.Link>
+        <ReactRouter.Link to={"/"}>
+          <button className="group">
+            <span>Home</span>
+          </button>
+        </ReactRouter.Link>
 
-          <FriendRequests currentUser={this.props.currentUser}/>
-          <Notifications history={this.props.history} currentUser={this.props.currentUser}/>
+        <FriendRequests currentUser={currentUser}/>
+        <Notifications history={this.props.history} currentUser={currentUser}/>
 
-          <ReactRouter.Link to={"/"}>
-          <button
-            className="nav-log-out-button"
-            onClick={this.handleLogOut}>
+        <form action="/session" method="POST">
+          <input type="hidden" name="_method" value="DELETE"/>
+          <input type="hidden" name="authenticity_token" value={ FaceBarkAssets.authToken }/>
+          <button type="submit" className="nav-log-out-button">
             Log Out
           </button>
-          </ReactRouter.Link>
-        </div>
-      );
-    }
-    else {
-      return <div></div>;
-    }
+        </form>
+      </div>
+    );
   }
-
 });

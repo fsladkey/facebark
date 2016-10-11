@@ -9,11 +9,11 @@ var CommentDetail = React.createClass({
   },
 
   unlick: function () {
-    if (this.props.postType === "photo") {
-      PhotoCommentApiUtil.unlickComment(this.props.comment.id);
-    } else {
-      PostCommentApiUtil.unlickComment(this.props.comment.id);
-    }
+    const apiUtil = (this.props.postType === "photo" ?
+      PhotoCommentApiUtil :
+      PostCommentApiUtil
+    )
+    ApiUtil.unlickComment(this.props.comment.id);
   },
 
   render: function () {
@@ -34,8 +34,8 @@ var CommentDetail = React.createClass({
           <img className= "profile_thumbnail" src={this.props.comment.user_photo_url}/>
           <p>{this.props.comment.body}</p>
           <div>
-          {button}
-          {numLicks}
+          { button }
+          { numLicks }
           </div>
         </li>
     );

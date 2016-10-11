@@ -1,4 +1,4 @@
-var SearchBar = React.createClass({
+const SearchBar = React.createClass({
   getInitialState: function () {
     return {focused: false, users: null, searchString: ""};
   },
@@ -37,18 +37,20 @@ var SearchBar = React.createClass({
         <SearchDetail clearSearch={this.clearSearch} users={this.state.users}/>
       );
     } else {
-      detailComponent = <div></div>;
+      detailComponent = <div />;
     }
     return (
-      <div className="search-bar group">
+      <form className="search-bar group">
         <input
           onChange={this.handleChange}
           placeholder="Search Facebark"
           value={this.state.searchString}
           />
-        <button onClick={this.toggleFocus} className="search-button">🔍</button>
-        {detailComponent}
-      </div>
+        <span className="mg-container">
+          <i onClick={ this.toggleFocus } className="fa fa-search search-button" />
+        </span>
+        { detailComponent }
+      </form>
     );
   },
 

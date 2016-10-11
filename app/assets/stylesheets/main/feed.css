@@ -1,61 +1,50 @@
 .feed-page {
   float: left;
-  margin-top: 60px;
+  padding-top: 15px;
   width: 500px;
 }
 
 .feed-sidebar {
-  margin-top: 60px;
-  width: 200px;
   float: left;
+  margin-top: 15px;
+  width: 150px;
+  margin-right: 10px;
 }
 
 .feed-current-user-name {
-  margin-top: 5px;
   cursor: pointer;
-  display: block;
-  float: left;
   font-size: 12px;
   padding: 5px;
+  display: inline;
 }
 
 .feed-thumbnail {
   cursor: pointer;
-  display: block;
-  float: left;
+  display: inline;
   margin-top: 5px;
-  margin-left: 10px;
   width: 22px;
   height: 22px;
   box-shadow: 0 0 3px 1px grey;
 }
 
 .feed-profile-link {
-  padding-bottom: 5px;
-  border-bottom: 1px solid lightgrey;
-  margin: 0 12px;
-  position: fixed;
+  display: flex;
+  border-radius: 2px;
+  margin-top: 2px;
 }
 
 .feed-profile-link:hover {
-  background: rgb(246, 247, 248);
+  background: #dddfe2;
 }
 
-.twentyforty {
-  top: 100px;
-}
-.snake {
-  top: 140px;
-}
-
-.sponsed-post {
-  padding: 10px;
+.sponsered-posts {
   background: white;
+  float: left;
   margin-top: 60px;
-  margin-left: 720px;
-  position: fixed;
+  margin-left: 20px;
   color: #3b5998;
 }
+
 .sponsed-post h3 {
   padding: 5px;
   font-weight: bold;
@@ -72,19 +61,11 @@
   height: 150px;
 }
 
-.fight-club-logo {
-  box-sizing: border-box;
-  padding: 30px;
-  background: linear-gradient(lightgrey, grey);
-}
-
-.spamless-logo {
-  box-sizing: border-box;
-  padding: 30px;
-  background: linear-gradient(#0a2a8f, #05164C);
-}
-.rainwav-logo {
-  box-sizing: border-box;
-  padding: 0px 40px;
-  background: #1FBFED;
+.post-form-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);;
 }

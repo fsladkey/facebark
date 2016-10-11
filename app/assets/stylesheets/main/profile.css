@@ -2,12 +2,10 @@
 .profile-left {
   float: left;
   width: 322px;
-  /*margin-top: 70px;*/
 }
 
 .profile-right {
   float: right;
-  /*margin-top: 70px;*/
 }
 
 .profile-friend-detail {
@@ -229,12 +227,13 @@
 .post-form {
   border: 1px solid lightgrey;
   background: white;
+  position: relative;
+  z-index; 100;
 }
 
 .post-form textarea {
   resize: none;
   float: right;
-  width: 420px;
 }
 
 .post-list > li {
@@ -266,9 +265,10 @@
 .post-input {
   display: block;
   height: 60px;
-  padding: 5px;
-  width: calc(100% - 110px);
+  padding: 10px;
+  width: calc(100% - 120px);
   float: right;
+  font-size: 16px;
 }
 
 .post-submit-button {

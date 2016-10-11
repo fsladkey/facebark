@@ -41,20 +41,6 @@ var SignUpForm = React.createClass({
     return year + "-" + month + "-" + day;
   },
 
-  // handleSubmit: function(e) {
-  //   e.preventDefault();
-  //   user = {
-  //     firstname: this.state.firstname,
-  //     lastname: this.state.lastname,
-  //     username: this.state.username,
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     birthday: this.formatDate(),
-  //     gender: this.state.gender
-  //   };
-  //   UserApiUtil.createUser(user);
-  // },
-
   render: function() {
     var subText = "It's free, because dogs have no concept of currency.";
 
@@ -66,6 +52,7 @@ var SignUpForm = React.createClass({
           <label/>
             <input
               valueLink={this.linkState("firstname")}
+              name="user[firstname]"
               className="small-input"
               type="text"
               placeholder="First name"/>
@@ -73,21 +60,25 @@ var SignUpForm = React.createClass({
             <input
               valueLink={this.linkState("lastname")}
               type="text"
+              name="user[lastname]"
               className="small-input"
               placeholder="Last name"/>
           <label/>
             <input
               valueLink={this.linkState("username")}
+              name="user[username]"
               type="text"
               placeholder="Username"/>
           <label/>
             <input
               valueLink={this.linkState("email")}
+              name="user[email]"
               type="text"
               placeholder="Email"/>
           <label/>
             <input
               valueLink={this.linkState("password")}
+              name="user[password]"
               type="password"
               placeholder="Password"/>
           <label className="birthday">Birthday</label>
@@ -104,6 +95,7 @@ var SignUpForm = React.createClass({
               className="radio"
               name="gender"
               value="female"
+              name="user[gender]"
               type="radio"/>
               Female
             </label>
@@ -113,6 +105,7 @@ var SignUpForm = React.createClass({
                 className="radio"
                 name="gender"
                 value="male"
+                name="user[gender]"
                 type="radio"/>
               Male
             </label>

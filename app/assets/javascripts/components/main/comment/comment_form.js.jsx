@@ -5,19 +5,24 @@ var CommentForm = React.createClass({
   },
 
   handleChange: function (e) {
-    this.setState({body: e.currentTarget.value});
+    this.setState({ body: e.currentTarget.value });
   },
 
   handleSubmit: function (e) {
     e.preventDefault();
-    var params = {commentable_id: this.props.post.id, commentable_type: "Post", body: this.state.body};
+    var params = {
+      commentable_id: this.props.post.id,
+      commentable_type: "Post",
+      body: this.state.body
+    };
+
     if (this.props.postType === "photo") {
       params.commentable_type = "Photo";
       PhotoCommentApiUtil.createComment(params);
     } else {
       PostCommentApiUtil.createComment(params);
     }
-    this.setState({body: ""});
+    this.setState({ body: "" });
   },
 
   componentDidUpdate: function () {
@@ -30,8 +35,8 @@ var CommentForm = React.createClass({
   render: function () {
     return (
       <div className="group">
-        <form onSubmit={this.handleSubmit}>
-          <img className= "profile_thumbnail" src={SessionStore.currentUser().profile_image_url}/>
+        <form onSubmit={ this.handleSubmit }>
+          <img className= "profile_thumbnail" src={ SessionStore.currentUser().profile_image_url }/>
           <input
             ref="commentInput"
             onChange={this.handleChange}

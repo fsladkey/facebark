@@ -1,7 +1,7 @@
 var PostList = React.createClass({
 
   getInitialState: function () {
-    return {posts: PostStore.all()};
+    return { posts: PostStore.all() };
   },
 
   componentDidMount: function () {
@@ -21,16 +21,16 @@ var PostList = React.createClass({
     return (
       <ul className="post-list">
         {
-          this.state.posts.map(function(post) {
+          this.state.posts.map(post => {
             return <PostDetail postType={this.props.postType} post={post} key={post.id}/>;
-          }, this)
+          })
         }
       </ul>
     );
   },
 
   _change: function () {
-    this.setState({posts: PostStore.all()});
+    this.setState({ posts: PostStore.all() });
   }
 
 });
