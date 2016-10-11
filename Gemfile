@@ -10,13 +10,14 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt'
-gem 'paperclip'
+gem 'paperclip', '~> 4.0'
 gem 'figaro'
 gem 'pusher'
 gem 'aws-sdk', '1.6'
 gem 'underscore-rails'
 gem 'react-rails', '~> 1.5.0'
 gem 'flux-rails-assets', '~> 2.1.0'
+gem 'font-awesome-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production

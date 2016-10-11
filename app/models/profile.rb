@@ -13,14 +13,8 @@
 #
 
 class Profile < ActiveRecord::Base
-  validates :user, presence: true
-  # find a way for this to work.
-
   belongs_to :user
   has_many :posts
-
-  def cover_photo
-    Photo.find(self.photo_id)
-  end
+  belongs_to :cover_photo, foreign_key: :photo_id, class_name: :Photo
 
 end

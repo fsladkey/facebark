@@ -34,169 +34,162 @@ class User < ActiveRecord::Base
     presence: true
     )
 
-    validates(
-      :username,
-      :email,
-      :session_token,
-      uniqueness: true
+  validates(
+    :username,
+    :email,
+    :session_token,
+    uniqueness: true
+  )
+
+  validates :password, length: { minimum: 6, allow_nil: true }
+
+  has_one :profile
+
+  has_many :albums
+  has_many :posts
+  has_many :comments
+  has_many :licks
+  has_many :notifications
+
+  belongs_to(
+    :profile_picture,
+    foreign_key: :photo_id,
+    class_name: :Photo
+  )
+
+  has_many(
+    :sent_messages,
+    class_name: "Message",
+    foreign_key: :sender_id,
+  )
+
+  has_many(
+    :recieved_messages,
+    class_name: "Message",
+    foreign_key: :receiver_id,
+  )
+
+  has_many(
+    :friend_requests,
+    class_name: "FriendRequest",
+    foreign_key: :friend_id,
+  )
+
+  has_many(
+    :requested_friends,
+    class_name: "FriendRequest",
+    foreign_key: :user_id,
+  )
+
+  has_many(
+    :friendships,
+    class_name: "Friendship",
+    foreign_key: :user_id,
+  )
+
+  has_many(
+    :friends,
+    through: :friendships,
+    source: :friend
+  )
+
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
+    user ||= User.find_by(email: username)
+    user && user.valid_password?(password) ? user : nil
+  end
+
+  def self.find_by_search_string(search_string)
+    search_string.downcase!
+    User.where(<<-SQL
+      LOWER( username ) LIKE '%#{search_string}%' OR
+      LOWER( firstname ) LIKE '%#{search_string}%' OR
+      LOWER( lastname ) LIKE '%#{search_string}%'
+    SQL
     )
+  end
 
-    validates(
-      :password,
-      length: { minimum: 6, allow_nil: true}
-    )
+  def all_shown_notifications
+    notifications = self.notifications.where(viewed: false).order(created_at: :desc)
+    notifications = notifications + self.notifications
+      .where(viewed: true)
+      .limit(notifications.length > 10 ? 0 : 10 - notifications.length)
+      .order(created_at: :desc)
+  end
 
-    has_one :profile
+  def new_notifications
+    self.notifications.where(viewed: false).count
+  end
 
-    has_many :albums
-    has_many :posts
-    has_many :comments
-    has_many :licks
-    has_many :notifications
+  def set_up!
+    profile = Profile.create!(user_id: self.id)
 
-    has_many(
-      :sent_messages,
-      class_name: "Message",
-      foreign_key: :sender_id,
-      primary_key: :id
-      )
+    profile_photos = Album.create!(user_id: self.id, title: "Profile Photos", permanent: true)
+    cover_photos = Album.create!(user_id: self.id, title: "Cover Photos", permanent: true)
+    Album.create!(user_id: self.id, title: "#{self.firstname.capitalize}'s First Photo Album")
 
-    has_many(
-      :recieved_messages,
-      class_name: "Message",
-      foreign_key: :receiver_id,
-      primary_key: :id
-      )
+    default_profile_picture = profile_photos.photos.create!
+    default_cover_photo = cover_photos.photos.create!
+    self.photo_id = default_profile_picture.id
+    profile.photo_id = default_cover_photo.id
+    profile.save!
+  end
 
-    has_many(
-      :friend_requests,
-      class_name: "FriendRequest",
-      foreign_key: :friend_id,
-      primary_key: :id
-      )
+  def full_name
+    "#{self.firstname} #{self.lastname}"
+  end
 
-    has_many(
-      :requested_friends,
-      class_name: "FriendRequest",
-      foreign_key: :user_id,
-      primary_key: :id
-      )
+  def is_friend?(user_id)
+    !!self.friends.find_by(id: user_id)
+  end
 
+  def friendship_requested?(user_id)
+    !!self.requested_friends.find_by(friend_id: user_id)
+  end
 
-    has_many(
-      :friendships,
-      class_name: "Friendship",
-      foreign_key: :user_id,
-      primary_key: :id
-      )
+  def friendship_request_id(user_id)
+    self.requested_friends.find_by(friend_id: user_id).id
+  end
 
-    has_many(
-      :friends,
-      through: :friendships,
-      source: :friend
-      )
+  def unfriend(user_id)
+    self.friendships.find_by(friend_id: user_id).destroy!
+    User.find(user_id).friendships.find_by(friend_id: self.id).destroy!
+  end
 
-    def self.find_by_credentials(username, password)
-      user = User.find_by(username: username)
-      user ||= User.find_by(email: username)
-      user && user.valid_password?(password) ? user : nil
-    end
+  def friend(friend_id)
+    self.friendships.create!(friend_id: friend_id)
+    User.find(friend_id).friendships.create!(friend_id: self.id)
+    Conversation.create!(user1_id: self.id, user2_id: friend_id)
+  end
 
-    def self.find_by_search_string(search_string)
-      search_string.downcase!
-      User.where(<<-SQL
-        LOWER( username ) LIKE '%#{search_string}%' OR
-        LOWER( firstname ) LIKE '%#{search_string}%' OR
-        LOWER( lastname ) LIKE '%#{search_string}%'
-      SQL
-      )
-    end
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
+  end
 
-    def all_shown_notifications
-      notifications = self.notifications.where(viewed: false).reverse
-      notifications = notifications + self.notifications.
-        where(viewed: true).
-        limit(notifications.length > 10 ? 0 : 10 - notifications.length).
-        reverse
-    end
+  def valid_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
 
-    def new_notifications
-      self.notifications.where(viewed: false).count
-    end
+  def conversations
+    Conversation.where("user1_id = #{self.id} OR user2_id = #{self.id}")
+  end
 
-    def set_up!
-      profile = Profile.create!(user_id: self.id)
+  def reset_session_token!
+    self.session_token = SecureRandom::urlsafe_base64
+    self.save!
+    self.session_token
+  end
 
-      profile_photos = Album.create!(user_id: self.id, title: "Profile Photos", permanent: true)
-      cover_photos = Album.create!(user_id: self.id, title: "Cover Photos", permanent: true)
-      Album.create!(user_id: self.id, title: "#{self.firstname.capitalize}'s First Photo Album")
+  private
 
-      default_profile_picture = profile_photos.photos.create!
-      default_cover_photo = cover_photos.photos.create!
-      self.photo_id = default_profile_picture.id
-      profile.photo_id = default_cover_photo.id
-      profile.save!
-    end
+  def ensure_session_token
+    self.session_token ||= SecureRandom::urlsafe_base64
+  end
 
-    def full_name
-      "#{self.firstname} #{self.lastname}"
-    end
-
-    def profile_picture
-      Photo.find(self.photo_id)
-    end
-
-    def is_friend?(user_id)
-      !!self.friends.find_by(id: user_id)
-    end
-
-    def friendship_requested?(user_id)
-      !!self.requested_friends.find_by(friend_id: user_id)
-    end
-
-    def friendship_request_id(user_id)
-      self.requested_friends.find_by(friend_id: user_id).id
-    end
-
-    def unfriend(user_id)
-      self.friendships.find_by(friend_id: user_id).destroy!
-      User.find(user_id).friendships.find_by(friend_id: self.id).destroy!
-    end
-
-    def friend(friend_id)
-      self.friendships.create!(friend_id: friend_id)
-      User.find(friend_id).friendships.create!(friend_id: self.id)
-      Conversation.create!(user1_id: self.id, user2_id: friend_id)
-    end
-
-    def password=(password)
-      @password = password
-      self.password_digest = BCrypt::Password.create(password)
-    end
-
-    def valid_password?(password)
-      BCrypt::Password.new(self.password_digest).is_password?(password)
-    end
-
-    def conversations
-      Conversation.where("user1_id = #{self.id} OR user2_id = #{self.id}")
-    end
-
-    def reset_session_token!
-      self.session_token = SecureRandom::urlsafe_base64
-      self.save!
-      self.session_token
-    end
-
-    private
-
-    def ensure_session_token
-      self.session_token ||= SecureRandom::urlsafe_base64
-    end
-
-    def valid_email_address
-      #to be implemented, should always check client side though so not super important.
-      true
-    end
+  def valid_email_address
+    #to be implemented, should always check client side though so not super important.
+    true
+  end
 
 end

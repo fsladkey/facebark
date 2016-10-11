@@ -21,7 +21,7 @@ class Photo < ActiveRecord::Base
     :user,
     through: :album,
     source: :user
-    )
+  )
 
   has_many :comments, as: :commentable
   has_many :licks, as: :lickable

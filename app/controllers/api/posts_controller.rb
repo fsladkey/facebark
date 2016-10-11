@@ -1,11 +1,10 @@
 class Api::PostsController < ApplicationController
 
   def index
-    @posts = Profile.find(params[:profile_id]).
-        posts.includes(:user).
-        includes(:comments).
-        includes(:user).
-        order('updated_at DESC')
+    @posts = Profile.find(params[:profile_id])
+        .posts
+        .includes(:comments, :user)
+        .order('updated_at DESC')
     render :index
   end
 
@@ -19,7 +18,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments, :user).find(params[:id])
     render :show
   end
 

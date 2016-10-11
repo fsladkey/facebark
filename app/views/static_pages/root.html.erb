@@ -2,6 +2,11 @@
   <% if logged_in? %>
     <%= (render "api/users/user.json.jbuilder",  user: current_user).html_safe %>
   <% end %>
+
+</script>
+
+<script type="text/javascript">
+  window.FaceBarkAssets = { authToken: "<%= form_authenticity_token %>" }
 </script>
 
 <div id="content"></div>
