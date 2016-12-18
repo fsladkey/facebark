@@ -41,9 +41,14 @@
   border: 1px solid lightgrey;
 }
 
+.profile-info i {
+  margin-right: 5px;
+}
+
 .profile-info li {
-  display: block;
-  padding: 10px 0px;
+  display: flex;
+  position: relative;
+  padding: 15px 0px;
   margin: 0px 10px;
   border-bottom: 1px solid lightgrey;
 }
@@ -53,11 +58,13 @@
 }
 
 .profile-info li > button {
+  cursor: pointer;
   display: none;
-  float: right;
-  margin-right: 20px;
+  position: absolute;
+  top: 7px;
+  right: 10px;
   border: 1px solid grey;
-  padding: 3px;
+  padding: 4px 1px 4px 5px;
   border-radius: 2px;
 }
 
@@ -67,6 +74,7 @@
 
 .profile-info button:hover {
   background: #4C67A1;
+  color: white;
 }
 
 .profile-info input {
@@ -78,6 +86,7 @@
 }
 
 .shown-button {
+  cursor: pointer;
   display: block;
 }
 
@@ -98,6 +107,10 @@
   border-radius: 0 0 5px 5px;
 }
 
+.profile-cover-container {
+  cursor: pointer;
+}
+
 .profile-cover-photo {
   position: relative;
   width: 100%;
@@ -105,40 +118,48 @@
   background: darkblue;
 }
 
-.profile-cover-photo img {
-  height: 400px;
+.profile-cover-container:hover .cover-photo-upload-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ddd;
 }
 
-.profile-profile-photo {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  background: white;
-  z-index: 1000;
-  border: 1px solid grey;
-  border-radius: 3px;
+.profile-cover-container:hover .cover-photo-upload-icon p {
+  opacity: 1;
 }
 
-.photo-upload-icon {
-  z-index: 1001;
-  width: 28px;
-  height: 28px;
-  position: absolute;
-  top: 120px;
-  left: 10px;
-  cursor: pointer;
+.profile-cover-container:hover .cover-photo-upload-icon i {
+  font-size: 18px;
+  margin-top: 1px;
 }
 
 .cover-photo-upload-icon {
+  color: #eee;
   z-index: 1001;
-  width: 28px;
-  height: 28px;
+  width: 165px;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  padding: 5px 10px;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  border-radius: 2px;
   cursor: pointer;
+  font-size: 12px;
+  transition: all 300ms;
+  border-radius: 2px;
+}
+
+.cover-photo-upload-icon i {
+  font-size: 20px;
+}
+
+.cover-photo-upload-icon p {
+  padding: 3px;
+  margin-left: 15px;
+  opacity: 0;
+}
+
+.cover-photo-label {
+  position: absolute
 }
 
 .profile-header-links {
@@ -179,10 +200,11 @@
 
 .upload-cover-photo-button {
   display: block;
-  position: absolute;
   top: 5px;
   left: 5px;
   z-index: -1;
+  opacity: 0;
+  margin-left: -1000px;
 }
 
 .friend-button {
@@ -196,21 +218,6 @@
   background: white;
   border: 1px solid black;
   padding: 5px 10px;
-}
-
-.profile-photo-container {
-  position: absolute;
-  top: 188px;
-  left: 20px;
-}
-
-.upload-profile-photo-button {
-  display: block;
-  position: absolute;
-  z-index: 100;
-  width: 75px;
-  top: 130px;
-  left: 10px;
 }
 
 .profile-wall {
@@ -317,4 +324,95 @@ input.comment-input {
 
 .notification-description {
   padding-top: 22px;
+}
+
+.photo-upload-box {
+  display: flex;
+  font-size: 13px;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 0px;
+  margin: 5px;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 250ms;
+}
+
+.photo-upload-box:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.photo-upload-box p {
+  padding: 10px;
+}
+
+.photo-upload-box.active {
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.profile-photo-input {
+  opacity: 0;
+}
+
+.profile-photo-container {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 188px;
+  left: 20px;
+  height: 160px;
+  width: 160px;
+  overflow: hidden;
+}
+
+.profile-photo-container:hover .photo-upload-box {
+  height: 55px;
+}
+
+.upload-profile-photo-button {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  width: 75px;
+  top: 130px;
+  left: 10px;
+  opacity: 0;
+}
+
+
+.profile-cover-photo img {
+  height: 400px;
+}
+
+.profile-profile-photo {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  background: white;
+  z-index: 1000;
+  border: 5px solid white;
+  box-shadow: 0 0 0 2pt #bbb;
+  border-radius: 2.5px;
+}
+
+i.photo-upload-icon {
+  margin-left: 15px;
+  margin-top: 18px;
+  width: 28px;
+  height: 28px;
+  font-size: 21px;
+  cursor: pointer;
+  transition: all 250ms;
+}
+
+.profile-photo-container:hover i.photo-upload-icon {
+  font-size: 19px;
 }

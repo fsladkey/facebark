@@ -4,12 +4,13 @@ body {
 
 .nav-bar-full {
   background: linear-gradient(#4C67A1, #3C5A99);
-  box-shadow: 0px 1.5px 2px black;
-  padding: 7px 0;
+  padding: 7px 5px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1002;
+  border-bottom: 1px solid #29487d;
 }
 
 .nav-bar {
@@ -111,8 +112,10 @@ body {
   position: absolute;
   background: white;
   border: 1px solid lightgrey;
-  top: 42px;
-  width: 400px;
+  top: calc(100% + 7px);
+  right: 0px;
+  width: 430px;
+  font-size: 12px;
 }
 
 .friend-requests-dropdown li {
@@ -185,8 +188,8 @@ body {
 }
 
 .main-layout {
-  width: 1000px;
-  margin: 45px auto;
+  width: 990px;
+  margin: 44px auto;
   padding-right: 100px;
 }
 
@@ -203,7 +206,7 @@ div.search-results {
   border: 0 1px 1px 1px;
   border-color: grey;
   border-radius: 0 0 2px 2px;
-  z-index: 1;
+  // z-index: 1;
   border: 1px solid grey;
 }
 
@@ -212,7 +215,7 @@ div.search-results {
   position: relative;
   background: white;
   padding: 5px;
-  z-index: 1;
+  // z-index: 1;
 }
 
 .search-result.item:hover {
@@ -266,4 +269,23 @@ div.search-results {
 
 .comment-lick-button:hover {
   text-decoration: underline;
+}
+
+.friend-actions {
+  font-weight: bold;
+  button {
+    padding: 5px 9px;
+    border-radius: 5px;
+  }
+}
+
+.add-friend {
+  background-color: #4C67A1;
+  color: white;
+}
+
+.deny-friend {
+  background-color: #ddd;
+  border: 1px solid rgb(50, 50, 50);
+  color: rgb(50, 50, 50);
 }
