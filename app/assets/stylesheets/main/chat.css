@@ -47,7 +47,7 @@
 }
 
 .chat-active-conversation-list {
-  z-index: 1000;
+  z-index: 1003;
   position: fixed;
   right: 290px;
   bottom: 0;
