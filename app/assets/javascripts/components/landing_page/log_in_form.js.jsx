@@ -3,7 +3,7 @@ var LogInForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
   getInitialState: function() {
-    return {username: "", password: ""};
+    return { username: "", password: "", disabled: false };
   },
 
   handleSubmit: function(e) {
@@ -20,22 +20,24 @@ var LogInForm = React.createClass({
   },
 
   logInAs: function(username, password) {
-    this.typeValue(username, "username", () => {
-      this.typeValue(password, "password", () => {
+    this.setState({ disabled: true })
+    this.typeValue(username, "username", function () {
+      this.typeValue(password, "password", function () {
         this.form.submit();
-      });
-    });
+      }.bind(this));
+    }.bind(this));
   },
 
   typeValue: function (value, name, cb) {
     if (!value) return cb();
-
     this.setState({ [name]: this.state[name] + value[0] })
-
-    setTimeout(() => this.typeValue(value.slice(1), name, cb), 75);
+    setTimeout(function () {
+      this.typeValue(value.slice(1), name, cb)
+    }.bind(this), 75);
   },
 
   render: function() {
+    var disabled = this.state.disabled
     return (
       <div>
         <form
@@ -47,24 +49,39 @@ var LogInForm = React.createClass({
           <input type="hidden" name="authenticity_token" value={ FaceBarkAssets.authToken }/>
           <div className="log-in-form-field">
             <label>Username or Email</label>
-            <input type="text" name="user[username]" valueLink={this.linkState("username")}/>
+            <input type="text" name="user[username]" valueLink={ this.linkState("username") }/>
           </div>
 
           <div className="log-in-form-field">
             <label>Password</label>
-            <input type="password" name="user[password]" valueLink={this.linkState("password")}/>
+            <input type="password" name="user[password]" valueLink={ this.linkState("password") }/>
           </div>
 
-          <button onClick={this.handleSubmit} className="log-in-button" type="submit">
+          <button
+            onClick={ this.handleSubmit }
+            className="log-in-button"
+            type="submit"
+            disabled={ disabled }
+            >
             Log In
           </button>
 
           <div className="guest-user-buttons">
-            <button onClick={this.logInAsBailey} className="guest-user-button" type="button">
+            <button
+              onClick={ this.logInAsBailey }
+              className="guest-user-button"
+              type="button"
+              disabled={ disabled }
+              >
               Log in as Bailey
             </button>
 
-            <button onClick={this.logInAsUlysses} className="guest-user-button" type="button">
+            <button
+              onClick={ this.logInAsUlysses }
+              className="guest-user-button"
+              type="button"
+              disabled={ disabled }
+              >
               Log in as Ulysses
             </button>
           </div>

@@ -117,6 +117,10 @@ class User < ActiveRecord::Base
       .order(created_at: :desc)
   end
 
+  def full_name
+    "#{firstname} #{lastname}"
+  end
+
   def new_notifications
     self.notifications.where(viewed: false).count
   end

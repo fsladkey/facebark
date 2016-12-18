@@ -1,10 +1,10 @@
 var Profile = React.createClass({
 
-  getInitialState: function() {
-    return {user: UserStore.user()};
+  getInitialState: function () {
+    return { user: UserStore.user() };
   },
 
-  componentDidMount: function() {
+  componentDidMount: function () {
     var username = this.props.params.username;
     UserStore.on("change", this._change);
     if (username) {
@@ -12,15 +12,21 @@ var Profile = React.createClass({
     }
   },
 
-  componentWillUnmount: function() {
+  componentWillUnmount: function () {
     UserStore.removeListener("change", this._change);
   },
 
-  componentWillReceiveProps: function(newProps) {
+  componentWillReceiveProps: function (newProps) {
     UserApiUtil.fetchUser(newProps.params.username);
   },
 
+  currentlyLoading: function () {
+    return !this.state.user ||
+      (this.props.params.username !== this.state.user.username)
+  },
+
   render: function() {
+    if (this.currentlyLoading()) return null;
     return (
       <div className="profile-page group">
         <ProfileHeader user={ this.state.user }/>
@@ -34,4 +40,5 @@ var Profile = React.createClass({
   _change: function() {
     this.setState({ user: UserStore.user() });
   }
+
 });

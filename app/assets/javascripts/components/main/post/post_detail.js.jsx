@@ -1,7 +1,3 @@
-function fadeIn(self) {
-  $(self).hide().fadeIn();
-}
-
 var PostDetail = React.createClass({
 
   getInitialState: function () {
@@ -24,38 +20,57 @@ var PostDetail = React.createClass({
         lickCount;
 
     if (poster_name === postee_name) {
-      heading = <h3><a href={"#/" + post.poster.username}>{poster_name}</a></h3>;
+      heading = (
+        <h3>
+          <ReactRouter.Link to={ "/" + post.poster.username }>
+            { poster_name }
+          </ReactRouter.Link>
+        </h3>
+      );
     } else {
       heading = (
         <h3>
-          <a href={"#/" + post.poster.username}>{poster_name}</a> > <a href={"#/" + post.postee.username}>{postee_name}</a>
+          <ReactRouter.Link to={ "/" + post.poster.username}>{ poster_name }</ReactRouter.Link>
+            { ' > ' }
+          <ReactRouter.Link href={ "/" + post.postee.username}>{ postee_name }</ReactRouter.Link>
         </h3>
       );
     }
 
     if (post.num_licks === 1) {
-      lickCount = <p className="lick-count"><a href={"#/" + post.licks[0].author_username}>{post.licks[0].author_name}</a> licked this post.</p>;
+      lickCount = (
+        <p className="lick-count">
+          <ReactRouter.Link to={"/" + post.licks[0].author_username}>
+            {post.licks[0].author_name}
+          </ReactRouter.Link>
+          { " licked this post." }
+        </p>
+      );
     }
     if (post.num_licks > 1) {
-      lickCount = <p className="lick-count" >{post.num_licks + " dogs licked this post."}</p>;
+      lickCount = (
+        <p className="lick-count" >
+          { post.num_licks + " dogs licked this post." }
+        </p>
+      );
     }
     return (
       <li ref={ fadeIn }>
         <div className="group">
           <div className="">
           <div className="post-header group">
-            <img className="profile_thumbnail" src={post.poster_photo_url}/>
+            <img className="profile_thumbnail" src={ post.poster_thumb_url }/>
               { heading }
-            <abbr className="timeago" title={post.time_created}></abbr>
+            <abbr className="timeago" title={ post.time_created }></abbr>
           </div>
-            <p className="post-content">{post.body}</p>
+            <p className="post-content">{ post.body }</p>
           </div>
         </div>
         <div className="lick-form">
           <LickForm
-            focusComment={this.focusComment}
-            post={this.props.post}
-            postType={this.props.postType}
+            focusComment={ this.focusComment }
+            post={ this.props.post }
+            postType={ this.props.postType }
             />
         </div>
 
@@ -67,7 +82,13 @@ var PostDetail = React.createClass({
           <ul>
           {
             post.comments.map(comment => {
-              return <CommentDetail postType={this.props.postType} key={comment.id} comment={comment}/>;
+              return (
+                <CommentDetail
+                  key={ comment.id }
+                  postType={ this.props.postType }
+                  comment={ comment }
+                  />
+              );
             })
           }
           </ul>
@@ -75,10 +96,11 @@ var PostDetail = React.createClass({
 
         <div className="comment-form group">
           <CommentForm
-            focused={this.state.focused}
-            focusComment={this.focusComment}
-            postType={this.props.postType}
-            post={post}/>
+            focused={ this.state.focused }
+            focusComment={ this.focusComment }
+            postType={ this.props.postType }
+            post={ post }
+            />
         </div>
       </li>
     );

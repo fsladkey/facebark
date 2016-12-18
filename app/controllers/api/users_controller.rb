@@ -23,9 +23,12 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    # swap out find_by for where? equivelent?
-    @user = User.includes(:profile, :albums).find_by(username: params[:id])
-    render :show
+    @user = User.includes(:albums).find_by(username: params[:username])
+    if @user
+      render :show
+    else
+      render json: ["User not found"], status: 404
+    end
   end
 
   private

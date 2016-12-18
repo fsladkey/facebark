@@ -34,17 +34,29 @@ var ProfilePhoto = React.createClass({
 
     if (SessionStore.currentUser().id === this.props.user.id) {
       input = (
-        <label>
-          <img className="photo-upload-icon" src="camera-icon.svg" />
-          <input className="upload-profile-photo-button" onChange={this.changeFile} type="file"/>
+        <label className="photo-upload-box" htmlFor="profile-photo-input">
+            <input
+              id="profile-photo-input"
+              className="upload-profile-photo-button"
+              onChange={ this.changeFile }
+              type="file"
+              />
+            <i className="fa fa-3 fa-camera-retro photo-upload-icon" aria-hidden="true"/>
+            <p>
+            Update Profile Picture
+          </p>
         </label>
       );
     }
 
     return (
       <div className="profile-photo-container">
-        <img onClick={this.showDetail} className="profile-profile-photo" src={this.props.user.profile_image_url}/>
-        {input}
+        <img
+          onClick={ this.showDetail }
+          className="profile-profile-photo"
+          src={ this.props.user.profile_image_url }
+          />
+        { input }
       </div>
     );
   }

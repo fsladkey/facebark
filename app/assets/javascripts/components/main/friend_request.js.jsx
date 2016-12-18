@@ -19,13 +19,13 @@ var FriendRequest = React.createClass({
       </ReactRouter.Link>
     );
     return (
-      <li className="group">
+      <li className="group friend-actions">
         <p >{friend}</p>
-        <button className="add-friend" onClick={ this.addFriend }>
-          Accept
-        </button>
         <button className="deny-friend" onClick={ this.deleteRequest }>
-          Delete
+          Delete Request
+        </button>
+        <button className="add-friend" onClick={ this.addFriend }>
+        Accept
         </button>
       </li>
     );

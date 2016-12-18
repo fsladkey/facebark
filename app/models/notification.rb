@@ -19,15 +19,15 @@ class Notification < ActiveRecord::Base
     :poster,
     through: :notifiable,
     source: :user
-    )
+  )
 
   def description
     if self.notifiable_type == "Post"
       return "#{self.notifiable.user.full_name} has posted on your wall. #{content_preview(self.notifiable.body)}"
     elsif self.notifiable_type == "Comment"
-      return "#{self.notifiable.user.full_name} has commented on your #{self.notifiable.commentable_type.downcase}. #{content_preview(self.notifiable.body)}"
+      return "#{self.poster.full_name} has commented on your #{self.notifiable.commentable_type.downcase}. #{content_preview(self.notifiable.body)}"
     elsif self.notifiable_type == "Lick"
-      return "#{self.notifiable.user.full_name} has licked your #{self.notifiable.lickable_type.downcase}."
+      return "#{self.poster.full_name} has licked your #{self.notifiable.lickable_type.downcase}."
     end
   end
 

@@ -1,15 +1,43 @@
+const contentStyle = { position: "relative", zIndex: 1001 };
+
+const modalStyle = {
+  backgroundColor: `rgba(0, 0, 0, 0.25)`,
+  position: "fixed",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  zIndex: 1000
+};
+
+function Highlightable({ highlight, children }) {
+  let modalLayer;
+  if (highlight) {
+    modalLayer = <div ref={ (node) => node && fadeIn(node) } style={ modalStyle }/>;
+  }
+  console.log(highlight);
+  return (
+    <div>
+      { modalLayer }
+      <div style={ contentStyle }>
+        { children }
+      </div>
+    </div>
+  )
+}
+
 var PostForm = React.createClass({
 
   getInitialState: function () {
-    return { body: "", focused: false };
+    return { body: "", highlight: false };
   },
 
   handleFocus: function (bool) {
-    this.setState({focused: bool});
+    this.setState({ highlight: bool });
   },
 
   handleChange: function (e) {
-    this.setState({body: e.currentTarget.value});
+    this.setState({ body: e.currentTarget.value });
   },
 
   handleSubmit: function (e) {
@@ -20,41 +48,28 @@ var PostForm = React.createClass({
     PostApiUtil.createPost(params, this.props.postType);
   },
 
-  modalLayer: function() {
-    if (this.state.focused) {
-      return <div className="post-form-modal"></div>
-    }
-  },
-
   render: function() {
     const currentUser = SessionStore.currentUser();
-    var submit;
-    if (this.state.showSubmit) {
-      submit = (
-        <div className="post-submit-button group">
-          <button type="submit">Post</button>
-        </div>
-      );
-    }
     return (
-      <div>
-        { this.modalLayer() }
+      <Highlightable highlight={ this.state.highlight }>
         <div className="post-form group">
           <div className="style-div"></div>
-          <img className="profile_thumbnail" src={currentUser.profile_image_url}/>
+          <img className="profile_thumbnail" src={ currentUser.thumb_url }/>
           <form onSubmit={ this.handleSubmit }>
             <textarea
               className="post-input"
-              onChange={this.handleChange}
-              onFocus={() => this.handleFocus(true) }
-              onBlur={() => this.handleFocus(false)}
+              onChange={ this.handleChange }
+              onFocus={ () => this.handleFocus(true) }
+              onBlur={ () => this.handleFocus(false) }
               placeholder="What's on your mind?"
-              value={this.state.body}>
+              value={ this.state.body }>
             </textarea>
-            { submit }
+            <div className="post-submit-button group">
+              <button type="submit">Post</button>
+            </div>
           </form>
         </div>
-      </div>
+      </Highlightable>
     );
   }
 

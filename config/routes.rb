@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :destroy]
   namespace :api, defaults: {format: :json} do
 
-    resources :users, only: [:index, :create, :show, :update]
+    resources :users, only: [:index, :create, :update]
+    resources :users, only: [:show], param: :username
     resources :profiles, only: [:update]
     resources :photos, only: [:create, :delete, :show]
     resources :albums, only: [:create, :show]
@@ -17,25 +18,26 @@ Rails.application.routes.draw do
 
     resources :photos, only: [:create, :delete, :show] do
       member do
-        post "lick"
-        delete "unlick"
+        post :lick
+        delete :unlick
       end
     end
 
     resources :posts, only: [:create, :index, :show] do
       member do
-        post "lick"
-        delete "unlick"
+        post :lick
+        delete :unlick
       end
     end
 
 
     resources :comments, only: [:create, :update, :destroy] do
       member do
-        post "lick"
-        delete "unlick"
+        post :lick
+        delete :unlick
       end
     end
 
   end
+  get "/*path", to: "static_pages#root"
 end

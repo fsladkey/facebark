@@ -15,9 +15,9 @@
 //= require underscore
 //= require react
 //= require react_ujs
+//= require react_router
 //= require components
 //= require flux
 //= require eventemitter
-//= require react_router.js
 //= require jquery.timeago.js
 //= require_tree .

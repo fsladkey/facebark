@@ -3,6 +3,7 @@ json.array! @posts do |post|
   json.time_created post.created_at.iso8601
 
   json.poster_photo_url asset_path(post.user.profile_picture.image.url)
+  json.poster_thumb_url asset_path(post.user.profile_picture.image.url(:thumb))
   json.poster post.user
   json.postee post.profile.user
 

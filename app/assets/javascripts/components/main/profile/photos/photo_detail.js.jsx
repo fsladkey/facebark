@@ -36,7 +36,11 @@ var PhotoDetail = React.createClass({
         <div className="group">
           <div className="photo-header group">
             <img className="profile_thumbnail" src={photo.user_profile_image_url}/>
-            <h3 className="photo-author-header"><a href={"#/" + photo.user.username}>{photo.user_fullname}</a></h3>
+            <h3 className="photo-author-header">
+              <ReactRouter.Link href={ "/" + photo.user.username }>``
+                { photo.user_fullname }
+              </ReactRouter.Link>
+            </h3>
             <abbr className="timeago" title={photo.time_created}></abbr>
           </div>
             {this.state.photo.caption}

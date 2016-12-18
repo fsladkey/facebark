@@ -9,7 +9,7 @@ var NavBarLinks = React.createClass({
     return (
       <div className="nav-user-profile-link">
 
-        <ReactRouter.Link to={"/" + currentUser.username}>
+        <ReactRouter.Link to={ "/" + currentUser.username }>
           <img className="nav-thumbnail" src={currentUser.thumb_url}/>
           <span>{currentUser.firstname}</span>
         </ReactRouter.Link>

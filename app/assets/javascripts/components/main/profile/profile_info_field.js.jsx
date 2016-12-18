@@ -1,7 +1,7 @@
 var ProfileInfoField = React.createClass({
 
   getInitialState: function () {
-    return {fieldvalue: this.props.fieldvalue, editing: false};
+    return { fieldvalue: this.props.fieldvalue, editing: false };
   },
 
   handleSubmit: function(e) {
@@ -10,51 +10,49 @@ var ProfileInfoField = React.createClass({
   },
 
   handleChange: function(e) {
-    this.setState({fieldvalue: e.currentTarget.value});
+    this.setState({ fieldvalue: e.currentTarget.value });
   },
 
   toggleEdit: function() {
-    this.setState({editing: !this.state.editing});
+    this.setState({ editing: !this.state.editing });
   },
 
   componentWillReceiveProps: function(newProps) {
-    this.setState({fieldvalue: newProps.fieldvalue});
+    this.setState({ fieldvalue: newProps.fieldvalue });
   },
 
   render: function() {
-    var formattedInfo,
-        button;
+    var button;
 
     if (this.state.editing) {
-      formattedInfo = "⌂ " +
-        this.props.fieldname +
-        ": ";
-      if (SessionStore.currentUser().id === this.props.user.id) {
-        button = <button className="shown-button" onClick={this.handleSubmit}>Save</button>;
-      }
+      button = (
+        <button className="shown-button" onClick={ this.handleSubmit }>
+          <i className="fa fa-pencil" aria-hidden="true"/>
+        </button>
+      );
       return (
         <li>
-        {formattedInfo}
+          { this.props.children }
           <input
             type="text"
-            value={this.state.fieldvalue}
-            onChange={this.handleChange}
+            value={ this.state.fieldvalue }
+            onChange={ this.handleChange }
             />
-          {button}
+          { button }
         </li>
       );
     } else {
-        if (SessionStore.currentUser().id === this.props.user.id) {
-          button = <button onClick={this.toggleEdit}>Edit</button>;
-        }
-      formattedInfo = "⌂ " +
-        this.props.fieldname +
-        ": " +
-        this.props.fieldvalue;
+      if (SessionStore.currentUser().id === this.props.user.id) {
+          button = (
+            <button onClick={ this.toggleEdit }>
+              <i className="fa fa-pencil" aria-hidden="true"/>
+            </button>
+          );
+      }
       return (
         <li>
-          {formattedInfo}
-          {button}
+          { this.props.children } { this.props.fieldValue }
+          { button }
         </li>
       );
     }

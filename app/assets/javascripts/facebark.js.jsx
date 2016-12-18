@@ -1,3 +1,17 @@
+function fadeIn(node, speed = 10) {
+  if (!node) return;
+  function increaseOpacity() {
+    if (parseFloat(node.style.opacity) < 1) {
+      node.style.opacity = (parseFloat(node.style.opacity) + 0.05);
+      setTimeout(increaseOpacity, speed);
+    } else {
+      node.style.opacity = 1;
+    }
+  }
+  node.style.opacity = 0;
+  setTimeout(increaseOpacity, speed);
+}
+
 $(function () {
 
   var root = document.getElementById('content');
@@ -7,9 +21,10 @@ $(function () {
     var Route = ReactRouter.Route;
     var Router = ReactRouter.Router;
     var IndexRoute = ReactRouter.IndexRoute;
+    var browserHistory = ReactRouter.browserHistory;
 
     var routes = (
-      <Router>
+      <Router history={ browserHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ Feed }/>
 

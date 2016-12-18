@@ -1,11 +1,15 @@
-function hideDetail(e) {
-  this.hideDetail();
-}
-
 var FriendRequests = React.createClass({
 
-  getInitialState: function() {
+  getInitialState: function () {
     return { detailShown: false };
+  },
+
+  componentDidMount: function () {
+    $(document).on("click", this.hideDetail);
+  },
+
+  componentWillUnmount: function () {
+    $(document).off("click", this.hideDetail);
   },
 
   stopProp: function (e) {
@@ -14,12 +18,10 @@ var FriendRequests = React.createClass({
 
   hideDetail: function(e) {
     this.setState({ detailShown: false });
-    $(document).off(hideDetail);
   },
 
   showDetail: function(e) {
     this.setState({ detailShown: true });
-    $(document).on("click", hideDetail);
   },
 
   toggleDetail: function(e) {
@@ -45,11 +47,11 @@ var FriendRequests = React.createClass({
         <div
           ref={ dropdown => this.dropdown = dropdown }
           className="friend-requests-dropdown"
-          onClick={ e => e.stopPropagation() }
+          onClick={ this.stopProp }
           >
           <ul className="group">
             <li className="group">
-              <p className="request-header">Friend Requests:</p>
+              <p className="request-header">Friend Requests</p>
             </li>
             {
               friend_requests.map(friendRequest => {
@@ -70,7 +72,7 @@ var FriendRequests = React.createClass({
     return (
       <div className="friend-requests">
         <button
-          onClick={this.showDetail}
+          onClick={ this.toggleDetail }
           className="friend-requests-button"
           >
           <img
