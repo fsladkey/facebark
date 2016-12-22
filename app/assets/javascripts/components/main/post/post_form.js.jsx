@@ -1,4 +1,5 @@
-const contentStyle = { position: "relative", zIndex: 1001 };
+const contentStyle = { position: "relative" };
+const activeStyle = Object.assign({}, contentStyle, { zIndex: 10001 });
 
 const modalStyle = {
   backgroundColor: `rgba(0, 0, 0, 0.25)`,
@@ -7,19 +8,21 @@ const modalStyle = {
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: 1000
+  zIndex: 10000
 };
 
 function Highlightable({ highlight, children }) {
   let modalLayer;
+  let style = contentStyle
   if (highlight) {
+    style = activeStyle;
     modalLayer = <div ref={ (node) => node && fadeIn(node) } style={ modalStyle }/>;
   }
-  console.log(highlight);
+
   return (
     <div>
       { modalLayer }
-      <div style={ contentStyle }>
+      <div style={ style }>
         { children }
       </div>
     </div>

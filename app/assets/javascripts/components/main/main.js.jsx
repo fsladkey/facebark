@@ -3,13 +3,8 @@
   render: function() {
     return (
       <div>
-        <NavBar
-          history={this.props.history}
-          currentUser={SessionStore.currentUser()}
-          />
-        <Chat
-          currentUser={SessionStore.currentUser()}
-          />
+        <NavBar history={ this.props.history } />
+        <Chat />
       </div>
     );
   },

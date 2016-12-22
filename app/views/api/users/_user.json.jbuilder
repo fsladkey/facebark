@@ -12,17 +12,17 @@ json.isFriend current_user.is_friend?(user.id)
 json.friendshipRequested current_user.friendship_requested?(user.id)
 json.waitingForFriendshipResponse user.friendship_requested?(current_user.id)
 
-json.numFriendRequests user.friend_requests.count
+json.numFriendRequests user.friend_requests.length
 json.friend_requests user.friend_requests do |friend_request|
   json.id friend_request.id
   json.user_id friend_request.user_id
-  json.potential_friend "#{friend_request.user.firstname} #{friend_request.user.lastname}"
+  json.potential_friend friend_request.user.full_name
   json.profile_url "/#{friend_request.user.username}"
 end
 
 json.friends user.friends do |friend|
   json.extract! friend, :id, :username, :firstname, :lastname
-  json.name "#{friend.firstname} #{friend.lastname}"
+  json.name friend.full_name
   json.profile_image_url asset_path(friend.profile_picture.image.url)
 end
 
