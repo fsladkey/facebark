@@ -9,9 +9,10 @@ var ProfileHeaderLinks = React.createClass({
   },
 
   render: function() {
+      // TODO: DRY it up!
       return (
         <div className="profile-header-links group">
-          <ul className="profile-header-link-list group">
+          <ul className="profile-header-link-list">
             <li onClick={this.setActive.bind(this, {activeTab: "Timeline"})} className={this.state.activeTab === "Timeline" ? "Active" : ""}>
               <ReactRouter.Link to={"/" + this.props.user.username}>
                 Timeline

@@ -1,6 +1,6 @@
 var SignUpForm = React.createClass({
 
-  getInitialState: function() {
+  getInitialState: function () {
     return {
       firstname: "",
       lastname: "",
@@ -15,20 +15,28 @@ var SignUpForm = React.createClass({
     };
   },
 
-  setDay: function(e) {
+  setDay: function (e) {
     this.setState({day: e.currentTarget.value});
   },
 
-  setMonth: function(e) {
+  setMonth: function (e) {
     this.setState({month: e.currentTarget.value});
   },
 
-  setYear: function(e) {
+  setYear: function (e) {
     this.setState({year: e.currentTarget.value});
   },
 
-  setGender: function(e) {
+  setGender: function (e) {
     this.setState({gender: e.currentTarget.value});
+  },
+
+  update: function (field) {
+    return function (e) {
+      var newState = {};
+      newState[field] = e.currentTarget.value;
+      this.setState(newState);
+    }.bind(this);
   },
 
   formatDate: function() {
@@ -45,51 +53,59 @@ var SignUpForm = React.createClass({
     return (
       <div className="sign-up-form group">
       <h3 className="sign-up-form-header">Sign Up</h3>
-        <p className="sign-up-form-sub-header">{subText}</p>
-        <form className="group" action="/session" method="POST">
+        <p className="sign-up-form-sub-header">{ subText }</p>
+        <form className="group" action="/users" method="POST">
           <label/>
             <input
-              valueLink={this.linkState("firstname")}
+              onChange={ this.update("firstname") }
               name="user[firstname]"
               className="small-input"
               type="text"
-              placeholder="First name"/>
+              value={ this.state.firstname }
+              placeholder="First name"
+              />
           <label/>
             <input
-              valueLink={this.linkState("lastname")}
+              onChange={ this.update("lastname") }
               type="text"
               name="user[lastname]"
               className="small-input"
-              placeholder="Last name"/>
+              value={ this.state.lastname }
+              placeholder="Last name"
+              />
           <label/>
             <input
-              valueLink={this.linkState("username")}
+              onChange={ this.update("username") }
               name="user[username]"
               type="text"
-              placeholder="Username"/>
+              value={ this.state.username }
+              placeholder="Username"
+              />
           <label/>
             <input
-              valueLink={this.linkState("email")}
+              valueLink={ this.update("email") }
               name="user[email]"
               type="text"
-              placeholder="Email"/>
+              placeholder="Email"
+              />
           <label/>
             <input
-              valueLink={this.linkState("password")}
+              onChange={ this.update("password") }
               name="user[password]"
               type="password"
-              placeholder="Password"/>
+              placeholder="Password"
+              />
           <label className="birthday">Birthday</label>
             <DateSelector
-              setDay={this.setDay}
-              setMonth={this.setMonth}
-              setYear={this.setYear}
+              setDay={ this.update('day') }
+              setMonth={ this.update('month') }
+              setYear={ this.update('year') }
             />
           <label/>
           <div className="gender-selector group">
           <label className="gender-choice">
             <input
-              onChange={this.setGender}
+              onChange={ this.update('gender') }
               className="radio"
               name="gender"
               value="female"
@@ -109,7 +125,6 @@ var SignUpForm = React.createClass({
             </label>
           </div>
             <button
-              onClick={this.handleSubmit}
               className="sign-up-button"
               type="submit">
                 Sign Up

@@ -1,89 +1,54 @@
+var NotificationList = function (props) {
+  if (props.notifications.length === 0) return <p>No notifications to show</p>;
+  return (
+    <ul>
+      {
+        props.notifications.map(function (notification) {
+          return (
+            <Notification
+              key={ notification.id }
+              hideDetail={ this.hideDetail }
+              notification={ notification }
+              hideDetail={ this.hideDetail }
+              history={ this.props.history }
+              />
+          );
+        }, this)
+      }
+    </ul>
+  );
+}
+
+var NotificationsDropdown = React.createClass({
+  render() {
+    return (
+      <div
+        className="friend-requests-dropdown info-dropdown" onClick={ stopProp }>
+        <h4 className="request-header">Notifications</h4>
+
+      </div>
+    );
+  }
+});
+
+
 var Notifications = React.createClass({
 
-  getInitialState: function() {
-    return { detailShown: false };
-  },
-
-  componentDidMount: function () {
-    $(document).on("click", this.hideDetail);
-  },
-
-  componentWillUnmount: function () {
-    $(document).off("click", this.hideDetail);
-  },
-
-  stopProp: function (e) {
-    e.stopPropagation();
-  },
-
-  hideDetail: function(e) {
-    this.setState({ detailShown: false });
-  },
-
   showDetail: function(e) {
-    this.setState({ detailShown: true });
-  },
-
-  toggleDetail: function(e) {
-    this.setState({ detailShown: !this.state.detailShown });
+    DropdownActions.receiveDropdown("notifications");
   },
 
   render: function () {
-    var currentUser = SessionStore.currentUser(),
-        notifications = currentUser.notifications,
-        dropdown,
-        badge;
+    var currentUser = SessionStore.currentUser();
 
-    if (currentUser.newNotifications > 0) {
-      badge = (
-        <badge
-          className="friend-requests-badge"
-          >
-          {currentUser.newNotifications}
-        </badge>
-      );
-    }
-
-    if (this.state.detailShown) {
-      dropdown = (
-        <div
-          className="friend-requests-dropdown info-dropdown"
-          onClick={ this.stopProp }
-          >
-          <ul className="group">
-            <li className="group">
-              <p className="request-header">Notifications:</p>
-            </li>
-            {
-              notifications.map(function (notification) {
-                return (
-                  <Notification
-                    key={notification.id}
-                    hideDetail={this.hideDetail}
-                    notification={notification}
-                    hideDetail={this.hideDetail}
-                    history={this.props.history}
-                    />
-                );
-              }, this)
-            }
-          </ul>
-        </div>
-      );
-    }
     return (
-      <div className="friend-requests">
-        <button
-          onClick={ this.toggleDetail }
-          className="friend-requests-button"
-          >
-          <img
-            className="friend-request-logo"
-            src="notifications_logo.png"
-            />
-            { badge }
-          </button>
-        { dropdown }
+      <div className="nav-link" onClick={ stopProp }>
+        <button onClick={ this.showDetail } className="notifications-button">
+          <Badge num={ currentUser.newNotifications }/>
+        </button>
+        <Dropdown type="notifications">
+          <NotificationsDropdown notifications={ currentUser.notifications }/>
+        </Dropdown>
       </div>
     );
   }

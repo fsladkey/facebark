@@ -1,6 +1,7 @@
 var Notification = React.createClass({
 
   redirect: function () {
+    // TODO: This is a mess, make it a link.
     if (this.props.notification.content_type === "Photo") {
           PhotoApiUtil.showPhoto(this.props.notification.content_id, ModalActions.showModal());
     } else {
@@ -11,18 +12,10 @@ var Notification = React.createClass({
   },
 
   render: function () {
-    var badge;
-    if (!this.props.notification.viewed) {
-      badge = <badge
-        className="new-notification-badge"
-        >New</badge>
-    }
-
     return (
-      <li onClick={this.redirect} className="notification group">
+      <li onClick={ this.redirect } className="notification group">
         <img className="profile_thumbnail" src={this.props.notification.user_photo_url}/>
         <p className="notification-description">{this.props.notification.description}</p>
-        {badge}
       </li>
     );
   }

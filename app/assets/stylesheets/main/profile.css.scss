@@ -114,7 +114,7 @@
   position: relative;
   width: 100%;
   height: 315px;
-  background: darkblue;
+  background: lightblue;
 }
 
 .profile-cover-container:hover .cover-photo-upload-icon {
@@ -168,19 +168,11 @@
 }
 
 .profile-header-link-list {
+  display: flex;
   font-weight: bold;
   color: rgb(59, 89, 152);
-  display: block;
-  margin: auto;
-  width: 450px;
-  height: 48px;
-  border-left: 1px solid lightgrey;
-}
-
-.profile-header-link-list li {
   font-size: 14px;
-  float: left;
-  height: 20px;
+  justify-content: center;
 }
 
 .profile-header-link-list li.active {
@@ -190,6 +182,10 @@
 .profile-header-link-list li > a {
   display: block;
   padding: 16px 14px;
+  border-left: 1px solid lightgrey;
+}
+
+.profile-header-link-list li:last-child > a {
   border-right: 1px solid lightgrey;
 }
 

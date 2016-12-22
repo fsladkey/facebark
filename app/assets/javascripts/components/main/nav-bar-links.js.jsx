@@ -5,20 +5,19 @@ var NavBarLinks = React.createClass({
   },
 
   render: function () {
+    var Link = ReactRouter.Link;
     var currentUser = SessionStore.currentUser();
     return (
-      <div className="nav-user-profile-link">
+      <div className="nav-user-profile-links">
 
-        <ReactRouter.Link to={ "/" + currentUser.username }>
-          <img className="nav-thumbnail" src={currentUser.thumb_url}/>
-          <span>{currentUser.firstname}</span>
-        </ReactRouter.Link>
+        <Link to={ "/" + currentUser.username } className="profile-link nav-link">
+          <img className="nav-thumbnail" src={currentUser.thumb_url} />
+          { currentUser.firstname }
+        </Link>
 
-        <ReactRouter.Link to={"/"}>
-          <button className="group">
-            <span>Home</span>
-          </button>
-        </ReactRouter.Link>
+        <Link to={"/"} className="home-link nav-link">
+          Home
+        </Link>
 
         <FriendRequests currentUser={currentUser}/>
         <Notifications history={this.props.history} currentUser={currentUser}/>

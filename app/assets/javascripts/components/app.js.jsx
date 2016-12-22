@@ -15,6 +15,7 @@ var App = React.createClass({
   },
 
   connectToPusher: function (currentUser) {
+    // Is this doing anything?
     this.pusher = new Pusher(window.pusherKey);
     var channel = pusher.subscribe('private-' + currentUser.id);
 
@@ -31,11 +32,15 @@ var App = React.createClass({
     pusher.unsubscribe('private-' + currentUser.id);
   },
 
+  handleDropdownClear: function () {
+    DropdownActions.receiveDropdown(null);
+  },
+
   render: function(){
     var modal;
     if (this.state.showModal) modal = <PhotoDetail/>;
     return (
-      <div className="app">
+      <div className="app" onClick={ this.handleDropdownClear }>
         { modal }
         <Main history={this.props.history}/>
         <div className="main-layout">

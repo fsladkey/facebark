@@ -1,0 +1,204 @@
+.nav-bar-full {
+  background: linear-gradient(#4C67A1, #3C5A99);
+  padding: 7px 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  border-bottom: 1px solid #29487d;
+}
+
+.nav-bar {
+  width: 1000px;
+  padding-right: 100px;
+  margin: auto;
+}
+
+.nav-user-profile-links {
+  font-size: 13px;
+  position: relative;
+  float: right;
+  display: flex;
+  color: white;
+  span {
+    padding: 5px;
+    display: block;
+  }
+}
+
+.profile-link {
+  display: flex;
+  font-weight: bold;
+}
+
+
+.home-link {
+  padding-top: 5px;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.nav-link {
+  cursor: pointer;
+  position: relative;
+  margin-left: 15px;
+}
+
+.friend-requests-button {
+  display: block;
+  padding: 4px 0px;
+  text-shadow: 0px 0px 5px black;
+}
+
+.friend-requests-dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid lightgrey;
+  top: calc(100% + 7px);
+  right: 0px;
+  width: 430px;
+}
+
+.friend-requests-dropdown li {
+  border-bottom: 1px solid lightgrey;
+  padding: 5px;
+}
+
+.friend-requests-dropdown li:last-child {
+  border: none;
+}
+
+.friend-requests-dropdown a {
+  display: block;
+  color: rgb(59, 89, 152);
+  padding: 5px;
+  margin: 5px;
+}
+
+.request-header {
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.friend-request {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  border-radius: 50%;
+  padding: 2px 3px;
+  background: red;
+  font-size: 10px;
+}
+
+.friend-requests-dropdown button {
+  float: right;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  margin: 5px;
+}
+
+.nav-log-out-button {
+  display: block;
+  font-size: 13px;
+  color: white;
+  padding: 4px 0px;
+  text-shadow: 0px 0px 5px black;
+}
+
+.search-bar {
+  position: relative;
+}
+
+div.search-results {
+  position: absolute;
+  top: 34px;
+  width: 395px;
+  padding: 5px;
+  background: white;
+  border: 0 1px 1px 1px;
+  border-color: grey;
+  border-radius: 0 0 2px 2px;
+  border: 1px solid grey;
+}
+
+.search-result {
+  display: block;
+  position: relative;
+  background: white;
+  padding: 5px;
+}
+
+.search-result.item:hover {
+  background: #EBEEF4;
+}
+
+.nav-bar-link-button:hover {
+  background: #23355B;
+}
+
+.small-logo {
+  margin-right: 10px;
+  background-size: contain;
+  height: 25px;
+  width: 25px;
+  background-image: asset-url('fbtemplogo.png');
+  float: left;
+}
+
+.search-bar {
+  font-size: 14px;
+  font-weight: lighter;
+  float: left;
+  input {
+    position: relative;
+    padding: 4.5px 8px;
+    background: white;
+    width: 450px;
+    border-radius: 2px 0 0 2px;
+    float: left;
+  }
+}
+
+.add-friend {
+  background-color: #4C67A1;
+  color: white;
+}
+
+.deny-friend {
+  background-color: #ddd;
+  border: 1px solid rgb(50, 50, 50);
+  color: rgb(50, 50, 50);
+}
+
+.friend-requests-button {
+  background-image: asset-url('friend_request_logo.png')
+}
+
+.notifications-button {
+  background-image: asset-url('notifications_logo.png')
+}
+
+.nav-thumbnail, .friend-requests-button, .notifications-button {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
+
+.friend-actions {
+  display: flex;
+  font-weight: bold;
+  form {
+    margin-left: auto;
+    button {
+      padding: 5px 9px;
+      border-radius: 5px;
+    }
+  }
+}
