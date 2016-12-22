@@ -18,16 +18,20 @@ gem 'underscore-rails'
 gem 'react-rails'
 gem 'flux-rails-assets', '~> 2.1.0'
 gem 'font-awesome-rails'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pry-rails'
 
 gem 'rails_12factor', group: :production
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
-  gem 'pry-rails'
 end
 
 group :development do
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem "guard", ">= 2.2.2", :require => false
+  gem "rb-fsevent",        :require => false
+  gem "rack-livereload"
   gem 'better_errors'
   gem 'annotate'
   gem 'binding_of_caller'
