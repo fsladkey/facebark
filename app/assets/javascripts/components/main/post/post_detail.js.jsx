@@ -81,7 +81,7 @@ var PostDetail = React.createClass({
         <div className="comment-list">
           <ul>
           {
-            post.comments.map(comment => {
+            post.comments.map(function (comment) {
               return (
                 <CommentDetail
                   key={ comment.id }
@@ -89,7 +89,7 @@ var PostDetail = React.createClass({
                   comment={ comment }
                   />
               );
-            })
+            }.bind(this))
           }
           </ul>
         </div>

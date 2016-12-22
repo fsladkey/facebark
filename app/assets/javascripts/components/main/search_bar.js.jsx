@@ -1,4 +1,4 @@
-const SearchBar = React.createClass({
+var SearchBar = React.createClass({
   getInitialState: function () {
     return {focused: false, users: null, searchString: ""};
   },

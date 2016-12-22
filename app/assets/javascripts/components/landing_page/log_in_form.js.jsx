@@ -1,7 +1,5 @@
 var LogInForm = React.createClass({
 
-  mixins: [React.addons.LinkedStateMixin],
-
   getInitialState: function() {
     return { username: "", password: "", disabled: false };
   },
@@ -36,25 +34,34 @@ var LogInForm = React.createClass({
     }.bind(this), 75);
   },
 
+  update: function (field) {
+    return function (e) {
+      var newState = {};
+      newState[field] = e.currentTarget.value;
+      this.setState(newState);
+    }.bind(this);
+  },
+
   render: function() {
     var disabled = this.state.disabled
+    var ref = function(form) { this.form = form; }.bind(this);
     return (
       <div>
         <form
           className="log-in-form group"
           action="/session"
           method="POST"
-          ref={ form => this.form = form }
+          ref={ ref }
           >
           <input type="hidden" name="authenticity_token" value={ FaceBarkAssets.authToken }/>
           <div className="log-in-form-field">
             <label>Username or Email</label>
-            <input type="text" name="user[username]" valueLink={ this.linkState("username") }/>
+            <input type="text" onChange={ this.update("username") } name="user[username]" value={ this.state.username }/>
           </div>
 
           <div className="log-in-form-field">
             <label>Password</label>
-            <input type="password" name="user[password]" valueLink={ this.linkState("password") }/>
+            <input type="password" onChange={ this.update("password") } name="user[password]" value={ this.state.password }/>
           </div>
 
           <button

@@ -1,7 +1,7 @@
-const contentStyle = { position: "relative" };
-const activeStyle = Object.assign({}, contentStyle, { zIndex: 10001 });
+var contentStyle = { position: "relative" };
+var activeStyle = Object.assign({}, contentStyle, { zIndex: 10001 });
 
-const modalStyle = {
+var modalStyle = {
   backgroundColor: `rgba(0, 0, 0, 0.25)`,
   position: "fixed",
   top: 0,
@@ -12,11 +12,12 @@ const modalStyle = {
 };
 
 function Highlightable({ highlight, children }) {
-  let modalLayer;
-  let style = contentStyle
+  var modalLayer;
+  var style = contentStyle
+  var ref = function (node) { node && fadeIn(node); };
   if (highlight) {
     style = activeStyle;
-    modalLayer = <div ref={ (node) => node && fadeIn(node) } style={ modalStyle }/>;
+    modalLayer = <div ref={ ref } style={ modalStyle }/>;
   }
 
   return (
@@ -45,14 +46,14 @@ var PostForm = React.createClass({
 
   handleSubmit: function (e) {
     e.preventDefault();
-    const { body } = state;
+    var { body } = state;
     var params = {body: this.state.body, profile_id: this.props.profile.id};
     this.setState({body: ""});
     PostApiUtil.createPost(params, this.props.postType);
   },
 
   render: function() {
-    const currentUser = SessionStore.currentUser();
+    var currentUser = SessionStore.currentUser();
     return (
       <Highlightable highlight={ this.state.highlight }>
         <div className="post-form group">
@@ -62,8 +63,8 @@ var PostForm = React.createClass({
             <textarea
               className="post-input"
               onChange={ this.handleChange }
-              onFocus={ () => this.handleFocus(true) }
-              onBlur={ () => this.handleFocus(false) }
+              onFocus={ this.handleFocus.bind(null, true) }
+              onBlur={ this.handleFocus.bind(null, false) }
               placeholder="What's on your mind?"
               value={ this.state.body }>
             </textarea>

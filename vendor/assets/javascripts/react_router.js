@@ -298,7 +298,7 @@ return /******/ (function(modules) { // webpackBootstrap
    *
    *   import { Route, createRoutesFromReactChildren } from 'react-router'
    *
-   *   const routes = createRoutesFromReactChildren(
+   *   var routes = createRoutesFromReactChildren(
    *     <Route component={App}>
    *       <Route path="home" component={Dashboard}/>
    *       <Route path="news" component={NewsFeed}/>

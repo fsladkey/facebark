@@ -23,7 +23,7 @@ var ConversationList = React.createClass({
           <h2>Chat</h2>
           <ul>
             {
-              this.state.conversations.map((conversation) => {
+              this.state.conversations.map(function (conversation) {
                 return (
                   <ConversationItem key={conversation.id} conversation={conversation}/>
                 );
@@ -35,7 +35,7 @@ var ConversationList = React.createClass({
         <div className="chat-active-conversation-list">
           <ul className="group">
             {
-              this.state.activeConversations.map(conversation => {
+              this.state.activeConversations.map(function (conversation) {
                 return (
                   <ConversationDetail key={conversation.id} conversation={conversation}/>
                 );

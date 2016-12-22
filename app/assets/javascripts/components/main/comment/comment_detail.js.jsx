@@ -9,7 +9,7 @@ var CommentDetail = React.createClass({
   },
 
   unlick: function () {
-    const apiUtil = (this.props.postType === "photo" ?
+    var apiUtil = (this.props.postType === "photo" ?
       PhotoCommentApiUtil :
       PostCommentApiUtil
     )

@@ -32,7 +32,8 @@ var FriendRequests = React.createClass({
     var currentUser = SessionStore.currentUser();
     var friend_requests = currentUser.friend_requests,
         dropdown,
-        badge;
+        badge,
+        ref;
 
     if (currentUser.numFriendRequests > 0) {
       badge = (
@@ -43,9 +44,10 @@ var FriendRequests = React.createClass({
     }
 
     if (this.state.detailShown) {
+      ref = function (dropdown) { this.dropdown = dropdown; }.bind(this);
       dropdown = (
         <div
-          ref={ dropdown => this.dropdown = dropdown }
+          ref={ ref }
           className="friend-requests-dropdown"
           onClick={ this.stopProp }
           >
@@ -54,7 +56,7 @@ var FriendRequests = React.createClass({
               <p className="request-header">Friend Requests</p>
             </li>
             {
-              friend_requests.map(friendRequest => {
+              friend_requests.map(function (friendRequest) {
                 return (
                   <FriendRequest
                     key={ friendRequest.id }
@@ -62,7 +64,7 @@ var FriendRequests = React.createClass({
                     friendRequest={ friendRequest }
                     />
                 );
-              })
+              }.bind(this))
             }
           </ul>
         </div>

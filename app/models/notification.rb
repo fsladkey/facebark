@@ -15,11 +15,9 @@ class Notification < ActiveRecord::Base
   belongs_to :user
   belongs_to :notifiable, polymorphic: true
 
-  has_one(
-    :poster,
-    through: :notifiable,
-    source: :user
-  )
+  def poster
+    notifiable.user
+  end
 
   def description
     if self.notifiable_type == "Post"
@@ -27,7 +25,7 @@ class Notification < ActiveRecord::Base
     elsif self.notifiable_type == "Comment"
       return "#{self.poster.full_name} has commented on your #{self.notifiable.commentable_type.downcase}. #{content_preview(self.notifiable.body)}"
     elsif self.notifiable_type == "Lick"
-      return "#{self.poster.full_name} has licked your #{self.notifiable.lickable_type.downcase}."
+      return "#{self.notifiable.user.full_name} has licked your #{self.notifiable.lickable_type.downcase}."
     end
   end
 

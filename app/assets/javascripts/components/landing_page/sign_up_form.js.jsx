@@ -1,7 +1,5 @@
 var SignUpForm = React.createClass({
 
-  mixins: [React.addons.LinkedStateMixin],
-
   getInitialState: function() {
     return {
       firstname: "",

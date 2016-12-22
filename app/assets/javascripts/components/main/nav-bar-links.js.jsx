@@ -5,7 +5,7 @@ var NavBarLinks = React.createClass({
   },
 
   render: function () {
-    const currentUser = SessionStore.currentUser();
+    var currentUser = SessionStore.currentUser();
     return (
       <div className="nav-user-profile-link">
 

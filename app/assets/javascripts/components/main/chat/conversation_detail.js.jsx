@@ -50,7 +50,7 @@ var ConversationDetail = React.createClass({
 
         <ul className={"chat-message-list" + " conversation-number-" + conversation.id }>
           {
-            conversation.messages.map(message => {
+            conversation.messages.map(function(message) {
               return (
                 <Message
                   key={ message.id }

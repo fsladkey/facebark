@@ -1,6 +1,6 @@
 var FeedSidebar = React.createClass({
   render() {
-    const currentUser = SessionStore.currentUser();
+    var currentUser = SessionStore.currentUser();
     return (
       <ul className="feed-sidebar">
         <li className="feed-profile-link group">
