@@ -145,11 +145,14 @@ div.search-results {
   position: relative;
   background: white;
   padding: 5px;
+  &:hover {
+    background: #EBEEF4;
+  }
+  img {
+    margin-right: 10px;
+  }
 }
 
-.search-result.item:hover {
-  background: #EBEEF4;
-}
 
 .nav-bar-link-button:hover {
   background: #23355B;

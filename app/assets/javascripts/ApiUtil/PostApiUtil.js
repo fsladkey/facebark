@@ -3,8 +3,8 @@
   var PostApiUtil = root.PostApiUtil = {
 
     createPost: function(params, postType) {
-      $.ajax({
-        url: "api/posts/",
+      return $.ajax({
+        url: "/api/posts/",
         type: 'POST',
         data: {post: params, post_type: postType},
         success: function(post) {
@@ -14,8 +14,8 @@
     },
 
     fetchPosts: function(profile_id) {
-      $.ajax({
-        url: "api/posts/",
+      return $.ajax({
+        url: "/api/posts/",
         type: 'GET',
         data: {profile_id: profile_id},
         success: function(posts) {
@@ -25,8 +25,8 @@
     },
 
     fetchPost: function(postId) {
-      $.ajax({
-        url: "api/posts/" + postId,
+      return $.ajax({
+        url: "/api/posts/" + postId,
         type: 'GET',
         success: function(post) {
           PostActions.recievePostShow(post);
@@ -35,10 +35,10 @@
     },
 
     lickPost: function(postId, postType) {
-      $.ajax({
-        url: "api/posts/" + postId + "/lick",
+      return $.ajax({
+        url: "/api/posts/" + postId + "/lick",
         type: 'POST',
-        data: {post_type: postType},
+        data: { post_type: postType },
         success: function(post) {
           PostActions.recievePost(post);
         }
@@ -46,10 +46,10 @@
     },
 
     unlickPost: function(postId, postType) {
-      $.ajax({
-        url: "api/posts/" + postId + "/unlick",
+      return $.ajax({
+        url: "/api/posts/" + postId + "/unlick",
         type: 'DELETE',
-        data: {post_type: postType},
+        data: { post_type: postType },
         success: function(post) {
           PostActions.recievePost(post);
         }

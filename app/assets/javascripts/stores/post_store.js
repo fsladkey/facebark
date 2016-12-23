@@ -1,8 +1,9 @@
 (function (root){
-
+  var _fetchingFeed = false;
   var _posts = [];
 
   var setPosts = function(posts) {
+    _fetchingFeed = false;
     _posts = posts;
   };
 
@@ -62,12 +63,20 @@
           loadComment(payload.comment);
           PostStore.emit("change");
           break;
+        case PostConstants.REQUEST_POSTS:
+          _fetchingFeed = true;
+          PostStore.emit("change");
+          break;
       }
     }),
 
     all: function () {
       return _posts;
     },
+
+    fetchingFeed: function () {
+      return _fetchingFeed;
+    }
 
   });
 

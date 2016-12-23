@@ -1,10 +1,12 @@
 var ProfileBio = React.createClass({
   getInitialState: function () {
-    return {bio: this.props.user.profile.bio, editing: false};
+    var user = UserStore.user();
+    return { bio: user.profile.bio, editing: false };
   },
 
   handleSubmit: function(e) {
-    UserApiUtil.updateProfile(this.props.user.profile.id, {bio: this.state.bio});
+    var user = UserStore.user();
+    UserApiUtil.updateProfile(user.profile.id, { bio: this.state.bio });
     this.toggleEdit();
   },
 
@@ -17,16 +19,17 @@ var ProfileBio = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps) {
-    this.setState({bio: newProps.user.profile.bio});
+    var user = UserStore.user();
+    this.setState({ bio: user.profile.bio });
   },
 
   render: function() {
+    var user = UserStore.user();
     var formattedInfo, button;
 
     if (this.state.editing) {
-
-      if (SessionStore.currentUser().id === this.props.user.id) {
-        button = <button className="shown-button" onClick={this.handleSubmit}>Save</button>;
+      if (SessionStore.currentUser().id === user.id) {
+        button = <button className="shown-button" onClick={ this.handleSubmit }>Save</button>;
       }
 
       return (
@@ -40,7 +43,7 @@ var ProfileBio = React.createClass({
       );
     } else {
 
-      if (SessionStore.currentUser().id === this.props.user.id) {
+      if (SessionStore.currentUser().id === user.id) {
         button = <button onClick={this.toggleEdit}>Edit</button>;
       }
 

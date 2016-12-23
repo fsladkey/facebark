@@ -2,7 +2,7 @@ var ProfileShow = React.createClass({
 
   render: function() {
     var user = UserStore.user();
-    if (!user) return (<p>Loading...</p>);
+    if (!user) return <Spinner/>;
     return (
       <div>
       <div className="profile-left group">

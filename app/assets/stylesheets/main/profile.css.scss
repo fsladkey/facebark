@@ -149,6 +149,7 @@
 
 .cover-photo-upload-icon i {
   font-size: 20px;
+  transition: all 300ms;
 }
 
 .cover-photo-upload-icon p {
@@ -292,6 +293,12 @@
   border-radius: 3px;
 }
 
+.post-form-thumbnail {
+  width: 55px;
+  height: 55px;
+  padding: 10px;
+  float: left;
+}
 
 .profile_thumbnail {
   width: 40px;

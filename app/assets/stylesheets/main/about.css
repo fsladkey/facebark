@@ -24,7 +24,7 @@
   height: 436px;
 }
 
-.about-choices li {
+.about-choices a {
   cursor: pointer;
   display: block;
   padding: 20px;
@@ -32,12 +32,9 @@
   color: rgb(145, 151, 163);
 }
 
-.about-choices button {
-  cursor: pointer;
-}
-
-.about-choices li:hover {
-  color: black;
+.about-choices a:hover {
+  color: white;
+  background-color: #ccc;
 }
 
 .about-info div {

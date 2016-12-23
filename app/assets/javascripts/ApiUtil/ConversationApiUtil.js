@@ -4,7 +4,7 @@
 
     fetchConversations: function() {
       $.ajax({
-        url: "api/conversations/",
+        url: "/api/conversations/",
         type: 'GET',
         success: function(conversations) {
           ConversationActions.receiveConversations(conversations);
@@ -14,7 +14,7 @@
 
     sendMessage: function(params) {
       $.ajax({
-        url: "api/messages/",
+        url: "/api/messages/",
         type: 'POST',
         data: {message: params},
         success: function(message) {

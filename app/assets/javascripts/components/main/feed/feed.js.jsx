@@ -1,12 +1,16 @@
 var Feed = React.createClass({
 
   getInitialState: function () {
-    return { posts: PostStore.all() };
+    return this.getStateFromStore();
+  },
+
+  getStateFromStore: function () {
+    return { posts: PostStore.all(), fetching: PostStore.fetchingFeed() };
   },
 
   componentDidMount: function () {
     PostStore.on("change", this._change);
-    FeedApiUtil.fetchPosts(SessionStore.currentUser().id);
+    FeedApiUtil.fetchPosts();
   },
 
   componentWillUnmount: function () {
@@ -16,22 +20,20 @@ var Feed = React.createClass({
   render: function() {
     var currentUser = SessionStore.currentUser();
     return (
-      <div className="group">
-
+      <div className="feed-container">
         <FeedSidebar />
 
         <div className="feed-page">
           <PostForm postType="feed" profile={currentUser.profile} currentUser={currentUser}/>
-          <FeedPosts posts={this.state.posts} currentUser={currentUser}/>
+          <FeedPosts posts={this.state.posts} currentUser={currentUser} fetching={ this.state.fetching }/>
         </div>
         <SponseredPost />
-
       </div>
     );
   },
 
   _change: function () {
-    this.setState({posts: PostStore.all()});
+    this.setState(this.getStateFromStore());
   }
 
 });

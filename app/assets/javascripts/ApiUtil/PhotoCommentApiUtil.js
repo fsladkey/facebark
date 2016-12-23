@@ -4,7 +4,7 @@
 
     createComment: function(params) {
       $.ajax({
-        url: "api/comments/",
+        url: "/api/comments/",
         type: 'POST',
         data: {comment: params},
         success: function(comment) {
@@ -15,7 +15,7 @@
 
     lickComment: function(commentId) {
       $.ajax({
-        url: "api/comments/" + commentId + "/lick",
+        url: "/api/comments/" + commentId + "/lick",
         type: 'POST',
         data: {post_type: "photo"},
         success: function(comment) {
@@ -26,7 +26,7 @@
 
     unlickComment: function(commentId) {
       $.ajax({
-        url: "api/comments/" + commentId + "/unlick",
+        url: "/api/comments/" + commentId + "/unlick",
         type: 'DELETE',
         data: {post_type: "photo"},
         success: function(comment) {

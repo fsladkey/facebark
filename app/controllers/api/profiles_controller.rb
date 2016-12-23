@@ -3,7 +3,8 @@ class Api::ProfilesController < ApplicationController
   def update
     profile = Profile.find(params[:id])
     profile.update!(profile_params)
-    render json: profile.user
+    @user = profile.user
+    render 'api/users/user'
   end
 
   private

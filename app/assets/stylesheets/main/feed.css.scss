@@ -1,0 +1,78 @@
+.feed-page {
+  margin-left: 200px;
+  padding-top: 15px;
+  width: 500px;
+}
+
+.feed-container {
+  position: relative;
+}
+
+.feed-sidebar {
+  margin-right: 10px;
+  margin-top: 18px;
+  position: fixed;
+  font-size: 13px;
+  .current-user-link {
+    margin-bottom: 15px;
+  }
+}
+
+.feed-profile-link {
+  border: 1px solid transparent;
+  border-radius: 1px;
+  padding: 3px 22px 3px 4px;
+  width: 150px;
+  &.active, &:hover {
+    background-color: #f6f7f9;
+    border: 1px solid #bec1c5;
+  }
+  a {
+    display: flex;
+  }
+  p {
+    margin-left: 8px;
+    margin-top: 4px;
+  }
+  .sidebar-icon {
+    width: 22px;
+    height: 22px;
+    color: #29487d;
+  }
+}
+
+.inflow {
+  right: 140px;
+  position: absolute;
+}
+
+.sponsered-posts {
+  background: white;
+  position: fixed;
+  top: 60px;
+  color: #3b5998;
+  img {
+    width: 286px;
+    height: 160px;
+    margin: 10px;
+  }
+  h3 {
+    padding: 10px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    color: #aaa;
+  }
+}
+
+.fa.sidebar-icon {
+  font-size: 20px;
+}
+
+.post-form-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);;
+}

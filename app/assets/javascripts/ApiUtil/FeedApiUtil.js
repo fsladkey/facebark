@@ -1,12 +1,11 @@
 (function(root) {
 
   var FeedApiUtil = root.FeedApiUtil = {
-
-    fetchPosts: function(userId) {
+    fetchPosts: function() {
+      PostActions.requestPosts();
       $.ajax({
-        url: "api/feed/",
+        url: "/api/feed/",
         type: 'GET',
-        data: {user_id: userId},
         success: function(posts) {
           PostActions.recievePosts(posts);
         }

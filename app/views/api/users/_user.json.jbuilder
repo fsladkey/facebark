@@ -2,7 +2,7 @@ json.extract! user, :id, :username, :email, :firstname, :lastname, :birthday, :g
 json.fullname "#{user.firstname} #{user.lastname}"
 
 json.profile_image_url asset_path(user.profile_picture.image.url)
-# change to image_url
+# TODO: change to image_url
 json.thumb_url asset_path(user.profile_picture.image.url(:thumb))
 json.cover_image_url asset_path(user.profile.cover_photo.image.url)
 json.photo_id user.photo_id

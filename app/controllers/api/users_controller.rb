@@ -1,8 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def index
-    users = User.find_by_search_string(params[:search_string])
-    render json: users
+    @users = User.find_by_search_string(params[:search_string])
   end
 
   def create

@@ -5,16 +5,15 @@ var SearchResult = React.createClass({
   },
 
   render: function() {
+    var Link = ReactRouter.Link;
     var user = this.props.user;
     return (
-        <ReactRouter.Link to={"/" + this.props.user.username}>
-          <li
-            className="search-result item"
-            onClick={this.handleClick}
-            >
-            <button>{user.firstname + " " + user.lastname}</button>
+        <Link to={"/" + this.props.user.username}>
+          <li className="search-result" onClick={ this.handleClick }>
+            <img src={ user.thumb_url }/>
+            <button>{ user.full_name }</button>
           </li>
-        </ReactRouter.Link>
+        </Link>
     );
   }
 

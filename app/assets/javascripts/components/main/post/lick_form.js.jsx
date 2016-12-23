@@ -32,19 +32,18 @@ var LickForm = React.createClass({
             Licked
           </button>
           <button onClick={this.focusComment}>
-            <img src="comment.png"/>
+            <img src="/comment.png"/>
             Comment
           </button>
         </div>
       );
-    } else {
-      return (
-      <div>
-        <button onClick={ this.lick }><img src="unlick.png"/>Lick</button>
-        <button onClick={ this.focusComment }><img src="comment.png"/>Comment</button>
-      </div>
-      );
     }
+    return (
+    <div>
+      <button onClick={ this.lick }><img src="/unlick.png"/>Lick</button>
+      <button onClick={ this.focusComment }><img src="/comment.png"/>Comment</button>
+    </div>
+    );
   }
 
 });

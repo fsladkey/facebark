@@ -4,7 +4,7 @@
 
     viewNotification: function(notificationId) {
       $.ajax({
-        url: "api/notifications/" + notificationId,
+        url: "/api/notifications/" + notificationId,
         type: 'PATCH',
         success: function(notification) {
           SessionApiUtil.fetchCurrentUser();

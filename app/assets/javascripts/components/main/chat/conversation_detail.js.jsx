@@ -1,3 +1,29 @@
+var MessageItems = function (props) {
+  var conversation = props.conversation;
+  if (conversation.messages.length === 0) {
+    return (
+      <p>
+        This is the begining of your chat history with { conversation.friendFullname }
+      </p>
+    );
+  }
+  return (
+    <ul className={"chat-message-list conversation-number-" + conversation.id }>
+      {
+        conversation.messages.map(function(message) {
+          return (
+            <Message
+              key={ message.id }
+              message={ message }
+              conversation={ conversation }
+              />
+          );
+        })
+      }
+    </ul>
+  )
+}
+
 var ConversationDetail = React.createClass({
 
   getInitialState: function () {
@@ -48,19 +74,7 @@ var ConversationDetail = React.createClass({
           <button onClick={ this.hideDetail }>x</button>
         </div>
 
-        <ul className={"chat-message-list" + " conversation-number-" + conversation.id }>
-          {
-            conversation.messages.map(function(message) {
-              return (
-                <Message
-                  key={ message.id }
-                  message={ message }
-                  conversation={ conversation }
-                  />
-              );
-            })
-          }
-        </ul>
+        <MessageItems conversation={ conversation }/>
 
         <form onSubmit={ this.handleSubmit } className="chat-input">
           <input

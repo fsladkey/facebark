@@ -22,6 +22,7 @@ var PhotoDetail = React.createClass({
   },
 
   commentInfo: function () {
+    var Link = ReactRouter.Link;
     var photo = this.state.photo,
         lickCount;
 
@@ -37,9 +38,9 @@ var PhotoDetail = React.createClass({
           <div className="photo-header group">
             <img className="profile_thumbnail" src={photo.user_profile_image_url}/>
             <h3 className="photo-author-header">
-              <ReactRouter.Link href={ "/" + photo.user.username }>``
+              <Link href={ "/" + photo.user.username }>``
                 { photo.user_fullname }
-              </ReactRouter.Link>
+              </Link>
             </h3>
             <abbr className="timeago" title={photo.time_created}></abbr>
           </div>
@@ -83,8 +84,8 @@ var PhotoDetail = React.createClass({
 
     if (this.state.photo) {
       return (
-        <div className="photo-detail-modal">
-          <div className="photo-detail-content group">
+        <div className="photo-detail-modal" onClick={this.exitDetail}>
+          <div className="photo-detail-content group" onClick={ stopProp }>
             <div className="photo-detail-left">
               <img className="photo-detail-image" src={this.state.photo.image_url}/>
             </div>

@@ -38,7 +38,7 @@ button {
 }
 
 button:focus {
-  outline: 0;
+  outline: 0; 
 }
 
 .group:after {
@@ -48,9 +48,9 @@ button:focus {
 }
 
 body {
-   font-family: helvetica, arial, sans-serif;
+   font-family: 'Roboto';
    font-size: 11px;
- }
+}
 
 .app {
   padding-bottom: 30px;

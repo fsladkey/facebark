@@ -26,7 +26,7 @@ var Profile = React.createClass({
   },
 
   render: function() {
-    if (this.currentlyLoading()) return null;
+    if (this.currentlyLoading()) return <Spinner/>;
     return (
       <div className="profile-page group">
         <ProfileHeader user={ this.state.user }/>

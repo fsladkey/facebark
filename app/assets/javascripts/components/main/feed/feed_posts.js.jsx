@@ -1,6 +1,7 @@
 var FeedPosts = React.createClass({
 
   render: function () {
+    if (this.props.fetching) return <Spinner />;
     return (
       <ul className="post-list">
         {

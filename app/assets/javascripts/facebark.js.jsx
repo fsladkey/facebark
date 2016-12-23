@@ -1,17 +1,3 @@
-function fadeIn(node, speed = 10) {
-  if (!node) return;
-  function increaseOpacity() {
-    if (parseFloat(node.style.opacity) < 1) {
-      node.style.opacity = (parseFloat(node.style.opacity) + 0.05);
-      setTimeout(increaseOpacity, speed);
-    } else {
-      node.style.opacity = 1;
-    }
-  }
-  node.style.opacity = 0;
-  setTimeout(increaseOpacity, speed);
-}
-
 $(function () {
 
   var root = document.getElementById('content');
@@ -28,10 +14,6 @@ $(function () {
         <Route path="/" component={ App }>
           <IndexRoute component={ Feed }/>
 
-          <Route path="posts" component={ Posts }>
-            <Route path=":post_id" component={ PostShow }></Route>
-          </Route>
-
           <Route path="games" component={ Posts }>
             <Route path="twentyfortyeight" component={ TwenyFortyBoard }/>
             <Route path="snake" component={ Snake }/>
@@ -43,12 +25,15 @@ $(function () {
 
             <Route path="friends" component={ Friends }/>
 
-            <Route path="about" component={ About }/>
+            <Route path="about" component={ About }>
+              <IndexRoute component={ ProfileInfo }/>
+              <Route path="info" component={ ProfileInfo }/>
+              <Route path="bio" component={ ProfileBio }/>
+            </Route>
 
             <Route path="photos" component={ Photos }>
               <IndexRoute component={ AlbumList }/>
               <Route path=":album_id" component={ Album }/>
-
             </Route>
 
           </Route>
