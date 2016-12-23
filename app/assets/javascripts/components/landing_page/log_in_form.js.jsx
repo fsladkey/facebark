@@ -4,11 +4,6 @@ var LogInForm = React.createClass({
     return { username: "", password: "", disabled: false };
   },
 
-  handleSubmit: function(e) {
-    e && e.preventDefault();
-    SessionApiUtil.logInUser(this.state);
-  },
-
   logInAsBailey: function() {
     this.logInAs("bprime", "bprimebprime");
   },
@@ -65,7 +60,6 @@ var LogInForm = React.createClass({
           </div>
 
           <button
-            onClick={ this.handleSubmit }
             className="log-in-button"
             type="submit"
             disabled={ disabled }
