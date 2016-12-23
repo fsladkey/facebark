@@ -34,7 +34,7 @@ var FriendRequests = React.createClass({
     var currentUser = SessionStore.currentUser();
 
     return (
-      <div className="nav-link" onClick={ stopProp }>
+      <div onClick={ stopProp }>
         <button onClick={ this.openDetail } className="friend-requests-button">
           <Badge num={ currentUser.numFriendRequests } />
         </button>

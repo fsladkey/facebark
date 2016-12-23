@@ -33,7 +33,8 @@ var App = React.createClass({
   },
 
   handleDropdownClear: function () {
-    DropdownActions.receiveDropdown(null);
+    if (DropdownStore.dropdown())
+      DropdownActions.receiveDropdown(null);
   },
 
   render: function(){

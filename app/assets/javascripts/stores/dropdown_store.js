@@ -7,7 +7,6 @@
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
         case DropdownConstants.RECEIVE_DROPDOWN:
-          console.log(payload);
           _dropdown = payload.dropdown
           DropdownStore.emit("change");
           break;

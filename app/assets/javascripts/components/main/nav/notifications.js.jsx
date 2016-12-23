@@ -1,5 +1,5 @@
 var NotificationList = function (props) {
-  if (props.notifications.length === 0) return <p>No notifications to show</p>;
+  if (props.notifications.length === 0) return (<p>No notifications to show</p>);
   return (
     <ul>
       {
@@ -22,10 +22,9 @@ var NotificationList = function (props) {
 var NotificationsDropdown = React.createClass({
   render() {
     return (
-      <div
-        className="friend-requests-dropdown info-dropdown" onClick={ stopProp }>
+      <div className="friend-requests-dropdown info-dropdown">
         <h4 className="request-header">Notifications</h4>
-
+        <NotificationList notifications={ this.props.notifications }/>
       </div>
     );
   }
@@ -42,7 +41,7 @@ var Notifications = React.createClass({
     var currentUser = SessionStore.currentUser();
 
     return (
-      <div className="nav-link" onClick={ stopProp }>
+      <div onClick={ stopProp }>
         <button onClick={ this.showDetail } className="notifications-button">
           <Badge num={ currentUser.newNotifications }/>
         </button>

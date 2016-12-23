@@ -21,6 +21,11 @@
   float: right;
   display: flex;
   color: white;
+  li {
+    cursor: pointer;
+    position: relative;
+    margin-left: 15px;
+  }
   span {
     padding: 5px;
     display: block;
@@ -32,17 +37,11 @@
   font-weight: bold;
 }
 
-
-.home-link {
+li.home-link {
+  display: block;
   padding-top: 5px;
   font-weight: bold;
-  margin-left: 6px;
-}
-
-.nav-link {
-  cursor: pointer;
-  position: relative;
-  margin-left: 15px;
+  margin-left: 0px;
 }
 
 .friend-requests-button {
@@ -56,8 +55,22 @@
   background: white;
   border: 1px solid lightgrey;
   top: calc(100% + 7px);
-  right: 0px;
+  right: -20px;
+  color: black;
   width: 430px;
+  p {
+    padding: 10px;
+  }
+  &:after {
+    content: "";
+    border-bottom: 10px solid white;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: 0%;
+    right: 13px;
+    transform: translate(-50%, -100%);
+  }
 }
 
 .friend-requests-dropdown li {
@@ -77,7 +90,6 @@
 }
 
 .request-header {
-  color: black;
   font-weight: bold;
   padding: 10px;
   border-bottom: 1px solid #ddd;

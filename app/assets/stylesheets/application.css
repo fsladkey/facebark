@@ -33,6 +33,10 @@ ul {
   list-style: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 button:focus {
   outline: 0;
 }
