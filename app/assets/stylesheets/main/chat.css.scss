@@ -79,6 +79,18 @@
   border-top-left-radius: 3px;
 }
 
+.message-container {
+  overflow: auto;
+  height: calc(100% - 75px);
+}
+
+.chat-active-conversation ul {
+}
+
+.chat-active-conversation form {
+  background-color: white;
+}
+
 .active-chat-header {
   padding: 10px;
   color: white;
@@ -93,19 +105,15 @@
 .active-chat-header > button {
   cursor: pointer;
   float: right;
-}
-
-.chat-message-list {
-  overflow: scroll;
+  padding: 0px 10px;
 }
 
 li.chat-message {
   display: block;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 li.current-user-message {
-  padding: 15px;
   flex-direction: row-reverse;
 }
 
@@ -133,6 +141,7 @@ li.friend-message span {
 
 .message {
   display: flex;
+  padding: 3px 10px;
 }
 
 .message span {

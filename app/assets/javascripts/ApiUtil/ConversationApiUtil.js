@@ -3,7 +3,7 @@
   var ConversationApiUtil = root.ConversationApiUtil = {
 
     fetchConversations: function() {
-      $.ajax({
+      return $.ajax({
         url: "/api/conversations/",
         type: 'GET',
         success: function(conversations) {
@@ -13,7 +13,7 @@
     },
 
     sendMessage: function(params) {
-      $.ajax({
+      return $.ajax({
         url: "/api/messages/",
         type: 'POST',
         data: {message: params},

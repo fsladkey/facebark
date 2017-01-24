@@ -8,7 +8,7 @@ var MessageItems = function (props) {
     );
   }
   return (
-    <ul className={"chat-message-list conversation-number-" + conversation.id }>
+    <ul className="chat-message-list">
       {
         conversation.messages.map(function(message) {
           return (
@@ -41,8 +41,10 @@ var ConversationDetail = React.createClass({
       body: this.state.input,
       conversation_id: this.props.conversation.id
     };
-    ConversationApiUtil.sendMessage(params);
-    this.setState({ input: "" });
+    ConversationApiUtil.sendMessage(params).then(function () {
+      this.setState({ input: "" });
+      this.scrollToBottom();
+    }.bind(this));
   },
 
   hideDetail: function () {
@@ -52,12 +54,6 @@ var ConversationDetail = React.createClass({
   scrollToBottom: function () {
     var selector = ".conversation-number-" + this.props.conversation.id;
     $(selector).scrollTop($(selector)[0].scrollHeight);
-  },
-
-  componentWillReceiveProps: function () {
-    setTimeout(function () {
-      this.scrollToBottom();
-    }.bind(this), 50);
   },
 
   componentDidMount: function () {
@@ -73,8 +69,9 @@ var ConversationDetail = React.createClass({
           <h3>{ conversation.friendFullname }</h3>
           <button onClick={ this.hideDetail }>x</button>
         </div>
-
-        <MessageItems conversation={ conversation }/>
+        <div className={ "message-container conversation-number-" + conversation.id }>
+          <MessageItems conversation={ conversation } />
+        </div>
 
         <form onSubmit={ this.handleSubmit } className="chat-input">
           <input
