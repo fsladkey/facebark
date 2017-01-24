@@ -3,8 +3,8 @@
   var FriendRequestApiUtil = root.FriendRequestApiUtil = {
 
     requestFriendship: function(friendId) {
-      var params = {friend_request: {friend_id: friendId}};
-      $.ajax({
+      var params = { friend_request: { friend_id: friendId } };
+      return $.ajax({
         url: "/api/friend_requests/",
         type: 'POST',
         data: params,
@@ -15,11 +15,10 @@
     },
 
     unfriend: function (friendId) {
-      $.ajax({
+      return $.ajax({
         url: "/api/friendships/" + friendId,
         type: 'DELETE',
         success: function() {
-          // can also return current user and recieve current user here?
           SessionApiUtil.fetchCurrentUser();
         }
       });
@@ -27,20 +26,20 @@
 
 
     acceptRequest: function(requestId) {
-      $.ajax({
+      return $.ajax({
         url: "/api/friend_requests/" + requestId,
         type: 'PATCH',
-        success: function(photo) {
+        success: function() {
           SessionApiUtil.fetchCurrentUser();
         }
       });
     },
 
   rejectRequest: function(requestId) {
-    $.ajax({
+    return $.ajax({
       url: "/api/friend_requests/" + requestId,
       type: 'DELETE',
-      success: function(photo) {
+      success: function() {
         SessionApiUtil.fetchCurrentUser();
       }
     });

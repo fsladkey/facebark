@@ -1,13 +1,13 @@
-var Notification = React.createClass({
+var Notification = ReactRouter.withRouter(React.createClass({
 
   redirect: function () {
     // TODO: This is a mess, make it a link.
     if (this.props.notification.content_type === "Photo") {
           PhotoApiUtil.showPhoto(this.props.notification.content_id, ModalActions.showModal());
     } else {
-      this.props.history.pushState(null, ("/posts/" + this.props.notification.content_id));
+      this.props.router.push("/posts/" + this.props.notification.content_id);
     }
-      this.props.hideDetail();
+      DropdownActions.receiveDropdown(null);
       NotificationApiUtil.viewNotification(this.props.notification.id);
   },
 
@@ -20,4 +20,4 @@ var Notification = React.createClass({
     );
   }
 
-});
+}));

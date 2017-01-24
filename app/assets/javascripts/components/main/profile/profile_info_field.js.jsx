@@ -1,16 +1,16 @@
 var ProfileInfoField = React.createClass({
 
   getInitialState: function () {
-    return { fieldvalue: this.props.fieldvalue, editing: false };
+    return { fieldValue: this.props.fieldValue, editing: false };
   },
 
   handleSubmit: function(e) {
-    this.props.updateCallback(this.state.fieldvalue);
+    this.props.updateCallback(this.state.fieldValue);
     this.toggleEdit();
   },
 
   handleChange: function(e) {
-    this.setState({ fieldvalue: e.currentTarget.value });
+    this.setState({ fieldValue: e.currentTarget.value });
   },
 
   toggleEdit: function() {
@@ -18,43 +18,39 @@ var ProfileInfoField = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps) {
-    this.setState({ fieldvalue: newProps.fieldvalue });
+    this.setState({ fieldValue: newProps.fieldValue });
   },
 
   render: function() {
     var button;
 
     if (this.state.editing) {
-      button = (
-        <button className="shown-button" onClick={ this.handleSubmit }>
-          <i className="fa fa-pencil" aria-hidden="true"/>
-        </button>
-      );
       return (
         <li>
           { this.props.children }
           <input
             type="text"
-            value={ this.state.fieldvalue }
+            value={ this.state.fieldValue }
             onChange={ this.handleChange }
             />
-          { button }
-        </li>
-      );
-    } else {
-      if (SessionStore.currentUser().id === this.props.user.id) {
-          button = (
-            <button onClick={ this.toggleEdit }>
-              <i className="fa fa-pencil" aria-hidden="true"/>
-            </button>
-          );
-      }
-      return (
-        <li>
-          { this.props.children } { this.props.fieldValue }
-          { button }
+          <button className="shown-button" onClick={ this.handleSubmit }>
+            <i className="fa fa-pencil" aria-hidden="true"/>
+          </button>
         </li>
       );
     }
+    if (SessionStore.currentUser().id === this.props.user.id) {
+        button = (
+          <button onClick={ this.toggleEdit }>
+            <i className="fa fa-pencil" aria-hidden="true"/>
+          </button>
+        );
+    }
+    return (
+      <li>
+        { this.props.children } { this.props.fieldValue }
+        { button }
+      </li>
+    );
   }
 });

@@ -6,8 +6,6 @@
   right: 15px;
   bottom: 0;
   background: #f6f7f9;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
 }
 
 .chat-friend-list ul {
@@ -21,7 +19,15 @@
   font-weight: bold;
   font-size: 13px;
   border-bottom: 1px solid darkgrey;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
   background: #4080ff;
+}
+
+.chat-friend-list h2.active {
+  border: 1px solid darkgrey;
+  background-color: #f4f5f6;
+  color: #333333;
 }
 
 .conversation-item {

@@ -1,4 +1,4 @@
-var NotificationList = function (props) {
+var MessagePreviewList = function (props) {
   if (props.notifications.length === 0) return (<p>No notifications to show</p>);
   return (
     <ul>
@@ -18,19 +18,19 @@ var NotificationList = function (props) {
   );
 }
 
-var NotificationsDropdown = function (props) {
+var MessageDropdown = function (props) {
   return (
-    <div className="friend-requests-dropdown info-dropdown">
+    <div>
       <h4 className="request-header">Notifications</h4>
-      <NotificationList notifications={ props.notifications }/>
+      <MessagePreviewList notifications={ props.notifications }/>
     </div>
   );
 };
 
-var Notifications = React.createClass({
+var MessagesPreview = React.createClass({
 
   showDetail: function(e) {
-    DropdownActions.receiveDropdown("notifications");
+    DropdownActions.receiveDropdown("messages");
   },
 
   render: function () {
@@ -38,11 +38,11 @@ var Notifications = React.createClass({
 
     return (
       <div onClick={ stopProp }>
-        <button onClick={ this.showDetail } className="notifications-button">
-          <Badge num={ currentUser.newNotifications }/>
+        <button onClick={ this.showDetail } className="messages-button">
+          <Badge num={ 1 }/>
         </button>
-        <Dropdown type="notifications">
-          <NotificationsDropdown notifications={ currentUser.notifications }/>
+        <Dropdown type="messages">
+          <MessageDropdown notifications={ currentUser.notifications }/>
         </Dropdown>
       </div>
     );

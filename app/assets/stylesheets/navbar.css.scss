@@ -17,6 +17,7 @@
 
 .nav-user-profile-links {
   font-size: 13px;
+  font-weight: 500;
   position: relative;
   float: right;
   display: flex;
@@ -34,13 +35,11 @@
 
 .profile-link {
   display: flex;
-  font-weight: bold;
 }
 
 li.home-link {
   display: block;
   padding-top: 5px;
-  font-weight: bold;
   margin-left: 0px;
 }
 
@@ -116,14 +115,6 @@ li.home-link {
   margin: 5px;
 }
 
-.nav-log-out-button {
-  display: block;
-  font-size: 13px;
-  color: white;
-  padding: 4px 0px;
-  text-shadow: 0px 0px 5px black;
-}
-
 .search-bar {
   position: relative;
 }
@@ -193,14 +184,18 @@ div.search-results {
 }
 
 .friend-requests-button {
-  background-image: asset-url('friend_request_icon.gif')
+  background-image: asset-url('friend_requests_icon.gif');
 }
 
 .notifications-button {
-  background-image: asset-url('notifications_logo.png')
+  background-image: asset-url('notifications_icon.gif');
 }
 
-.nav-thumbnail, .friend-requests-button, .notifications-button {
+.messages-button {
+  background-image: asset-url('messages_icon.gif');
+}
+
+.nav-thumbnail, .friend-requests-button, .notifications-button, .messages-button {
   width: 24px;
   height: 24px;
   background-size: cover;
@@ -215,5 +210,45 @@ div.search-results {
       padding: 5px 9px;
       border-radius: 5px;
     }
+  }
+}
+
+.log-out-container {
+  padding-left: 12px;
+  border-left: 1px solid #355089;
+  color: #18243d;
+  font-size: 20px;
+  .fa.active {
+    color: white;
+  }
+}
+
+.log-out-dropdown {
+  position: absolute;
+  background: white;
+  font-size: 13px;
+  font-weight: normal;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  top: calc(100% + 7px);
+  right: -10px;
+  button {
+    width: 160px;
+    padding: 5px 35px;
+    margin: 5px 0;
+    &:hover {
+      background-color: #4267b2;
+      color: white;
+    }
+  }
+  &:after {
+    content: "";
+    border-bottom: 10px solid white;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: 0%;
+    right: -5px;
+    transform: translate(-50%, -100%);
   }
 }

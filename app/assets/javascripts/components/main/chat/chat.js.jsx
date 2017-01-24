@@ -37,10 +37,13 @@ var Chat = React.createClass({
   },
 
   render: function () {
+    var className = this.state.showList ? "" : "active";
     return (
-      <div>
+      <div >
         <section className="chat-friend-list">
-          <h2 onClick={ this.toggleChat }>Chat</h2>
+          <h2 onClick={ this.toggleChat } className={ className }>
+            Chat
+          </h2>
           <ConversationList
             conversations={ this.state.conversations }
             shown={ this.state.showList }

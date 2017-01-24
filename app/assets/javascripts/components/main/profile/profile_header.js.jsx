@@ -1,11 +1,11 @@
 var ProfileHeader = React.createClass({
 
   friend: function () {
-    FriendRequestApiUtil.requestFriendship(this.props.user.id);
+    FriendRequestApiUtil.requestFriendship(this.props.user.id).then(this.fetchUser);
   },
 
   unfriend: function () {
-    FriendRequestApiUtil.unfriend(this.props.user.id);
+    FriendRequestApiUtil.unfriend(this.props.user.id).then(this.fetchUser);
   },
 
   acceptFriendship: function () {
@@ -13,8 +13,12 @@ var ProfileHeader = React.createClass({
       return friendRequest.user_id === this.props.user.id;
     }, this);
     if (request) {
-      FriendRequestApiUtil.acceptRequest(request.id);
+      FriendRequestApiUtil.acceptRequest(request.id).then(this.fetchUser);
     }
+  },
+
+  fetchUser: function () {
+    UserApiUtil.fetchUser(this.props.user.username);
   },
 
   render: function() {
@@ -38,10 +42,9 @@ var ProfileHeader = React.createClass({
           <ProfileCoverPhoto user={user}/>
           <ProfilePhoto user={user}/>
           {button}
-          <h2
-            className="profile-header-name"
-            >{user.firstname + " " + user.lastname}
-            </h2>
+          <h2 className="profile-header-name">
+            { user.firstname + " " + user.lastname }
+          </h2>
           <ProfileHeaderLinks user={user}/>
         </div>
       );

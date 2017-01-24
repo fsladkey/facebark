@@ -38,7 +38,7 @@ var PhotoDetail = React.createClass({
           <div className="photo-header group">
             <img className="profile_thumbnail" src={photo.user_profile_image_url}/>
             <h3 className="photo-author-header">
-              <Link href={ "/" + photo.user.username }>``
+              <Link href={ "/" + photo.user.username }>
                 { photo.user_fullname }
               </Link>
             </h3>

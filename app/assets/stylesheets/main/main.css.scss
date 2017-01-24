@@ -30,7 +30,7 @@ body {
   margin: 0 5px;
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
-  padding: 5px 0;
+  padding: 5px 0 7px 0;
   font-size: 12px;
   font-weight: bold;
   color: rgb(127, 127, 127);
@@ -55,13 +55,19 @@ body {
   color: rgb(88, 144, 255);
 }
 
-.lick-count {
-  font-size: 11px;
+.lick-info p.lick-count {
+  font-size: 13px;
+  padding-bottom: 0;
+  a {
+    color: #44609d;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .page-content {
   width: 850px;
-  /*background: orange;*/
 }
 
 .comment-lick-button {
@@ -72,4 +78,14 @@ body {
 
 .comment-lick-button:hover {
   text-decoration: underline;
+}
+
+.poster-postee-arrow {
+  color: #aaa;
+  font-size: 18px;
+  margin: 0px 6px;
+}
+
+.post-form-container {
+  display: flex;
 }

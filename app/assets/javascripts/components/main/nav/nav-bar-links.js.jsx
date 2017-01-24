@@ -7,6 +7,9 @@ var NavBarLinks = React.createClass({
   render: function () {
     var Link = ReactRouter.Link;
     var currentUser = SessionStore.currentUser();
+    // <li>
+    //   <MessagesPreview currentUser={currentUser}/>
+    // </li>
     return (
       <ul className="nav-user-profile-links">
         <li>
@@ -26,15 +29,8 @@ var NavBarLinks = React.createClass({
         <li>
           <Notifications history={this.props.history} currentUser={currentUser}/>
         </li>
-
         <li>
-          <form action="/session" method="POST">
-            <input type="hidden" name="_method" value="DELETE"/>
-            <input type="hidden" name="authenticity_token" value={ FaceBarkAssets.authToken }/>
-            <button type="submit" className="nav-log-out-button">
-              Log Out
-            </button>
-          </form>
+          <LogOutForm currentUser={currentUser}/>
         </li>
       </ul>
     );

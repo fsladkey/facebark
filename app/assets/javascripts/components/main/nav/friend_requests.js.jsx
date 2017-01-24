@@ -30,6 +30,18 @@ var FriendRequests = React.createClass({
     DropdownActions.receiveDropdown("friendRequests");
   },
 
+  componentDidMount: function () {
+    SessionStore.on('change', this._change)
+  },
+
+  componentWillUnmount: function () {
+    SessionStore.removeListener("change", this._change);
+  },
+
+  _change: function () {
+    this.forceUpdate()
+  },
+
   render: function () {
     var currentUser = SessionStore.currentUser();
 

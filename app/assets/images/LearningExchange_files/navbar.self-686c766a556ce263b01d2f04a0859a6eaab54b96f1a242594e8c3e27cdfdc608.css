@@ -1,0 +1,70 @@
+/* line 3, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.logo {
+  background-color: #FF533D;
+}
+
+/* line 7, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.nav {
+  position: relative;
+  z-index: 5;
+  background-color: #121b2e;
+  color: #F5F5F5;
+  box-shadow: 1px 1px 3px #121b2e;
+}
+/* line 13, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.nav a, .nav button {
+  display: block;
+  padding: 20px 20px;
+}
+/* line 16, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.nav a:hover, .nav button:hover {
+  background-color: #FF533D;
+}
+/* line 20, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.nav li {
+  border-left: 2px solid #F5F5F5;
+  position: relative;
+}
+/* line 23, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.nav li:last-child {
+  border-right: 2px solid #F5F5F5;
+}
+
+/* line 29, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.user-info {
+  margin-left: auto;
+  position: relative;
+}
+
+/* line 34, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.notification-dropdown {
+  cursor: auto;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 5px 15px;
+}
+/* line 46, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.notification-dropdown li {
+  margin: 10px;
+}
+
+/* line 51, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+.counter {
+  background-color: #FF533D;
+  padding: 2px 8px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+/* line 58, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/navbar.scss */
+button:hover .counter, a:hover .counter {
+  background-color: #F5F5F5;
+  color: #FF533D;
+}

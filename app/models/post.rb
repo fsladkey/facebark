@@ -13,7 +13,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :profile
-  has_many :comments, as: :commentable
+  has_many :comments, -> { order(created_at: :desc) }, as: :commentable
   has_many :licks, as: :lickable
   has_many :notifications, as: :notifiable
 

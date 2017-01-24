@@ -1,0 +1,54 @@
+/*
+
+
+
+*/
+/* line 10, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/application.scss */
+body, html, #content, #app {
+  height: 100%;
+}
+
+/* line 14, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/application.scss */
+body {
+  font-family: 'Nunito', Helvetica, Arial, sans-serif;
+  background-color: #F5F5F5;
+}
+
+/* line 19, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/application.scss */
+button {
+  cursor: pointer;
+}
+
+/* line 23, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/application.scss */
+h1 {
+  font-size: 30px;
+}
+
+/* line 27, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/application.scss */
+.content-container {
+  max-width: 1200px;
+  min-width: 731px;
+  margin: auto;
+}
+
+/* line 33, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/application.scss */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 38, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/application.scss */
+.arrow-box:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 10px;
+  margin-left: -10px;
+}

@@ -1,0 +1,46 @@
+/* line 3, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/welcome.scss */
+.welcome-page {
+  text-align: center;
+  font-size: 18px;
+}
+/* line 4, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/welcome.scss */
+.welcome-page h1 {
+  padding: 10px;
+  background-color: #121b2e;
+  color: #F5F5F5;
+  margin-bottom: 20px;
+}
+/* line 13, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/welcome.scss */
+.welcome-page form {
+  padding: 40px;
+  width: 390px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: auto;
+  background-color: white;
+}
+/* line 20, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/welcome.scss */
+.welcome-page form label {
+  display: none;
+}
+/* line 23, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/welcome.scss */
+.welcome-page form input, .welcome-page form button {
+  border-radius: 5px;
+}
+/* line 26, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/welcome.scss */
+.welcome-page form input {
+  border: 1px solid #ccc;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: block;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+/* line 36, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/welcome.scss */
+.welcome-page form button {
+  padding: 20px 170px;
+  background-color: #FF533D;
+  color: #F5F5F5;
+}

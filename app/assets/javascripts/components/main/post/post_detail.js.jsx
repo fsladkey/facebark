@@ -13,26 +13,27 @@ var PostDetail = React.createClass({
   },
 
   render: function () {
+    var Link = ReactRouter.Link;
     var post = this.props.post,
-        poster_name = post.poster.firstname + " " + post.poster.lastname,
-        postee_name = post.postee.firstname + " " + post.postee.lastname,
+        poster_name = post.poster.full_name,
+        postee_name = post.postee.full_name,
         heading,
         lickCount;
 
     if (poster_name === postee_name) {
       heading = (
         <h3>
-          <ReactRouter.Link to={ "/" + post.poster.username }>
+          <Link to={ "/" + post.poster.username }>
             { poster_name }
-          </ReactRouter.Link>
+          </Link>
         </h3>
       );
     } else {
       heading = (
         <h3>
-          <ReactRouter.Link to={ "/" + post.poster.username}>{ poster_name }</ReactRouter.Link>
-            { ' > ' }
-          <ReactRouter.Link href={ "/" + post.postee.username}>{ postee_name }</ReactRouter.Link>
+          <Link to={ "/" + post.poster.username}>{ poster_name }</Link>
+          <i className="fa fa-caret-right poster-postee-arrow" aria-hidden="true"></i>
+          <Link href={ "/" + post.postee.username}>{ postee_name }</Link>
         </h3>
       );
     }
@@ -40,9 +41,9 @@ var PostDetail = React.createClass({
     if (post.num_licks === 1) {
       lickCount = (
         <p className="lick-count">
-          <ReactRouter.Link to={"/" + post.licks[0].author_username}>
+          <Link to={"/" + post.licks[0].author_username}>
             {post.licks[0].author_name}
-          </ReactRouter.Link>
+          </Link>
           { " licked this post." }
         </p>
       );

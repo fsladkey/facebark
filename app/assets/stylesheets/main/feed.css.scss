@@ -76,3 +76,11 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.25);;
 }
+
+.post-header {
+  abbr {
+    display: block;
+    margin-top: -6px;
+    color: #aaa;
+  }
+}

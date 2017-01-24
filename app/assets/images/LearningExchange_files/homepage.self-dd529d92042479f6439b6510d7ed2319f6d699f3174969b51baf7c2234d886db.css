@@ -1,0 +1,167 @@
+/* line 3, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.carousel {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+}
+/* line 9, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.carousel img {
+  width: 100%;
+}
+
+/* line 14, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.homepage {
+  position: relative;
+}
+
+/* line 18, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.welcome-group {
+  top: 35px;
+  left: 35px;
+  padding: 30px;
+  color: #121b2e;
+  position: absolute;
+  z-index: 3;
+}
+/* line 25, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.welcome-group h1 {
+  font-size: 45px;
+  padding: 20px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* line 34, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.megasearch {
+  position: relative;
+  margin-top: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+/* line 40, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.megasearch label, .megasearch input {
+  display: block;
+}
+/* line 43, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.megasearch input {
+  font-size: 20px;
+  padding: 10px;
+  width: 90%;
+}
+
+/* line 50, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+#map {
+  height: 400px;
+}
+
+/* line 55, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.results-container {
+  position: relative;
+  z-index: 1;
+  margin-top: -400px;
+  transition: all 500ms;
+  display: flex;
+}
+
+/* line 63, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.results-container.active {
+  margin-top: 0px;
+}
+
+/* line 67, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.result-pane {
+  width: 50%;
+}
+
+/* line 71, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+#map {
+  height: 400px;
+}
+
+/* line 75, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+ul.result-pane {
+  height: 370px;
+  padding: 15px 30px;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+/* line 82, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-group {
+  border-top: 1px solid black;
+  padding: 5px 0;
+  margin-bottom: 5px;
+}
+/* line 86, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-group h3 {
+  font-size: 26px;
+  font-weight: bold;
+}
+/* line 90, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-group ul {
+  padding: 5px 0;
+}
+
+/* line 95, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-item {
+  cursor: pointer;
+  margin-bottom: 5px;
+  border: 1px solid #FF533D;
+  border-radius: 5px;
+}
+/* line 101, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-item h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+/* line 106, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-item h5 {
+  border-top: 1px solid black;
+  font-size: 18px;
+  padding-top: 5px;
+}
+/* line 113, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-item a {
+  display: block;
+  padding: 7px 10px;
+}
+/* line 118, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-item:hover {
+  background-color: #FF533D;
+  color: white;
+}
+/* line 122, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.search-result-item:hover .tag-names li {
+  background-color: #F5F5F5;
+  color: black;
+}
+
+/* line 131, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.user-item p {
+  padding: 2px;
+  margin-left: 10px;
+  letter-spacing: 0.9px;
+}
+
+/* line 138, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.highlight {
+  background-color: rgba(240, 240, 0, 0.5);
+}
+
+/* line 143, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.tag-names li {
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: #FF533D;
+  color: white;
+  margin-right: 5px;
+}
+
+/* line 152, /Users/fredsladkey/Desktop/projects/learning-exchange/app/assets/stylesheets/homepage.scss */
+.result-info {
+  margin-bottom: 10px;
+}
